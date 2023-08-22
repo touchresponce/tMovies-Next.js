@@ -1,0 +1,7 @@
+.footer {
+  display: flex;
+  margin: auto 70px 0;
+  justify-content: center;
+  border-top: 1px solid #2f2f2f;
+  z-index: 5;
+}

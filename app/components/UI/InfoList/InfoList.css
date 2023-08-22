@@ -1,0 +1,25 @@
+.info {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.info__text {
+  padding: 0;
+  margin: 0;
+}
+
+.info__span {
+  color: #9a9a9a;
+}
+
+.info__type_age {
+  border: 1px solid #9a9a9a;
+  border-radius: 6px;
+  padding: 1px;
+}

@@ -1,0 +1,42 @@
+.background {
+  height: 0;
+  margin-left: 205px;
+  transition: all 0.3s ease-in-out;
+}
+
+.background__wrapper {
+  position: relative;
+  height: 840px;
+}
+
+.background__wrapper:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+      to bottom left,
+      rgba(15, 15, 15, 0) 0%,
+      rgba(15, 15, 15, 1) 100%
+    ),
+    linear-gradient(to left, rgba(15, 15, 15, 0) 80%, rgba(15, 15, 15, 1) 100%),
+    linear-gradient(
+      to bottom right,
+      rgba(15, 15, 15, 0) 0%,
+      rgba(15, 15, 15, 1) 100%
+    ),
+    linear-gradient(to right, rgba(15, 15, 15, 0) 80%, rgba(15, 15, 15, 1) 100%),
+    linear-gradient(
+      to bottom,
+      rgba(15, 15, 15, 0) 80%,
+      rgba(15, 15, 15, 1) 100%
+    );
+}
+
+@media screen and (max-width: 1280px) {
+  .background {
+    margin: 0;
+  }
+}

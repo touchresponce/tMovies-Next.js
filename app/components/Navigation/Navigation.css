@@ -1,0 +1,44 @@
+.navigation {
+  display: flex;
+  gap: 50px;
+}
+
+.navigation__link {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  color: #9a9a9a;
+  transition: all ease-in-out 0.3s;
+}
+
+.navigation__link-span {
+  margin-top: 2px;
+  width: 100%;
+  border: 1px solid #393;
+  opacity: 0;
+}
+
+.navigation__link:hover {
+  color: inherit;
+  scale: 104%;
+}
+
+.navigation__link-active {
+  color: inherit;
+  scale: 104%;
+  pointer-events: none;
+}
+
+.navigation__link-active .navigation__link-span {
+  opacity: 1;
+  border-bottom: 1px solid white;
+  border-end-end-radius: 100%;
+  border-start-start-radius: 100%;
+  -webkit-animation: glow 1s ease-out infinite alternate;
+  animation: glow 1s ease-out infinite alternate;
+}

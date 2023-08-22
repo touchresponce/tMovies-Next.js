@@ -1,0 +1,32 @@
+.search-button {
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.search-button__span {
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-button__span:hover {
+  opacity: 0.3;
+}
+
+.search-button__span_type_open {
+  background-image: url("/images/search-close.svg");
+}
+
+.search-button__span_type_close {
+  background-image: url("/images/search.svg");
+}
