@@ -1,10 +1,16 @@
 .actors {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 110px);
   margin: 30px 70px 0;
-  gap: 30px;
   transition: all 0.3s ease-in-out;
   z-index: 5;
+}
+
+.actors__title {
+}
+
+.actors__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 110px);
+  gap: 50px;
 }
 
 .actor {
@@ -12,12 +18,12 @@
 }
 
 .actor__photo {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   object-position: center;
   border: 1px solid #2f2f2f;
-  border-radius: 55px;
+  border-radius: 60px;
 }
 
 .actor__name {

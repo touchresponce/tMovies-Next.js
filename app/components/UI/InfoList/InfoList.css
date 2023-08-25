@@ -9,11 +9,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-.info__text {
-  padding: 0;
-  margin: 0;
-}
-
 .info__span {
   color: #9a9a9a;
 }

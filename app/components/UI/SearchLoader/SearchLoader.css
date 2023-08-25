@@ -1,0 +1,52 @@
+@keyframes dot {
+  50% {
+    transform: translateX(96px);
+  }
+}
+
+@keyframes dots {
+  50% {
+    transform: translateX(-31px);
+  }
+}
+
+.search-loader {
+  align-self: center;
+  margin: auto;
+  padding: 0;
+  width: 142px;
+  height: 35px;
+  background: inherit;
+  filter: contrast(20);
+}
+
+.search-loader__dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 12px;
+  left: 15px;
+  filter: blur(1px);
+  background: #fff;
+  border-radius: 50%;
+  transform: translateX(0);
+  animation: dot 2s infinite;
+}
+
+.search-loader__dots {
+  transform: translateX(0);
+  margin-top: 12px;
+  margin-left: 31px;
+  animation: dots 2s infinite;
+}
+
+.search-loader__dots span {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
+  filter: blur(1px);
+  background: #fff;
+  border-radius: 50%;
+}

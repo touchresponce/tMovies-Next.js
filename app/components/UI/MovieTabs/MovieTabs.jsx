@@ -32,13 +32,10 @@ export default function MovieTabs({ data }) {
           <Tab className='tablist__tab noselect'>Изображения</Tab>
         )} */}
         </TabList>
+
         {data.description && (
           <TabPanel>
-            <div className='about__description-wrapper'>
-              <p className='about__text about__text_type_descriprion'>
-                {data.description}
-              </p>
-            </div>
+            <p className='tabs__description text'>{data.description}</p>
           </TabPanel>
         )}
 

@@ -8,18 +8,21 @@ export default function Actors({ data }) {
 
   return (
     <section className='actors'>
-      {actors.map((actor) => (
-        <div className='actor' key={actor.id}>
-          <Image
-            className='actor__photo noselect'
-            src={actor.photo}
-            alt={actor.name}
-            width={92}
-            height={92}
-          />
-          <p className='actor__name'>{actor.name}</p>
-        </div>
-      ))}
+      <p className='actors__title text'>Актёры</p>
+      <div className='actors__list'>
+        {actors.map((actor) => (
+          <div className='actor' key={actor.id}>
+            <Image
+              className='actor__photo noselect'
+              src={actor.photo}
+              alt={actor.name}
+              width={102}
+              height={102}
+            />
+            <p className='actor__name'>{actor.name}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

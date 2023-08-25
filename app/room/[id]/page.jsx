@@ -1,7 +1,7 @@
 import { API_KEY } from "@/utils/constants";
 import MainInfo from "@/app/components/MainInfo/MainInfo";
-import Actors from "../../components/UI/Actors/Actors";
 import MovieTabs from "../../components/UI/MovieTabs/MovieTabs";
+import Actors from "@/app/components/UI/Actors/Actors";
 
 async function getContent(id) {
   const responce = await fetch(`https://api.kinopoisk.dev/v1.3/movie/${id}`, {
@@ -18,8 +18,8 @@ export default async function Movie({ params: { id } }) {
   return (
     <>
       <MainInfo data={data} />
-      <Actors data={data} />
       <MovieTabs data={data} />
+      <Actors data={data} />
     </>
   );
 }

@@ -8,6 +8,7 @@ const nextConfig = {
       "imagetmdb.com",
     ],
   },
+  reactStrictMode: false,
 };
 
 module.exports = nextConfig;

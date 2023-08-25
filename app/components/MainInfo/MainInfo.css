@@ -1,14 +1,20 @@
 .major {
   display: flex;
   flex-direction: column;
+
+  /*  */
+  position: relative;
+  justify-content: center;
+  padding-left: 70px;
 }
 
 .major__wrapper {
-  padding: 380px 70px 0;
+  /* border: 1px solid blue; */
+  position: absolute;
+  /* padding: 0 0 0 70px; */
   max-width: 450px;
   display: flex;
   flex-direction: column;
-  /* gap: 20px; */
   z-index: 5;
   transition: all 0.3s ease-in-out;
 }

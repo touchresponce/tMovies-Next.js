@@ -17,10 +17,8 @@ export default function InfoList({ data }) {
   return (
     <>
       <ul className='info'>
-        <li className='info__item info__text'>{data?.year}</li>
-        {data.movieLength && (
-          <li className='info__item info__text'>{duration}</li>
-        )}
+        <li className='info__item text'>{data?.year}</li>
+        {data.movieLength && <li className='info__item text'>{duration}</li>}
         <li>
           <span className='info__span'>IMDB</span>
           {ratingImdb}
@@ -30,18 +28,18 @@ export default function InfoList({ data }) {
           {ratingKp}
         </li>
         {data.ageRating && (
-          <li className='info__item info__text info__item_type_age'>
+          <li className='info__item text info__item_type_age'>
             {`${data.ageRating}+`}
           </li>
         )}
       </ul>
-      <p className='about__text'>{data.shortDescription}</p>
-      <p className='about__text'>
-        <span className='about__span'>Страна: </span>
+      <p className='text'>{data.shortDescription}</p>
+      <p className='text'>
+        <span className='info__span'>Страна: </span>
         {countries}
       </p>
-      <p className='about__text'>
-        <span className='about__span'>Жанр: </span>
+      <p className='text'>
+        <span className='info__span'>Жанр: </span>
         {genres}
       </p>
     </>
