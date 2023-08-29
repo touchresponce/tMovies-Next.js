@@ -16,9 +16,9 @@ export default function MovieTabs({ data }) {
         selectedTabClassName='tablist__tab-selected'
       >
         <TabList className='tablist'>
-          {data.description && (
-            <Tab className='tablist__tab noselect'>Описание</Tab>
-          )}
+          {/* {data.description && (
+            <Tab className='tablist__tab noselect'>Сюжет</Tab>
+          )} */}
 
           {data.similarMovies?.length > 0 && (
             <Tab className='tablist__tab noselect'>Похожие</Tab>
@@ -32,12 +32,12 @@ export default function MovieTabs({ data }) {
           <Tab className='tablist__tab noselect'>Изображения</Tab>
         )} */}
         </TabList>
-
+        {/* 
         {data.description && (
           <TabPanel>
             <p className='tabs__description text'>{data.description}</p>
           </TabPanel>
-        )}
+        )} */}
 
         {data.similarMovies?.length > 0 && (
           <TabPanel>

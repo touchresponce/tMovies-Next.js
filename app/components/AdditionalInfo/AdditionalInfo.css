@@ -1,0 +1,27 @@
+.additional {
+  display: flex;
+  gap: 50px;
+  margin: 60px 70px 0;
+}
+
+.additional__title {
+  font-size: 26px;
+  line-height: 32px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #2f2f2f;
+  padding: 6px 12px;
+}
+
+.additional__description {
+  flex-basis: 50%;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.additional__material {
+  flex-basis: 50%;
+}
+
+.additional__title:last-child {
+  text-align: end;
+}

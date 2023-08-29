@@ -7,7 +7,6 @@ export default function InfoList({ data }) {
   const countries = data.countries?.map((item) => item.name).join(", ");
   const genres = data.genres?.map((item) => item.name).join(", ");
 
-  // форматирование времени
   function formatTime(mins) {
     let hours = Math.trunc(mins / 60);
     let minutes = mins % 60;
@@ -33,7 +32,9 @@ export default function InfoList({ data }) {
           </li>
         )}
       </ul>
-      <p className='text'>{data.shortDescription}</p>
+      {data.shortDescription ? (
+        <p className='text'>{data.shortDescription}</p>
+      ) : null}
       <p className='text'>
         <span className='info__span'>Страна: </span>
         {countries}

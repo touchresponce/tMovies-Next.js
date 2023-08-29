@@ -19,7 +19,7 @@ export default function Actors({ data }) {
               width={102}
               height={102}
             />
-            <p className='actor__name'>{actor.name}</p>
+            <p className='actor__name text'>{actor.name}</p>
           </div>
         ))}
       </div>

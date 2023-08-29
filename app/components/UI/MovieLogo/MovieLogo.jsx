@@ -2,19 +2,21 @@ import "./MovieLogo.css";
 import Image from "next/image";
 
 export default function MovieLogo({ data }) {
+  const { name, names, logo, enName } = data;
   return (
     <>
-      {data.logo?.url != null ? (
+      {logo?.url != null ? (
         <Image
           className='logo'
-          src={data.logo.url}
-          alt={data.name || movie.enName}
+          src={logo.url}
+          alt={name || enName}
           width={500}
-          height={140}
+          height={200}
+          priority={true}
         />
       ) : (
         <h1 className='about__text about__text_type_title'>
-          {data.name || data.names?.name[0]}
+          {name || names?.name[0]}
         </h1>
       )}
     </>
