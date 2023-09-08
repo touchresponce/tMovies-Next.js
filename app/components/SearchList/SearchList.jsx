@@ -10,7 +10,6 @@ import { usePathname } from "next/navigation";
 
 export default function SearchList() {
   const pathName = usePathname();
-  // console.log(pathName);
   const [content, currentPage, totalPages, status, getContent] = useSearch(
     (state) => [
       state.content,
@@ -32,8 +31,6 @@ export default function SearchList() {
 
   useEffect(() => {
     link.length > 0 && getContent();
-
-    // console.log(link);
   }, [link]);
 
   const listNode = content?.length ? (

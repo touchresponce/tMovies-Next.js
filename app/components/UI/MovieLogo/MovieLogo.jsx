@@ -15,9 +15,7 @@ export default function MovieLogo({ data }) {
           priority={true}
         />
       ) : (
-        <h1 className='about__text about__text_type_title'>
-          {name || names?.name[0]}
-        </h1>
+        <h1 className='title text'>{name || names?.name[0]}</h1>
       )}
     </>
   );

@@ -35,8 +35,6 @@ export default function Dropdown({ name, options, inputType }) {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {}, []);
-
   const handleText = (e) => {
     const { textContent } = e.currentTarget;
     setText(textContent);

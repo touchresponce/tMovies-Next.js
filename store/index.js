@@ -36,8 +36,7 @@ export const useSearch = create((set, get) => ({
 
   getContent: async () => {
     set({ status: "loading" });
-    const { link } = await useFilters.getState();
-
+    const { link } = useFilters.getState();
     const { docs, pages, page } = await getMovieByFilters(link);
     docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
     set({
@@ -59,16 +58,18 @@ export const useFilters = create((set, get) => ({
   filters: {
     genre: "",
     order: "новые",
-    // type: "",
-    type: "movie",
+    type: "",
     rating: "1-10",
     year: `1960-${CURRENT_YEAR}`,
   },
   link: "",
 
   changeFilters: (type, value) => {
+    useSearch.getState().reset();
     set({
       filters: { ...get().filters, [type]: value },
+    });
+    set({
       link: updateLink(get().filters),
     });
   },
