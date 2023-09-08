@@ -10,28 +10,35 @@ import { usePathname } from "next/navigation";
 
 export default function SearchList() {
   const pathName = usePathname();
-  const [content, currentPage, totalPages, status, getContent] = useSearch(
-    (state) => [
-      state.content,
-      state.currentPage,
-      state.totalPages,
-      state.status,
-      state.getContent,
-    ]
-  );
-
-  const [changeFilters] = useFilters((state) => [state.changeFilters]);
-  const [link] = useFilters((state) => [state.link]);
+  const {
+    content,
+    currentPage,
+    totalPages,
+    status,
+    getContent,
+    reset: resetContent,
+  } = useSearch();
+  const { changeFilters, link, reset: resetLink } = useFilters();
 
   useEffect(() => {
     if (pathName === "/movie") {
       changeFilters("type", "movie");
     }
+
+    return () => {
+      resetContent();
+      resetLink();
+    };
   }, []);
 
   useEffect(() => {
     link.length > 0 && getContent();
   }, [link]);
+
+  useEffect(
+    () => console.log(currentPage, totalPages),
+    [currentPage, totalPages]
+  );
 
   const listNode = content?.length ? (
     <ul className='l-container'>

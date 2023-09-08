@@ -34,16 +34,21 @@ export const useSearch = create((set, get) => ({
     status: "init", // init | loading | error | empty | succsess
   },
 
-  getContent: async () => {
+  getContent: async (pageNum) => {
     set({ status: "loading" });
     const { link } = useFilters.getState();
-    const { docs, pages, page } = await getMovieByFilters(link);
+    const req = pageNum ? `${link}&page=${pageNum}` : link;
+    const { docs, pages, page } = await getMovieByFilters(req);
     docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
     set({
-      content: [...docs],
+      content: [...get().content, ...docs],
       totalPages: pages,
       currentPage: page,
     });
+  },
+
+  resetContent: () => {
+    set({ content: [] });
   },
 
   reset: () => {
@@ -65,7 +70,7 @@ export const useFilters = create((set, get) => ({
   link: "",
 
   changeFilters: (type, value) => {
-    useSearch.getState().reset();
+    useSearch.getState().resetContent();
     set({
       filters: { ...get().filters, [type]: value },
     });
@@ -73,12 +78,21 @@ export const useFilters = create((set, get) => ({
       link: updateLink(get().filters),
     });
   },
+
+  reset: () => {
+    set({
+      filters: {
+        genre: "",
+        order: "новые",
+        type: "",
+        rating: "1-10",
+        year: `1960-${CURRENT_YEAR}`,
+      },
+      link: "",
+    });
+  },
+
+  resetOne: (type) => {
+    set((state) => ({ ...state, [type]: get().initial[type] }));
+  },
 }));
-
-// resetOne: (type) => {
-//   set((state) => ({ ...state, [type]: get().initial[type] }));
-// },
-
-// reset: () => {
-//   set(get().initial);
-// },
