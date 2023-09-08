@@ -1,19 +1,10 @@
-.actors {
-  margin: 50px 70px 0;
-  transition: all 0.3s ease-in-out;
-  z-index: 5;
-}
-
-.actors__title {
-  font-size: 26px;
-  line-height: 32px;
-}
-
 .actors__list {
-  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 110px);
-  gap: 50px;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 24px;
 }
 
 .actor {
@@ -21,12 +12,12 @@
 }
 
 .actor__photo {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   object-position: center;
   border: 1px solid #2f2f2f;
-  border-radius: 60px;
+  border-radius: 50px;
 }
 
 .actor__name {

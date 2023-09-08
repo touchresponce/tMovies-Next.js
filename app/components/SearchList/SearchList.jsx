@@ -1,13 +1,16 @@
 "use client";
 
 import "./SearchList.css";
-import { useSearch } from "@/store";
+import { useFilters, useSearch } from "@/store";
 import MovieItem from "../UI/MovieItem/MovieItem";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import MoreButton from "../UI/MoreButton/MoreButton";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function SearchList() {
+  const pathName = usePathname();
+  // console.log(pathName);
   const [content, currentPage, totalPages, status, getContent] = useSearch(
     (state) => [
       state.content,
@@ -18,9 +21,20 @@ export default function SearchList() {
     ]
   );
 
+  const [changeFilters] = useFilters((state) => [state.changeFilters]);
+  const [link] = useFilters((state) => [state.link]);
+
   useEffect(() => {
-    getContent();
+    if (pathName === "/movie") {
+      changeFilters("type", "movie");
+    }
   }, []);
+
+  useEffect(() => {
+    link.length > 0 && getContent();
+
+    // console.log(link);
+  }, [link]);
 
   const listNode = content?.length ? (
     <ul className='l-container'>

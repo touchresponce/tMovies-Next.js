@@ -11,7 +11,7 @@ export default function MoreButton() {
         <button
           className='button'
           type='button'
-          // onClick={() => handleMoreContent()}
+          // onClick={() => getContent(currentPage + 1)}
         >
           Показать еще
           <span className='shift'>›</span>

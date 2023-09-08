@@ -12,16 +12,18 @@
   padding: 6px 12px;
 }
 
-.additional__description {
+.additional__wrapper {
+  display: flex;
+  flex-direction: column;
   flex-basis: 50%;
   font-size: 18px;
   line-height: 24px;
 }
 
-.additional__material {
+.additional__actors {
   flex-basis: 50%;
 }
 
-.additional__title:last-child {
+.additional__title:last-of-type {
   text-align: end;
 }

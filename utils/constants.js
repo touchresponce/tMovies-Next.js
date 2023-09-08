@@ -1,8 +1,10 @@
 export const API_KEY = "RM97F7A-1E84P9N-NC2DDHY-3MHAWXD";
 
+export const CURRENT_YEAR = new Date().getFullYear();
+
 export const OPTIONS_ORDER = [
-  { id: 1, value: "новые" },
-  { id: 2, value: "старые" },
+  { id: 1, value: "Новые" },
+  { id: 2, value: "Старые" },
 ];
 
 export const OPTIONS_TYPE = [
@@ -74,82 +76,82 @@ export const SWIPER_BREAKPOINTS = {
   },
 };
 
-export const SWIPER_STYLES_BUTTONS = {
-  injectStyles: [
-    `.swiper-button-prev.swiper-button-disabled  {
-      opacity: 0;
-      cursor: auto;
-      pointer-events: none;
-    }`,
+// export const SWIPER_STYLES_BUTTONS = {
+//   injectStyles: [
+//     `.swiper-button-prev.swiper-button-disabled  {
+//       opacity: 0;
+//       cursor: auto;
+//       pointer-events: none;
+//     }`,
 
-    `.swiper-button-next.swiper-button-disabled  {
-      opacity: 0;
-      cursor: auto;
-      pointer-events: none;
-    }`,
+//     `.swiper-button-next.swiper-button-disabled  {
+//       opacity: 0;
+//       cursor: auto;
+//       pointer-events: none;
+//     }`,
 
-    `.swiper-button-prev {
-      font-family: swiper-icons;
-      font-size: var(--swiper-navigation-size);
-      text-transform: none!important;
-      letter-spacing: 0;
-      font-variant: initial;
-      line-height: 1;
-      transition: all 0.2s ease-in-out;
-    }`,
+//     `.swiper-button-prev {
+//       font-family: swiper-icons;
+//       font-size: var(--swiper-navigation-size);
+//       text-transform: none!important;
+//       letter-spacing: 0;
+//       font-variant: initial;
+//       line-height: 1;
+//       transition: all 0.2s ease-in-out;
+//     }`,
 
-    `.swiper-button-prev:after {
-      border-radius: 6px;
-      border: 1px solid #222;
-      padding: 20px;
-      backdrop-filter: blur(18px); 
-    }`,
+//     `.swiper-button-prev:after {
+//       border-radius: 6px;
+//       border: 1px solid #222;
+//       padding: 20px;
+//       backdrop-filter: blur(18px);
+//     }`,
 
-    `.swiper-button-next {
-      font-family: swiper-icons;
-      font-size: var(--swiper-navigation-size);
-      text-transform: none!important;
-      letter-spacing: 0;
-      font-variant: initial;
-      line-height: 1;
-      transition: all 0.2s ease-in-out;
-    }`,
+//     `.swiper-button-next {
+//       font-family: swiper-icons;
+//       font-size: var(--swiper-navigation-size);
+//       text-transform: none!important;
+//       letter-spacing: 0;
+//       font-variant: initial;
+//       line-height: 1;
+//       transition: all 0.2s ease-in-out;
+//     }`,
 
-    `.swiper-button-next:after {
-      border-radius: 6px;
-      border: 1px solid #222;
-      padding: 20px;
-      backdrop-filter: blur(18px); 
-    }`,
+//     `.swiper-button-next:after {
+//       border-radius: 6px;
+//       border: 1px solid #222;
+//       padding: 20px;
+//       backdrop-filter: blur(18px);
+//     }`,
 
-    `.swiper-button-prev:hover {
-      transform: scale(1.2);
-    }`,
+//     `.swiper-button-prev:hover {
+//       transform: scale(1.2);
+//     }`,
 
-    `.swiper-button-next:hover {
-      transform: scale(1.2);
-    }`,
+//     `.swiper-button-next:hover {
+//       transform: scale(1.2);
+//     }`,
 
-    `.swiper-button-next,
-    :host(.swiper-rtl) .swiper-button-prev {
-      right: var(--swiper-navigation-sides-offset, 30px);
-      left: auto;
-    }`,
+//     `.swiper-button-next,
+//     :host(.swiper-rtl) .swiper-button-prev {
+//       right: var(--swiper-navigation-sides-offset, 30px);
+//       left: auto;
+//     }`,
 
-    `.swiper-button-prev,
-    :host(.swiper-rtl) .swiper-button-next {
-      left: var(--swiper-navigation-sides-offset, 30px);
-      right: auto;
-    }`,
+//     `.swiper-button-prev,
+//     :host(.swiper-rtl) .swiper-button-next {
+//       left: var(--swiper-navigation-sides-offset, 30px);
+//       right: auto;
+//     }`,
 
-    `@media screen and (max-width: 760px) {
-      .swiper-button-prev {
-        display: none;
-      }
-    
-      .swiper-button-next {
-        display: none;
-      }
-    }`,
-  ],
-};
+//     `@media screen and (max-width: 760px) {
+//       .swiper-button-prev {
+//         display: none;
+//       }
+
+//       .swiper-button-next {
+//         display: none;
+//       }
+//     }`,
+//   ],
+// };

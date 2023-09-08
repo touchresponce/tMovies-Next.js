@@ -1,7 +1,6 @@
 import { API_KEY } from "@/utils/constants";
 import MainInfo from "@/app/components/MainInfo/MainInfo";
 import MovieTabs from "@/app/components/UI/MovieTabs/MovieTabs";
-import Actors from "@/app/components/UI/Actors/Actors";
 import AdditionalInfo from "@/app/components/AdditionalInfo/AdditionalInfo";
 
 async function getContent(id) {
@@ -15,7 +14,6 @@ async function getContent(id) {
 
 export async function generateMetadata({ params: { id } }) {
   const { name } = await getContent(id);
-
   return {
     title: name,
   };
@@ -28,7 +26,6 @@ export default async function Movie({ params: { id } }) {
     <>
       <MainInfo data={data} />
       <MovieTabs data={data} />
-      <Actors data={data} />
       <AdditionalInfo data={data} />
     </>
   );

@@ -1,8 +1,10 @@
 import { create } from "zustand";
 import { getMovieByFilters, getFastSearch } from "@/utils/api";
+import { CURRENT_YEAR } from "@/utils/constants";
+import { updateLink } from "@/utils/updateLink";
 
-/**
- *
+/*******************************************************************************************
+ * быстрый поиск
  */
 export const useFastSearch = create((set) => ({
   initial: {
@@ -21,10 +23,10 @@ export const useFastSearch = create((set) => ({
   },
 }));
 
-/**
- *
+/*******************************************************************************************
+ * поиск
  */
-export const useSearch = create((set) => ({
+export const useSearch = create((set, get) => ({
   initial: {
     content: [],
     totalPages: 0,
@@ -34,7 +36,9 @@ export const useSearch = create((set) => ({
 
   getContent: async () => {
     set({ status: "loading" });
-    const { docs, pages, page } = await getMovieByFilters();
+    const { link } = await useFilters.getState();
+
+    const { docs, pages, page } = await getMovieByFilters(link);
     docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
     set({
       content: [...docs],
@@ -48,19 +52,32 @@ export const useSearch = create((set) => ({
   },
 }));
 
-/**
- *
+/*******************************************************************************************
+ * фильтры
  */
-export const useFilters = create((set) => ({
+export const useFilters = create((set, get) => ({
   filters: {
     genre: "",
     order: "новые",
-    type: "",
-    keyword: "",
+    // type: "",
+    type: "movie",
     rating: "1-10",
-    // year: `1960-${CURRENT_YEAR}`,
+    year: `1960-${CURRENT_YEAR}`,
   },
   link: "",
 
-  changeFilters: () => set((state) => ({})),
+  changeFilters: (type, value) => {
+    set({
+      filters: { ...get().filters, [type]: value },
+      link: updateLink(get().filters),
+    });
+  },
 }));
+
+// resetOne: (type) => {
+//   set((state) => ({ ...state, [type]: get().initial[type] }));
+// },
+
+// reset: () => {
+//   set(get().initial);
+// },
