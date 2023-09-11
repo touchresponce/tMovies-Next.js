@@ -21,8 +21,17 @@ export default function SearchList() {
   const { changeFilters, link, reset: resetLink } = useFilters();
 
   useEffect(() => {
-    if (pathName === "/movie") {
-      changeFilters("type", "movie");
+    // if (pathName === "/movie") {
+    //   changeFilters("type", "movie");
+    // }
+
+    switch (pathName) {
+      case "/movie":
+        changeFilters("type", "movie");
+        break;
+
+      default:
+        break;
     }
 
     return () => {
@@ -34,11 +43,6 @@ export default function SearchList() {
   useEffect(() => {
     link.length > 0 && getContent();
   }, [link]);
-
-  useEffect(
-    () => console.log(currentPage, totalPages),
-    [currentPage, totalPages]
-  );
 
   const listNode = content?.length ? (
     <ul className='l-container'>

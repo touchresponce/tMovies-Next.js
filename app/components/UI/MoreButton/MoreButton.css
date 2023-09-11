@@ -15,7 +15,7 @@
 
 .button {
   width: 240px;
-  margin: auto;
+  margin: 0 auto 50px;
   height: 35px;
   padding: 0;
   background-color: var(--bg-button);

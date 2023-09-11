@@ -5,7 +5,7 @@ import { API_KEY } from "./constants";
  */
 export const getMovieByFilters = (link) => {
   return fetch(
-    `https://api.kinopoisk.dev/v1.3/movie?name=!null&poster.previewUrl=!null&limit=24&${link}`,
+    `https://api.kinopoisk.dev/v1.3/movie?name=!null&poster.previewUrl=!null&limit=36&${link}`,
     {
       headers: {
         "X-API-KEY": API_KEY,

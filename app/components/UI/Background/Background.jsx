@@ -1,19 +1,15 @@
 import "./Background.css";
 
 export default function Background({ data }) {
-  const backdrop = data.backdrop.url || null;
-
-  const backgroundNode = backdrop !== null && (
+  return (
     <div
       className='background__wrapper'
       style={{
-        backgroundImage: `url(${backdrop})`,
+        backgroundImage: `url(${data.backdrop.url})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "100px 0",
       }}
     ></div>
   );
-
-  return backgroundNode;
 }
