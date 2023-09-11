@@ -1,10 +1,9 @@
 import "./MoreButton.css";
-import { useFilters, useSearch } from "@/store";
+import { useSearch } from "@/store";
 import SearchLoader from "../SearchLoader/SearchLoader";
 
 export default function MoreButton() {
   const { status, getContent, currentPage, totalPages } = useSearch();
-  const { link } = useFilters();
 
   const handleMoreContent = () => {
     currentPage < totalPages && getContent(currentPage + 1);

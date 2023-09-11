@@ -15,21 +15,18 @@ export default function Dropdown({ name, options, inputType }) {
   const dropdownTextRef = useRef(null);
   const { resetOne, changeFilters } = useFilters((state) => state);
 
-  // const { link } = useFilters((state) => state);
-  // useEffect(() => console.log(link), [link]);
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setIsOpen(false);
+    }
+  };
 
-  // const handleClickOutside = (e) => {
-  //   if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-  //     setIsOpen(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
