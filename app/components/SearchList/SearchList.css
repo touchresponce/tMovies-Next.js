@@ -8,13 +8,12 @@
 }
 
 .search-list__list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 30px;
+  width: 100%;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
-  row-gap: 30px;
-  column-gap: 10px;
-  justify-content: center;
 }
 
 .search-list__item {
@@ -23,65 +22,23 @@
   margin: 0;
 }
 
-.search-list__empty {
+.search-list__error {
   padding: 0;
   margin: 100px 0 0;
   align-self: center;
 }
 
-.search-list__controller {
-  display: flex;
-  align-items: center;
-}
-
-.search-list__text {
-  padding: 0;
-  margin: 0 10px;
-  user-select: none;
-}
-
-.search-list__button {
-  padding: 0;
-  margin: 0;
-  width: 24px;
-  height: 24px;
-  border: none;
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-@media screen and (max-width: 950px) {
-  .search-list {
-    display: grid;
-  }
-
-  .search-list__controller {
-    justify-content: center;
+@media screen and (max-width: 1440px) {
+  .search-list__list {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 25px;
   }
 }
 
-/* 
-/*  
-/* 
-*/
-
-.lol {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  row-gap: 40px;
-  column-gap: 20px;
-  justify-items: center;
-}
-
-@media screen and (max-width: 1240px) {
-  .lol {
-    grid-template-columns: repeat(3, minmax(0, 210px));
+@media screen and (max-width: 1280px) {
+  .search-list__list {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
   }
 }
 
@@ -97,41 +54,16 @@
   }
 }
 
-@media screen and (max-width: 960px) {
-  .lol {
-    grid-template-columns: repeat(2, minmax(0, 210px));
+@media screen and (max-width: 992px) {
+  .search-list__list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
   }
 }
 
-.lollol {
-  /* padding: 15px;
-  margin: 0;
-  width: 150px;
-  height: 100px;
-  border-radius: 6px;
-  border: 1px solid #2f2f2f;
-  cursor: pointer; */
-  border-radius: 6px;
-}
-
-.lollol:hover {
-  scale: 102%;
-  transition: all 0.2s ease-in-out;
-}
-
-.lollollol {
-  display: flex;
-  margin: 0;
-  padding: 10px;
-  width: 190px;
-  height: 130px;
-  border-radius: 6px;
-  border: 1px solid #2f2f2f;
-  cursor: pointer;
-  overflow: hidden;
-  color: inherit;
-  background-color: transparent;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
+@media screen and (max-width: 760px) {
+  .search-list__list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
 }

@@ -9,13 +9,14 @@ import { updateLink } from "@/utils/updateLink";
 export const useFastSearch = create((set) => ({
   initial: {
     content: [],
+    status: "init", // init | loading | error | empty | succsess
   },
 
   getContent: async (query) => {
     set({ status: "loading" });
     const { docs } = await getFastSearch(query);
     docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
-    set({ content: [docs] });
+    set({ content: [...docs] });
   },
 
   reset: () => {
@@ -94,5 +95,35 @@ export const useFilters = create((set, get) => ({
 
   resetOne: (type) => {
     set((state) => ({ ...state, [type]: get().initial[type] }));
+  },
+}));
+
+/*******************************************************************************************
+ * модалки
+ */
+export const useModals = create((set) => ({
+  initial: {
+    fastSearch: false,
+    burger: false,
+  },
+
+  openSearch: () => {
+    set({ fastSearch: true });
+  },
+
+  closeSearch: () => {
+    set({ fastSearch: false });
+  },
+
+  openBurget: () => {
+    set({ burger: true });
+  },
+
+  closeBurger: () => {
+    set({ burger: false });
+  },
+
+  reset: () => {
+    set((state) => ({ ...state, ...state.initial }));
   },
 }));

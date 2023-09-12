@@ -1,20 +1,19 @@
+"use client";
+
 import "./SearchButton.css";
+import { useModals } from "@/store";
+import buttonImg from "@/public/images/search.svg";
 
 export default function SearchButton() {
-  const search = false;
+  const { openSearch } = useModals();
 
   return (
-    <button
-      className='search-button'
-      // onClick={toggleSearch}
-    >
+    <button className='search-button' onClick={() => openSearch()}>
       <span
-        // className={`search-button__span ${
-        //   search
-        //     ? "search-button__span_type_open"
-        //     : "search-button__span_type_close"
-        // }`}
-        className='search-button__span search-button__span_type_close'
+        className='search-button__span'
+        style={{
+          backgroundImage: `url(${buttonImg.src})`,
+        }}
       />
     </button>
   );

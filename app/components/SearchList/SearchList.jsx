@@ -21,13 +21,21 @@ export default function SearchList() {
   const { changeFilters, link, reset: resetLink } = useFilters();
 
   useEffect(() => {
-    // if (pathName === "/movie") {
-    //   changeFilters("type", "movie");
-    // }
-
     switch (pathName) {
       case "/movie":
         changeFilters("type", "movie");
+        break;
+
+      case "/tv-series":
+        changeFilters("type", "tv-series");
+        break;
+
+      case "/cartoon":
+        changeFilters("type", "cartoon");
+        break;
+
+      case "/anime":
+        changeFilters("type", "anime");
         break;
 
       default:
@@ -45,17 +53,17 @@ export default function SearchList() {
   }, [link]);
 
   const listNode = content?.length ? (
-    <ul className='l-container'>
+    <div className='search-list__list'>
       {content.map((item) => (
         <MovieItem data={item} key={item.id} />
       ))}
-    </ul>
+    </div>
   ) : null;
 
-  const notFound = <p className='search-list__empty'>Ничего не найдено</p>;
+  const notFound = <p className='search-list__error'>Ничего не найдено</p>;
 
   const error = (
-    <p className='search-list__empty'>Ошибка, попробуйте еще раз</p>
+    <p className='search-list__error'>Ошибка, попробуйте еще раз</p>
   );
 
   return (

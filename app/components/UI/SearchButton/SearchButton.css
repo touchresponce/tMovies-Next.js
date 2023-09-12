@@ -22,11 +22,3 @@
 .search-button__span:hover {
   opacity: 0.3;
 }
-
-.search-button__span_type_open {
-  background-image: url("/images/search-close.svg");
-}
-
-.search-button__span_type_close {
-  background-image: url("/images/search.svg");
-}

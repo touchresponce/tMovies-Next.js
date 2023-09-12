@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import FastSearch from "./components/FastSearch/FastSearch";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           <main className='main'>{children}</main>
           <Footer />
         </div>
+        <FastSearch />
       </body>
     </html>
   );

@@ -8,23 +8,10 @@ import {
   OPTIONS_ORDER,
 } from "@/utils/constants";
 import Dropdown from "../UI/Dropdown/Dropdown";
-import { useState, useEffect, useCallback } from "react";
 
 export default function Filters() {
-  // const [lol, setLol] = useState(window.innerWidth <= 760);
-
-  // const resizeWindow = useCallback(() => {
-  //   setLol(window.innerWidth <= 760);
-  // }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", resizeWindow);
-  //   return () => window.removeEventListener("resize", resizeWindow);
-  // }, []);
-
   return (
-    // <section className={!lol ? "x" : "x-block"}>
-    <section className='x'>
+    <section className='fitlers'>
       <Dropdown
         name={OPTIONS_GENRES[0].value}
         options={OPTIONS_GENRES}

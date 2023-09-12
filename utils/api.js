@@ -18,9 +18,12 @@ export const getMovieByFilters = (link) => {
  * Быстрый поиск
  */
 export const getFastSearch = (query) => {
-  return fetch(`https://api.kinopoisk.dev/v1.2/movie/search?query=${query}`, {
-    headers: {
-      "X-API-KEY": API_KEY,
-    },
-  }).then((res) => res.json());
+  return fetch(
+    `https://api.kinopoisk.dev/v1.2/movie/search?query=${query}&limit=15`,
+    {
+      headers: {
+        "X-API-KEY": API_KEY,
+      },
+    }
+  ).then((res) => res.json());
 };

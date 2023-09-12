@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./Background.css";
 
 export default function Background({ data }) {

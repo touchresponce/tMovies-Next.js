@@ -18,14 +18,13 @@ export default function MovieItem({ data }) {
     }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
 
   return (
-    <li className='item noselect'>
+    <div className='item noselect'>
       <Link href={`/room/${data.id}`}>
         <div className='item__cover'>
           <Image
             src={data.poster.previewUrl}
             alt={`постер ${data.name || data.alternativeName}`}
             fill
-            // sizes='100vw'
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             style={{
               width: "100%",
@@ -36,6 +35,6 @@ export default function MovieItem({ data }) {
           />
         </div>
       </Link>
-    </li>
+    </div>
   );
 }
