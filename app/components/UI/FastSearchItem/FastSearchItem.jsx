@@ -1,7 +1,7 @@
 import "./FastSearchItem.css";
 import Link from "next/link";
 import Image from "next/image";
-import { useModals } from "@/store";
+import { useModals } from "@/store/useModalsStore";
 
 export default function FastSearchItem({ data }) {
   const { closeSearch } = useModals();

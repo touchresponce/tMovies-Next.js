@@ -6,14 +6,14 @@ import {
   OPTIONS_YEARS,
   OPTIONS_ORDER,
 } from "@/utils/constants";
-import { useFilters } from "@/store";
+import { useFilters } from "@/store/useFiltersStore";
 
 export default function Dropdown({ name, options, inputType }) {
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState("");
   const dropdownRef = useRef(null);
   const dropdownTextRef = useRef(null);
-  const { resetOne, changeFilters } = useFilters((state) => state);
+  const { resetOne, changeFilters } = useFilters();
 
   const handleClickOutside = (e) => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {

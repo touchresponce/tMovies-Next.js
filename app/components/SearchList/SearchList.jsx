@@ -1,11 +1,12 @@
 "use client";
 
 import "./SearchList.css";
-import { useFilters, useSearch } from "@/store";
 import MovieItem from "../UI/MovieItem/MovieItem";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import MoreButton from "../UI/MoreButton/MoreButton";
 import { useEffect } from "react";
+import { useFilters } from "@/store/useFiltersStore";
+import { useSearch } from "@/store/useSearchStore";
 import { usePathname } from "next/navigation";
 
 export default function SearchList() {

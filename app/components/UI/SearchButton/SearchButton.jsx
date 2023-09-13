@@ -1,7 +1,7 @@
 "use client";
 
 import "./SearchButton.css";
-import { useModals } from "@/store";
+import { useModals } from "@/store/useModalsStore";
 import buttonImg from "@/public/images/search.svg";
 
 export default function SearchButton() {

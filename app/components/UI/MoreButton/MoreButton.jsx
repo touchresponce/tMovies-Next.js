@@ -1,5 +1,5 @@
 import "./MoreButton.css";
-import { useSearch } from "@/store";
+import { useSearch } from "@/store/useSearchStore";
 import SearchLoader from "../SearchLoader/SearchLoader";
 
 export default function MoreButton() {

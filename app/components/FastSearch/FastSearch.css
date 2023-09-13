@@ -137,8 +137,26 @@
   box-shadow: none;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1200px) {
   .fast-search__form {
     width: 80%;
+  }
+
+  .fast-search__close {
+    width: 40px;
+    height: 40px;
+    right: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fast-search__form {
+    width: 95%;
+  }
+
+  .fast-search__close {
+    width: 30px;
+    height: 30px;
+    right: 5px;
   }
 }

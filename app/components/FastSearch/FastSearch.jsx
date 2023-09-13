@@ -2,7 +2,8 @@
 
 import "./FastSearch.css";
 import { useState, useEffect, useRef } from "react";
-import { useFilters, useModals, useFastSearch } from "@/store";
+import { useModals } from "@/store/useModalsStore";
+import { useFastSearch } from "@/store/useFastSearchStore";
 import useDebounce from "@/hooks/useDebounce";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import FastSearchList from "../FastSearchList/FastSearchList";
