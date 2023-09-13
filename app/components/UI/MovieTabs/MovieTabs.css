@@ -40,3 +40,21 @@
   color: #f2f3f4;
   border-bottom: 1px solid white;
 }
+
+@media screen and (max-width: 1024px) {
+  .tabs {
+    margin: 30px 50px 0;
+  }
+}
+
+@media screen and (max-width: 949px) {
+  .tabs {
+    margin: 30px 20px 0;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .tabs {
+    margin: 30px 10px 0;
+  }
+}

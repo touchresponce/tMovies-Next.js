@@ -5,3 +5,21 @@
   border-top: 1px solid #2f2f2f;
   z-index: 5;
 }
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    margin: auto 50px 0;
+  }
+}
+
+@media screen and (max-width: 949px) {
+  .footer {
+    margin: auto 20px 0;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .footer {
+    margin: auto 10px 0;
+  }
+}

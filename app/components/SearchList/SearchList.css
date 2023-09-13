@@ -48,12 +48,6 @@
   }
 }
 
-@media screen and (max-width: 949px) {
-  .search-list {
-    padding: 0 20px;
-  }
-}
-
 @media screen and (max-width: 992px) {
   .search-list__list {
     grid-template-columns: repeat(3, 1fr);
@@ -61,9 +55,20 @@
   }
 }
 
+@media screen and (max-width: 949px) {
+  .search-list {
+    padding: 0 20px;
+  }
+}
+
 @media screen and (max-width: 760px) {
   .search-list__list {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .search-list {
+    padding: 0 10px;
   }
 }
