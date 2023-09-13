@@ -1,0 +1,69 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(15, 15, 15, 0.8);
+  transition: all 0.3s linear;
+  z-index: 30;
+}
+
+.open {
+  visibility: visible;
+}
+
+.modal__close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.modal__image {
+  max-height: 85vh;
+  max-width: 85vw;
+  object-fit: cover;
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+.modal__trailer {
+  height: 85vh;
+  width: 85vw;
+  object-fit: cover;
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 1024px) {
+  .modal__close {
+    top: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal__close {
+    top: 20px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    border: none;
+  }
+}

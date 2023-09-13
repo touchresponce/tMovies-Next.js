@@ -4,6 +4,7 @@ export const useModals = create((set) => ({
   initial: {
     fastSearch: false,
     burger: false,
+    movieModal: false,
   },
 
   openSearch: () => {
@@ -20,6 +21,14 @@ export const useModals = create((set) => ({
 
   closeBurger: () => {
     set({ burger: false });
+  },
+
+  openMovieModal: () => {
+    set({ movieModal: true });
+  },
+
+  closeMovieModal: () => {
+    set({ movieModal: false });
   },
 
   reset: () => {

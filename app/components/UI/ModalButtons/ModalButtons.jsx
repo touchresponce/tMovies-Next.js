@@ -1,38 +1,23 @@
 "use client";
 
 import "./ModalButtons.css";
+import { useModals } from "@/store/useModalsStore";
+import { formatTypeText } from "@/utils/formatTypeText";
 
-export default function ModalButtons({ type, openModal }) {
-  const getTypeText = () => {
-    switch (type) {
-      case "movie":
-        return "фильм";
-
-      case "tv-series":
-        return "сериал";
-
-      case "anime":
-        return "аниме";
-
-      case "cartoon":
-        return "мультфильм";
-
-      default:
-        return "";
-    }
-  };
+export default function ModalButtons({ type }) {
+  const { openMovieModal } = useModals();
 
   return (
     <div className='panel noselect'>
       <button
         className='panel__button panel__button_type_room'
-        onClick={() => openModal("movie")}
+        onClick={() => openMovieModal()}
       >
-        Смотреть {getTypeText()}
+        Смотреть {formatTypeText(type)}
       </button>
       <button
         className='panel__button panel__button_type_trailer'
-        onClick={() => openModal("iframe")}
+        // onClick={() => openModal("iframe")}
       >
         Трейлер
       </button>
