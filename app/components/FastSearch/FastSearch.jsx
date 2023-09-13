@@ -8,6 +8,7 @@ import useDebounce from "@/hooks/useDebounce";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import FastSearchList from "../FastSearchList/FastSearchList";
 import span from "@/public/images/search-close.svg";
+import useNoScroll from "@/hooks/useNoScroll";
 
 export default function FastSearch() {
   const [query, setQuery] = useState("");
@@ -15,6 +16,8 @@ export default function FastSearch() {
   const { debouncedValue, setDebouncedValue } = useDebounce(query, 400); //
   const { fastSearch, closeSearch } = useModals();
   const { status, content, getContent, reset } = useFastSearch();
+
+  useNoScroll(fastSearch);
 
   const handleChange = (e) => {
     setQuery(e.target.value);

@@ -11,7 +11,6 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background-color: rgba(15, 15, 15, 0.8);
-  transition: all 0.3s linear;
   z-index: 30;
 }
 
@@ -21,8 +20,8 @@
 
 .modal__close {
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 30px;
+  right: 30px;
   width: 60px;
   height: 60px;
   border: none;
@@ -31,7 +30,6 @@
   background-position: center;
   background-size: cover;
   cursor: pointer;
-  transition: all 0.3s linear;
 }
 
 .modal__image {
@@ -48,23 +46,19 @@
   box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .modal__close {
-    top: 28px;
-    right: 28px;
-    width: 44px;
-    height: 44px;
-    border: none;
+    width: 40px;
+    height: 40px;
+    right: 15px;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .modal__close {
-    top: 20px;
-    right: 20px;
-    width: 28px;
-    height: 28px;
-    border: none;
+    width: 30px;
+    height: 30px;
+    right: 5px;
   }
 }
 
