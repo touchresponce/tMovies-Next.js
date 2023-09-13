@@ -12,6 +12,7 @@
   -webkit-backdrop-filter: blur(10px);
   background-color: rgba(15, 15, 15, 0.8);
   z-index: 25;
+  overflow: auto;
 }
 
 .fast-search_mod_open {
