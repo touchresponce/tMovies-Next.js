@@ -6,14 +6,15 @@ export default function MovieLogo({ data }) {
   return (
     <>
       {logo?.url != null ? (
-        <Image
-          className='logo'
-          src={logo.url}
-          alt={name || enName}
-          width={500}
-          height={200}
-          priority={true}
-        />
+        <div className='wrapper'>
+          <Image
+            className='logo'
+            src={logo.url}
+            alt={name || enName}
+            fill
+            priority={true}
+          />
+        </div>
       ) : (
         <h1 className='title text'>{name || names?.name[0]}</h1>
       )}
