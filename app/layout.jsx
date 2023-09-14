@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import FastSearch from "./components/FastSearch/FastSearch";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,13 +17,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang='ru'>
       <body className={inter.className}>
-        <div className='page'>
-          <Header />
-          <main className='main'>{children}</main>
-          <Footer />
-        </div>
-        <FastSearch />
-        <Sidebar />
+        <Providers>
+          <div className='page'>
+            <Header />
+            <main className='main'>{children}</main>
+            <Footer />
+          </div>
+          <FastSearch />
+          <Sidebar />
+        </Providers>
       </body>
     </html>
   );
