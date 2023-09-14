@@ -55,7 +55,7 @@ export default function Dropdown({ name, options, inputType }) {
 
   return (
     <div
-      className={isOpen ? "dropdown active" : "dropdown"}
+      className={`dropdown noselect ${isOpen ? "active" : ""}`}
       onClick={handleClick}
       ref={dropdownRef}
     >

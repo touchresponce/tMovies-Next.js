@@ -2,6 +2,14 @@ export const API_KEY = "RM97F7A-1E84P9N-NC2DDHY-3MHAWXD";
 
 export const CURRENT_YEAR = new Date().getFullYear();
 
+export const HEADER_LINKS = [
+  { title: "Главная", link: "/" },
+  { title: "Фильмы", link: "/movie" },
+  { title: "Сериалы", link: "/tv-series" },
+  { title: "Мультфильмы", link: "/cartoon" },
+  { title: "Аниме", link: "/anime" },
+];
+
 export const OPTIONS_ORDER = [
   { id: 1, value: "Новые" },
   { id: 2, value: "Старые" },

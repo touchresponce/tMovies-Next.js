@@ -3,7 +3,7 @@ import { create } from "zustand";
 export const useModals = create((set) => ({
   initial: {
     fastSearch: false,
-    burger: false,
+    sidebar: false,
     movieModal: false,
   },
 
@@ -15,12 +15,12 @@ export const useModals = create((set) => ({
     set({ fastSearch: false });
   },
 
-  openBurget: () => {
-    set({ burger: true });
+  openSidebar: () => {
+    set({ sidebar: true });
   },
 
-  closeBurger: () => {
-    set({ burger: false });
+  closeSidebar: () => {
+    set({ sidebar: false });
   },
 
   openMovieModal: () => {

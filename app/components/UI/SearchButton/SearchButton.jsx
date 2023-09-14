@@ -5,7 +5,7 @@ import { useModals } from "@/store/useModalsStore";
 import buttonImg from "@/public/images/search.svg";
 
 export default function SearchButton() {
-  const { openSearch } = useModals();
+  const { openSearch, sidebar } = useModals();
 
   return (
     <button className='search-button' onClick={() => openSearch()}>
@@ -13,6 +13,7 @@ export default function SearchButton() {
         className='search-button__span'
         style={{
           backgroundImage: `url(${buttonImg.src})`,
+          display: `${sidebar ? "none" : "block"}`,
         }}
       />
     </button>

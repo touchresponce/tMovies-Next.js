@@ -15,11 +15,11 @@ export default function Slider({ data }) {
 
   return (
     <Swiper
+      className='slider'
       spaceBetween={15}
       breakpoints={SWIPER_BREAKPOINTS}
       style={{
         overflow: "visible",
-        padding: "30px 0 0",
       }}
     >
       {list}

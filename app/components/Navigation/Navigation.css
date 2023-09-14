@@ -43,3 +43,15 @@
   -webkit-animation: glow 1s ease-out infinite alternate;
   animation: glow 1s ease-out infinite alternate;
 }
+
+@media screen and (max-width: 1400px) {
+  .navigation {
+    gap: 3.57vw;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation {
+    display: none;
+  }
+}

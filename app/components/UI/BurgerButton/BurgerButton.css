@@ -56,7 +56,7 @@
   height: 1px;
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1024px) {
   .burger {
     display: none;
   }
