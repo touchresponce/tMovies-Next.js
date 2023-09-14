@@ -63,7 +63,11 @@ export default function FastSearch() {
   }, [fastSearch]);
 
   return (
-    <div className={`fast-search ${fastSearch ? "fast-search_mod_open" : ""}`}>
+    <div
+      className={`fast-search ${
+        fastSearch ? "fast-search_mod_open" : ""
+      } scrollbar`}
+    >
       <button
         className='fast-search__close'
         onClick={() => closeSearch()}

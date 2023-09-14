@@ -50,6 +50,18 @@ body {
   border-radius: 8px;
 }
 
+/* для настройки скроллбара в Firefox */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #222 #0b0a0d;
+}
+
+/* стили для ползунка скроллбара в Firefox */
+.scrollbar-thumb {
+  background-color: #222;
+  border-radius: 8px;
+}
+
 .noselect {
   -webkit-user-select: none;
   -khtml-user-select: none;
