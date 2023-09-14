@@ -7,17 +7,12 @@ export default function Providers({ children }) {
   return (
     <>
       {children}
-      return (
-      <>
-        {children}
-        <Next13ProgressBar
-          height='4px'
-          color='#0A2FFF'
-          options={{ showSpinner: false }}
-          showOnShallow
-        />
-      </>
-      );
+      <Next13ProgressBar
+        height='4px'
+        color='#0A2FFF'
+        options={{ showSpinner: false }}
+        showOnShallow
+      />
     </>
   );
 }
