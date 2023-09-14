@@ -1,7 +1,7 @@
 .fitlers {
   display: flex;
   gap: 15px;
-  margin: 60px 0 0;
+  margin: 116px 0 0;
   padding: 0 70px;
   transition: all 0.2s ease-in-out;
 }

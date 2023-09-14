@@ -1,11 +1,14 @@
 .header {
+  position: fixed;
+  width: 100%;
+  background-color: #0f0f0f;
+  z-index: 21;
+  transition: all 0.3s ease-in-out;
+}
+
+.header__wrapper {
   display: flex;
   padding: 12px 70px;
-  /* position: fixed; */
-  /* width: 100%; */
-  background-color: transparent;
-  transition: all 0.2s ease-in-out;
-  z-index: 21;
 }
 
 .header__logo {
@@ -41,7 +44,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .header {
+  .header__wrapper {
     padding: 12px 50px;
   }
 
@@ -52,19 +55,19 @@
 }
 
 @media screen and (max-width: 949px) {
-  .header {
+  .header__wrapper {
     padding: 12px 20px;
   }
 }
 
 @media screen and (max-width: 640px) {
-  .header {
+  .header__wrapper {
     padding: 8px 20px;
   }
 }
 
 @media screen and (max-width: 460px) {
-  .header {
+  .header__wrapper {
     padding: 6px 10px;
   }
 }
