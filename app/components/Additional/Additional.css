@@ -1,0 +1,25 @@
+.additional {
+  display: flex;
+  margin: 60px 70px;
+  justify-content: space-between;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 1024px) {
+  .additional {
+    margin: 60px 50px 0;
+  }
+}
+
+@media screen and (max-width: 949px) {
+  .additional {
+    margin: 60px 20px 0;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .additional {
+    margin: 60px 10px 0;
+  }
+}

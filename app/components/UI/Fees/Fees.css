@@ -1,0 +1,19 @@
+.fees {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fees__item {
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fees__span {
+  padding: 0;
+  margin: 0 0 4px;
+}
