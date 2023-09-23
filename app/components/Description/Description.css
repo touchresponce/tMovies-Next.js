@@ -1,5 +1,6 @@
 .description {
   margin: 60px 70px 0;
+  max-width: 640px;
 }
 
 .description__title {
@@ -17,12 +18,12 @@
 
 @media screen and (max-width: 949px) {
   .description {
-    margin: 60px 20px 0;
+    margin: 40px 20px 0;
   }
 }
 
 @media screen and (max-width: 460px) {
   .description {
-    margin: 60px 10px 0;
+    margin: 30px 10px 0;
   }
 }

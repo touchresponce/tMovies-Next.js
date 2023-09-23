@@ -10,6 +10,31 @@
   margin: 0 0 4px;
 }
 
+.crew-item__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.crew-item__link {
+  text-decoration-color: #2f2f2f;
+  -webkit-text-decoration-color: #2f2f2f;
+  text-underline-offset: 4px;
+  margin-right: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: inherit;
+  transition: text-decoration-color.2s, -webkit-text-decoration-color.2s;
+}
+
+.crew-item__link:last-of-type {
+  margin-right: 0;
+}
+
+.crew-item__link:hover {
+  text-decoration-color: inherit;
+  -webkit-text-decoration-color: inherit;
+}
+
 .crew-item:last-of-type {
   margin-bottom: 0;
 }

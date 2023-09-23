@@ -5,12 +5,12 @@ export default function Crew({ data }) {
   const professions = [
     { profession: "director", title: "Режиссёры" },
     { profession: "actor", title: "Актеры" },
-    // { profession: "editor", title: "Монтажеры" },
+    { profession: "editor", title: "Монтажеры" },
     // { profession: "designer", title: "Художники" },
     { profession: "producer", title: "Продюсеры" },
     { profession: "operator", title: "Операторы" },
     // { profession: "writer", title: "Редакторы" },
-    // { profession: "voice_actor", title: "Актеры дубляжа" },
+    { profession: "voice_actor", title: "Актеры дубляжа" },
   ];
 
   return (
