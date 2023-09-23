@@ -4,3 +4,15 @@
   margin-bottom: 32px;
   padding: 6px 0;
 }
+
+@media screen and (max-width: 949px) {
+  .crew__title {
+    margin-bottom: 18px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .crew__title {
+    margin-bottom: 12px;
+  }
+}

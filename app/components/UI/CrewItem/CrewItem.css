@@ -13,3 +13,15 @@
 .crew-item:last-of-type {
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 949px) {
+  .crew-item {
+    margin: 0 0 18px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .crew-item {
+    margin: 0 0 12px;
+  }
+}
