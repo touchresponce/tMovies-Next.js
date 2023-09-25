@@ -16,28 +16,13 @@ export default function MovieTabs({ data }) {
         selectedTabClassName='tablist__tab-selected'
       >
         <TabList className='tablist'>
-          {/* {data.description && (
-            <Tab className='tablist__tab noselect'>Сюжет</Tab>
-          )} */}
-
           {data.similarMovies?.length > 0 && (
             <Tab className='tablist__tab noselect'>Похожие</Tab>
           )}
-
           {sequelsAndPrequels?.length > 0 && (
             <Tab className='tablist__tab noselect'>Сиквелы и приквелы</Tab>
           )}
-
-          {/* {images.length > 1 && (
-          <Tab className='tablist__tab noselect'>Изображения</Tab>
-        )} */}
         </TabList>
-        {/* 
-        {data.description && (
-          <TabPanel>
-            <p className='tabs__description text'>{data.description}</p>
-          </TabPanel>
-        )} */}
 
         {data.similarMovies?.length > 0 && (
           <TabPanel>
@@ -50,22 +35,6 @@ export default function MovieTabs({ data }) {
             <Slider data={sequelsAndPrequels} />
           </TabPanel>
         )}
-
-        {/* {images.length > 1 && (
-        <TabPanel>
-          <div className='gallery noselect'>
-            {images.map((image) => (
-              <figure
-                className='gallery__item'
-                key={image.id}
-                onClick={() => openModal("image", image.url)}
-              >
-                <img className='gallery__image' src={image.previewUrl} alt='' />
-              </figure>
-            ))}
-          </div>
-        </TabPanel>
-      )} */}
       </Tabs>
     </section>
   );
