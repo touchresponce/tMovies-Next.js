@@ -27,3 +27,14 @@ export const getFastSearch = (query) => {
     }
   ).then((res) => res.json());
 };
+
+// /**
+//  *
+//  */
+// export const getPersonById = (id) => {
+//   return fetch(`https://api.kinopoisk.dev/v1/person/${id}`, {
+//     headers: {
+//       "X-API-KEY": API_KEY,
+//     },
+//   }).then((res) => res.json());
+// };
