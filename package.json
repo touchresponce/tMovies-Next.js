@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "body-scroll-lock": "^4.0.0-beta.0",
     "next": "13.4.12",
     "next13-progressbar": "^1.0.3",
     "react": "18.2.0",
