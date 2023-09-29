@@ -26,7 +26,7 @@ export default function InfoList({ data }) {
           <span className='info__span'>КП</span>
           {ratingKp}
         </li>
-        {data.ageRating && (
+        {typeof data.ageRating === "number" && (
           <li className='info__item text info__item_type_age'>
             {`${data.ageRating}+`}
           </li>

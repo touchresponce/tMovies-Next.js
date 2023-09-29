@@ -2,6 +2,7 @@ import "./MovieInfo.css";
 import formatNumber from "@/utils/formatNumber";
 import InfoItem from "../UI/InfoItem/InfoItem";
 import Fees from "../UI/Fees/Fees";
+import formatDate from "@/utils/formatDate";
 
 export default function MovieInfo({ data }) {
   const { fees, budget, premiere, enName, name, alternativeName } = data;
@@ -21,6 +22,7 @@ export default function MovieInfo({ data }) {
         data={enName || alternativeName || name}
         title='Оригинальное название'
       />
+      <InfoItem data={name} title='Название в России' />
       {isEmptyBudget(budget) && (
         <InfoItem
           data={`${budget.currency} ${formatNumber(budget.value)}`}
@@ -28,8 +30,12 @@ export default function MovieInfo({ data }) {
         />
       )}
       {isEmptyFees(fees) && <Fees data={fees} />}
-      <InfoItem data={premiere.world} title='Примьера в мире' />
-      <InfoItem data={premiere.world} title='Примьера в РФ' />
+      {premiere.world && (
+        <InfoItem data={formatDate(premiere.world)} title='Примьера в мире' />
+      )}
+      {premiere.russia && (
+        <InfoItem data={formatDate(premiere.russia)} title='Примьера в РФ' />
+      )}
     </div>
   );
 }

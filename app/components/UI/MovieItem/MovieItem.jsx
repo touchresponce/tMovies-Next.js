@@ -22,7 +22,11 @@ export default function MovieItem({ data }) {
       <Link href={`/room/${data.id}`}>
         <div className='item__cover'>
           <Image
-            src={data.poster.previewUrl}
+            src={
+              data?.poster?.previewUrl
+                ? data.poster.previewUrl
+                : `https://st.kp.yandex.net/images/film_iphone/iphone360_${data.id}.jpg`
+            }
             alt={`постер ${data.name || data.alternativeName}`}
             fill
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'

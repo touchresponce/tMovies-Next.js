@@ -14,18 +14,13 @@
   }
 }
 
-@-webkit-keyframes glow {
-  0% {
-    border-color: #0a2fff;
-    background-color: #0a2fff;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 0.2),
-      inset 0 0 8px rgba(81, 203, 238, 0.1);
+@keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
   }
-  100% {
-    border-color: rgb(81, 203, 238);
-    background-color: rgb(81, 203, 238);
-    box-shadow: 0 0 5px rgba(81, 203, 238, 0.6),
-      inset 0 0 8px rgba(81, 203, 238, 0.4);
+
+  to {
+    -webkit-mask-position: -50%;
   }
 }
 
