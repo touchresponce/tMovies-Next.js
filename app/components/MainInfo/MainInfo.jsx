@@ -2,7 +2,7 @@ import "./MainInfo.css";
 import Background from "../UI/Background/Background";
 import InfoList from "../UI/InfoList/InfoList";
 import MovieLogo from "../UI/MovieLogo/MovieLogo";
-import ModalButtons from "../UI/ModalButtons/ModalButtons";
+import ModalButton from "../UI/ModalButton/ModalButton";
 
 export default function MainInfo({ data }) {
   return (
@@ -13,7 +13,7 @@ export default function MainInfo({ data }) {
         <div className='major__text-wrapper'>
           <InfoList data={data} />
         </div>
-        <ModalButtons type={data.type} />
+        <ModalButton type={data.type} />
       </div>
     </section>
   );

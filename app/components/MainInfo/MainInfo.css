@@ -22,23 +22,31 @@
   flex-direction: column;
   gap: 8px;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 22px;
 }
 
 @media screen and (max-width: 1024px) {
   .major {
     padding-left: 50px;
   }
+  .major__wrapper {
+    position: static;
+  }
 }
 
 @media screen and (max-width: 949px) {
   .major {
-    padding-left: 20px;
+    padding: 0 20px;
   }
 }
 
 @media screen and (max-width: 460px) {
   .major {
-    padding-left: 10px;
+    padding: 0 10px;
+  }
+
+  .major__text-wrapper {
+    font-size: 16px;
+    line-height: 20px;
   }
 }

@@ -13,7 +13,24 @@
 }
 
 .wrapper {
-  width: 500px;
   height: 200px;
   position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 949px) {
+  .wrapper {
+    height: 140px;
+  }
 }

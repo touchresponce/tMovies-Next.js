@@ -1,0 +1,83 @@
+@keyframes gradientRotate {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.panel__button {
+  display: block;
+  max-width: 320px;
+  margin: 30px 0 0;
+  padding: 13px 24px;
+  color: inherit;
+  min-height: 50px;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-position: top center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  /* transition-property: background, color; */
+}
+
+.panel__button_type_room {
+  position: relative;
+  background-image: linear-gradient(
+    90deg,
+    #0065ff,
+    #6942ef,
+    #6554c0,
+    #008cff,
+    #0065ff,
+    #6942ef
+  );
+  background-size: 400%;
+  background-position: 0% 0%;
+}
+
+.panel__button_type_room::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 26px;
+  background-image: linear-gradient(
+    90deg,
+    #0065ff,
+    #6942ef,
+    #6554c0,
+    #008cff,
+    #0065ff,
+    #6942ef
+  );
+  background-size: 500%;
+  background-position: 0% 0%;
+  filter: blur(10px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s;
+}
+
+.panel__button_type_room:hover {
+  animation: gradientRotate 2s infinite;
+}
+.panel__button_type_room:hover .panel__button_type_room::before {
+  opacity: 1;
+  animation: gradientRotate 2s infinite;
+}
+
+.panel__button_type_room:focus .panel__button_type_room::before {
+  opacity: 1;
+}

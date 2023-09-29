@@ -18,3 +18,9 @@
   border-radius: 6px;
   padding: 1px;
 }
+
+@media screen and (max-width: 460px) {
+  .info {
+    gap: 10px;
+  }
+}

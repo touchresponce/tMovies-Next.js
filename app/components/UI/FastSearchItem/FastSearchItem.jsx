@@ -23,9 +23,10 @@ export default function FastSearchItem({ data }) {
       <div className='left'>
         <div className='imageContainer'>
           <Image
-            layout='fill'
+            fill
             src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
             alt={name}
+            sizes='(max-width: 768px) 100vw'
           />
         </div>
 

@@ -13,6 +13,7 @@ export default function MovieLogo({ data }) {
             alt={name || enName}
             fill
             priority={true}
+            sizes='(max-width: 768px) 100vw'
           />
         </div>
       ) : (

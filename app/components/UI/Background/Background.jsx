@@ -3,14 +3,17 @@ import "./Background.css";
 
 export default function Background({ data }) {
   return (
-    <div
-      className='background__wrapper'
-      style={{
-        backgroundImage: `url(${data.backdrop.url})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "100px 0",
-      }}
-    ></div>
+    <div className='background'>
+      <Image
+        src={data.backdrop.url}
+        alt=''
+        fill
+        priority
+        sizes='(max-width: 768px) 100vw'
+        style={{
+          objectFit: "cover",
+        }}
+      />
+    </div>
   );
 }

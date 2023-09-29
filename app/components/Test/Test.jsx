@@ -14,6 +14,7 @@ export default function Test({ data }) {
             src={photo}
             alt={`фотография ${name}`}
             fill
+            sizes='(max-width: 768px) 100vw'
             style={{
               width: "100%",
               objectFit: "cover",
