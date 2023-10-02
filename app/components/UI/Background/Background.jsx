@@ -1,5 +1,5 @@
-import Image from "next/image";
 import "./Background.css";
+import Image from "next/image";
 
 export default function Background({ data }) {
   return (
@@ -12,6 +12,7 @@ export default function Background({ data }) {
         sizes='(max-width: 768px) 100vw'
         style={{
           objectFit: "cover",
+          objectPosition: "50% 30%",
         }}
       />
     </div>
