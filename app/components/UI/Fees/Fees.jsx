@@ -1,7 +1,10 @@
 import "./Fees.css";
 import formatNumber from "@/utils/formatNumber";
+import InfoItem from "../InfoItem/InfoItem";
 
 export default function Fees({ data }) {
+  const { fees } = data;
+
   const formatFees = (key) => {
     const fees = {
       world: "Сборы по миру",
@@ -12,13 +15,15 @@ export default function Fees({ data }) {
   };
 
   return (
-    <ul className='fees'>
-      {Object.keys(data).map((key) => (
-        <li className={`fees__item fees__item_type_${key}`} key={key}>
-          <span className='fees__span info__span'>{`${formatFees(key)} `}</span>
-          {`${data[key].currency} ${formatNumber(data[key].value)}`}
-        </li>
+    <div className='fees'>
+      <h2 className='fees__title text'>Сборы</h2>
+      {Object.keys(fees).map((key) => (
+        <InfoItem
+          data={`${fees[key].currency} ${formatNumber(fees[key].value)}`}
+          title={formatFees(key)}
+          key={key}
+        />
       ))}
-    </ul>
+    </div>
   );
 }
