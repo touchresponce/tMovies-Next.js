@@ -11,7 +11,7 @@ export default function MovieInfo({ data }) {
 
   return (
     <div className='movie-info'>
-      <h2 className='movie-info__title text'>Информация</h2>
+      {/* <h2 className='movie-info__title text'>Информация</h2> */}
       <InfoItem
         data={enName || alternativeName || name}
         title='Оригинальное название'

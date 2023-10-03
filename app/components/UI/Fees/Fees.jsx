@@ -16,7 +16,7 @@ export default function Fees({ data }) {
 
   return (
     <div className='fees'>
-      <h2 className='fees__title text'>Сборы</h2>
+      {/* <h2 className='fees__title text'>Сборы</h2> */}
       {Object.keys(fees).map((key) => (
         <InfoItem
           data={`${fees[key].currency} ${formatNumber(fees[key].value)}`}

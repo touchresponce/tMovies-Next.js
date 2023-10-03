@@ -1,12 +1,12 @@
 .additional {
+  border-top: 1px solid #2f2f2f;
   margin: 60px 70px;
   padding: 30px 0 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 50px;
   font-size: 18px;
   line-height: 22px;
-  gap: 50px;
-  border-top: 1px solid #2f2f2f;
 }
 
 @media (width <= 1024px) {
