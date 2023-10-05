@@ -1,5 +1,3 @@
-export const API_KEY = "RM97F7A-1E84P9N-NC2DDHY-3MHAWXD";
-
 export const CURRENT_YEAR = new Date().getFullYear();
 
 export const HEADER_LINKS = [
