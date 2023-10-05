@@ -22,11 +22,13 @@ export async function generateMetadata({ params: { id } }) {
 export default async function Movie({ params: { id } }) {
   const data = await getContent(id);
 
+  const render =
+    data.similarMovies?.length > 0 || data.sequelsAndPrequels?.length > 0;
+
   return (
     <>
       <MainInfo data={data} />
-      {data.similarMovies?.length > 0 ||
-        (data.sequelsAndPrequels?.length > 0 && <MovieTabs data={data} />)}
+      {render && <MovieTabs data={data} />}
       <Additional data={data} />
       <MovieModal id={id} />
     </>
