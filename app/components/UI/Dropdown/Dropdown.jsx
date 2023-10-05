@@ -13,7 +13,7 @@ export default function Dropdown({ name, options, inputType }) {
   const [text, setText] = useState("");
   const dropdownRef = useRef(null);
   const dropdownTextRef = useRef(null);
-  const { resetOne, changeFilters } = useFilters();
+  const { changeFilters } = useFilters();
 
   const handleClickOutside = (e) => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -43,7 +43,7 @@ export default function Dropdown({ name, options, inputType }) {
       case OPTIONS_RATING[0].value:
       case OPTIONS_YEARS[0].value:
       case OPTIONS_ORDER[0].value:
-        resetOne(inputType);
+        changeFilters(inputType, "");
         break;
 
       // иначе замена фильтра

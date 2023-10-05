@@ -3,40 +3,45 @@ import { updateLink } from "@/utils/updateLink";
 import { CURRENT_YEAR } from "@/utils/constants";
 import { useSearch } from "./useSearchStore";
 
+const initialFilters = {
+  genre: "",
+  order: "новые",
+  type: "",
+  rating: "1-10",
+  year: `1960-${CURRENT_YEAR}`,
+};
+
 export const useFilters = create((set, get) => ({
   filters: {
-    genre: "",
-    order: "новые",
-    type: "",
-    rating: "1-10",
-    year: `1960-${CURRENT_YEAR}`,
+    ...initialFilters,
   },
   link: "",
 
   changeFilters: (type, value) => {
     useSearch.getState().resetContent();
-    set({
-      filters: { ...get().filters, [type]: value },
-    });
-    set({
-      link: updateLink(get().filters),
-    });
+    if (value === "") {
+      set({
+        filters: { ...get().filters, [type]: initialFilters[type] },
+      });
+      set({
+        link: updateLink(get().filters),
+      });
+    } else {
+      set({
+        filters: { ...get().filters, [type]: value },
+      });
+      set({
+        link: updateLink(get().filters),
+      });
+    }
   },
 
   reset: () => {
     set({
       filters: {
-        genre: "",
-        order: "новые",
-        type: "",
-        rating: "1-10",
-        year: `1960-${CURRENT_YEAR}`,
+        ...initialFilters,
       },
       link: "",
     });
-  },
-
-  resetOne: (type) => {
-    set((state) => ({ ...state, [type]: get().initial[type] }));
   },
 }));
