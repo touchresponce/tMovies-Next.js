@@ -23,6 +23,7 @@ export default function TestItem({ data }) {
         )}
         {backdrop?.previewUrl && (
           <Image
+            className='test-item__background'
             src={backdrop?.previewUrl}
             alt={`постер ${name || alternativeName || enName}`}
             fill

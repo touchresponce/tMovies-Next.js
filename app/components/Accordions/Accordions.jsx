@@ -7,10 +7,13 @@ import Fees from "../UI/Fees/Fees";
 import AccordionItem from "../UI/AccordionItem/AccordionItem";
 
 export default function Accordions({ data }) {
-  const isEmptyFees = (obj) =>
-    Object.values(obj).some(
-      (val) => typeof val === "object" && Object.keys(val).length > 0
-    );
+  const isEmptyFees = (obj) => {
+    if (obj !== null && typeof obj === "object") {
+      return Object.values(obj).some(
+        (val) => typeof val === "object" && Object.keys(val).length > 0
+      );
+    }
+  };
 
   return (
     <div className='accordions'>
@@ -22,9 +25,11 @@ export default function Accordions({ data }) {
         <Crew data={data} />
       </AccordionItem>
 
-      <AccordionItem title={"Сборы"}>
-        <Fees data={data} />
-      </AccordionItem>
+      {isEmptyFees(data.fees) && (
+        <AccordionItem title={"Сборы"}>
+          <Fees data={data} />
+        </AccordionItem>
+      )}
     </div>
   );
 }
