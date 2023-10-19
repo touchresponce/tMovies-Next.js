@@ -1,7 +1,8 @@
 .header {
   position: fixed;
   width: 100%;
-  background-color: #0f0f0f;
+  /* background-color: #0f0f0f; */
+  background-color: #000;
   z-index: 21;
   transition: all 0.3s ease-in-out;
 }
@@ -25,7 +26,6 @@
 }
 
 .scroll {
-  background-color: #0f0f0f;
   border-bottom: 1px solid #2f2f2f;
   -webkit-transition: -webkit-transform 0.2s ease-in-out,
     background-color 0.2s ease-in-out;

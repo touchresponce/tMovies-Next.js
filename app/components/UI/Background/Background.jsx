@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Background({ data }) {
   return (
-    <div className='background'>
+    <div className='background noselect'>
       {data.backdrop.url && (
         <Image
           src={data.backdrop.url}

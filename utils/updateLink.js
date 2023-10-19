@@ -1,5 +1,3 @@
-import { formatOrder } from "./formatOrder";
-
 export const updateLink = (filters) => {
   const link = new URLSearchParams({
     year: filters.year,
@@ -12,10 +10,10 @@ export const updateLink = (filters) => {
   }
 
   link.append("sortField", "year");
-  link.append("sortType", `${formatOrder(filters.order)}`);
+  link.append("sortType", `${filters.order}`);
 
   link.append("sortField", "premiere.world");
-  link.append("sortType", `${formatOrder(filters.order)}`);
+  link.append("sortType", `${filters.order}`);
 
   return link.toString();
 };

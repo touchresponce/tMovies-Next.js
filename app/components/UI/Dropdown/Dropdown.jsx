@@ -1,18 +1,13 @@
 import "./Dropdown.css";
 import { useState, useEffect, useRef } from "react";
-import {
-  OPTIONS_GENRES,
-  OPTIONS_RATING,
-  OPTIONS_YEARS,
-  OPTIONS_ORDER,
-} from "@/utils/constants";
 import { useFilters } from "@/store/useFiltersStore";
 
-export default function Dropdown({ name, options, inputType }) {
+export default function Dropdown({ options, inputType }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(options[0].title);
   const dropdownRef = useRef(null);
   const dropdownTextRef = useRef(null);
+  const itemRef = useRef(null);
   const { changeFilters } = useFilters();
 
   const handleClickOutside = (e) => {
@@ -32,25 +27,11 @@ export default function Dropdown({ name, options, inputType }) {
     setIsOpen(!isOpen);
   };
 
-  const handleText = (e) => {
+  const handleText = (e, value) => {
     const { textContent } = e.currentTarget;
     setText(textContent);
     setIsOpen(false);
-
-    switch (textContent) {
-      // снос фильтров в умолчание
-      case OPTIONS_GENRES[0].value:
-      case OPTIONS_RATING[0].value:
-      case OPTIONS_YEARS[0].value:
-      case OPTIONS_ORDER[0].value:
-        changeFilters(inputType, "");
-        break;
-
-      // иначе замена фильтра
-      default:
-        changeFilters(inputType, textContent.toLowerCase());
-        break;
-    }
+    changeFilters(inputType, value);
   };
 
   return (
@@ -60,14 +41,22 @@ export default function Dropdown({ name, options, inputType }) {
       ref={dropdownRef}
     >
       <div className='dropdown__text' ref={dropdownTextRef}>
-        {!text ? name : text}
+        {text}
       </div>
       <div className='dropdown__items'>
-        {options?.map((item) => (
-          <div onClick={handleText} className='dropdown__item' key={item.id}>
-            {item.value[0].toUpperCase() + item.value.substring(1)}
-          </div>
-        ))}
+        {options.map(
+          (item) =>
+            item.title.toLowerCase() !== text.toLowerCase() && (
+              <div
+                ref={itemRef}
+                onClick={(e) => handleText(e, item.value)}
+                className='dropdown__item'
+                key={item.value}
+              >
+                {item.title}
+              </div>
+            )
+        )}
       </div>
     </div>
   );

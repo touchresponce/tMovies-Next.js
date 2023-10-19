@@ -5,7 +5,7 @@ import { useSearch } from "./useSearchStore";
 
 const initialFilters = {
   genre: "",
-  order: "новые",
+  order: "-1",
   type: "",
   rating: "1-10",
   year: `1960-${CURRENT_YEAR}`,

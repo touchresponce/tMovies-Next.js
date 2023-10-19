@@ -10,7 +10,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(
+  /* background: linear-gradient(
       to left,
       rgba(15, 15, 15, 0) 30%,
       rgba(15, 15, 15, 1) 90%
@@ -20,12 +20,19 @@
       to bottom,
       rgba(15, 15, 15, 0) 80%,
       rgba(15, 15, 15, 1) 100%
-    );
+    ); */
+  background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 1) 90%
+    ),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1) 100%);
 }
 
 @media screen and (max-width: 1024px) {
   .background:after {
-    background: linear-gradient(
+    /* background: linear-gradient(
         to left,
         rgba(15, 15, 15, 0) 80%,
         rgba(15, 15, 15, 1) 100%
@@ -39,6 +46,13 @@
         to bottom,
         rgba(15, 15, 15, 0) 80%,
         rgba(15, 15, 15, 1) 100%
-      );
+      ); */
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0) 80%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1) 100%),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1) 100%);
   }
 }

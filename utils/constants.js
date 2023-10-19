@@ -9,8 +9,8 @@ export const HEADER_LINKS = [
 ];
 
 export const OPTIONS_ORDER = [
-  { id: 1, value: "Новые" },
-  { id: 2, value: "Старые" },
+  { title: "Новые", value: "-1" },
+  { title: "Старые", value: "1" },
 ];
 
 export const OPTIONS_TYPE = [
@@ -22,46 +22,46 @@ export const OPTIONS_TYPE = [
 ];
 
 export const OPTIONS_GENRES = [
-  { id: 1, value: "Все жанры" },
-  { id: 2, value: "боевик" },
-  { id: 3, value: "семейный" },
-  { id: 4, value: "мелодрама" },
-  { id: 5, value: "драма" },
-  { id: 6, value: "приключения" },
-  { id: 7, value: "комедия" },
-  { id: 8, value: "детектив" },
-  { id: 9, value: "криминал" },
-  { id: 10, value: "ужасы" },
-  { id: 11, value: "фантастика" },
-  { id: 12, value: "фэнтези" },
-  { id: 13, value: "триллер" },
-  { id: 14, value: "фильм-нуар" },
-  { id: 15, value: "вестерн" },
-  { id: 16, value: "военный" },
-  { id: 17, value: "биография" },
+  { title: "Все жанры", value: "" },
+  { title: "Боевики", value: "боевик" },
+  { title: "Семейные", value: "семейный" },
+  { title: "Мелодрамы", value: "мелодрама" },
+  { title: "Драмы", value: "драма" },
+  { title: "Приключения", value: "приключения" },
+  { title: "Комедии", value: "комедия" },
+  { title: "Детективы", value: "детектив" },
+  { title: "Криминал", value: "криминал" },
+  { title: "Ужасы", value: "ужасы" },
+  { title: "Фантастика", value: "фантастика" },
+  { title: "Фэнтези", value: "фэнтези" },
+  { title: "Триллеры", value: "триллер" },
+  { title: "Фильм-нуар", value: "фильм-нуар" },
+  { title: "Вестерны", value: "вестерн" },
+  { title: "Военные", value: "военный" },
+  { title: "Биография", value: "биография" },
 ];
 
 export const OPTIONS_YEARS = [
-  { id: 1, value: "Все года" },
-  { id: 2, value: "2022-2023" },
-  { id: 3, value: "2020-2021" },
-  { id: 4, value: "2014-2019" },
-  { id: 5, value: "2010-2014" },
-  { id: 6, value: "2000-2009" },
-  { id: 7, value: "1990-1999" },
-  { id: 8, value: "1980-1989" },
-  { id: 9, value: "1970-1979" },
-  { id: 10, value: "1960-1969" },
+  { title: "Все года", value: "" },
+  { title: "2022-2023", value: "2022-2023" },
+  { title: "2020-2021", value: "2020-2021" },
+  { title: "2014-2019", value: "2014-2019" },
+  { title: "2010-2013", value: "2010-2013" },
+  { title: "2000-2009", value: "2000-2009" },
+  { title: "1990-1999", value: "1990-1999" },
+  { title: "1980-1989", value: "1980-1989" },
+  { title: "1970-1979", value: "1970-1979" },
+  { title: "1960-1969", value: "1960-1969" },
 ];
 
 export const OPTIONS_RATING = [
-  { id: 1, value: "Любой рейтинг" },
-  { id: 2, value: "9-10" },
-  { id: 3, value: "8-10" },
-  { id: 4, value: "7-10" },
-  { id: 5, value: "6-10" },
-  { id: 6, value: "5-10" },
-  { id: 7, value: "1-4" },
+  { title: "Любой рейтинг", value: "" },
+  { title: "9-10", value: "9-10" },
+  { title: "8-10", value: "8-10" },
+  { title: "7-10", value: "7-10" },
+  { title: "6-10", value: "6-10" },
+  { title: "5-10", value: "5-10" },
+  { title: "1-4", value: "1-4" },
 ];
 
 export const SWIPER_BREAKPOINTS = {
@@ -72,7 +72,7 @@ export const SWIPER_BREAKPOINTS = {
     slidesPerView: 5.2,
   },
   1024: {
-    slidesPerView: 4.3,
+    slidesPerView: 4.1,
   },
   768: {
     slidesPerView: 3.4,
@@ -81,83 +81,3 @@ export const SWIPER_BREAKPOINTS = {
     slidesPerView: 2.3,
   },
 };
-
-// export const SWIPER_STYLES_BUTTONS = {
-//   injectStyles: [
-//     `.swiper-button-prev.swiper-button-disabled  {
-//       opacity: 0;
-//       cursor: auto;
-//       pointer-events: none;
-//     }`,
-
-//     `.swiper-button-next.swiper-button-disabled  {
-//       opacity: 0;
-//       cursor: auto;
-//       pointer-events: none;
-//     }`,
-
-//     `.swiper-button-prev {
-//       font-family: swiper-icons;
-//       font-size: var(--swiper-navigation-size);
-//       text-transform: none!important;
-//       letter-spacing: 0;
-//       font-variant: initial;
-//       line-height: 1;
-//       transition: all 0.2s ease-in-out;
-//     }`,
-
-//     `.swiper-button-prev:after {
-//       border-radius: 6px;
-//       border: 1px solid #222;
-//       padding: 20px;
-//       backdrop-filter: blur(18px);
-//     }`,
-
-//     `.swiper-button-next {
-//       font-family: swiper-icons;
-//       font-size: var(--swiper-navigation-size);
-//       text-transform: none!important;
-//       letter-spacing: 0;
-//       font-variant: initial;
-//       line-height: 1;
-//       transition: all 0.2s ease-in-out;
-//     }`,
-
-//     `.swiper-button-next:after {
-//       border-radius: 6px;
-//       border: 1px solid #222;
-//       padding: 20px;
-//       backdrop-filter: blur(18px);
-//     }`,
-
-//     `.swiper-button-prev:hover {
-//       transform: scale(1.2);
-//     }`,
-
-//     `.swiper-button-next:hover {
-//       transform: scale(1.2);
-//     }`,
-
-//     `.swiper-button-next,
-//     :host(.swiper-rtl) .swiper-button-prev {
-//       right: var(--swiper-navigation-sides-offset, 30px);
-//       left: auto;
-//     }`,
-
-//     `.swiper-button-prev,
-//     :host(.swiper-rtl) .swiper-button-next {
-//       left: var(--swiper-navigation-sides-offset, 30px);
-//       right: auto;
-//     }`,
-
-//     `@media screen and (max-width: 760px) {
-//       .swiper-button-prev {
-//         display: none;
-//       }
-
-//       .swiper-button-next {
-//         display: none;
-//       }
-//     }`,
-//   ],
-// };

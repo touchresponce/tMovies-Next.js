@@ -1,9 +1,9 @@
 "use client";
 
 import "./SearchList.css";
-import MovieItem from "../UI/MovieItem/MovieItem";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import MoreButton from "../UI/MoreButton/MoreButton";
+import MovieItem from "../UI/MovieItem/MovieItem";
 import { useEffect, useState } from "react";
 import { useFilters } from "@/store/useFiltersStore";
 import { useSearch } from "@/store/useSearchStore";

@@ -1,4 +1,5 @@
 import "./InfoList.css";
+import formatTime from "@/utils/formatTime";
 
 export default function InfoList({ data }) {
   const duration = formatTime(data.movieLength);
@@ -6,12 +7,6 @@ export default function InfoList({ data }) {
   const ratingImdb = data.rating?.imdb;
   const countries = data.countries?.map((item) => item.name).join(", ");
   const genres = data.genres?.map((item) => item.name).join(", ");
-
-  function formatTime(mins) {
-    let hours = Math.trunc(mins / 60);
-    let minutes = mins % 60;
-    return hours >= 1 ? `${hours}ч ${minutes}м` : `${minutes}м`;
-  }
 
   return (
     <>

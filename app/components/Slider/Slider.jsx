@@ -3,8 +3,8 @@
 import "./Slider.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import MovieItem from "../UI/MovieItem/MovieItem";
 import { SWIPER_BREAKPOINTS } from "@/utils/constants";
+import MovieItem from "../UI/MovieItem/MovieItem";
 
 export default function Slider({ data }) {
   const list = data?.map((item) => (
