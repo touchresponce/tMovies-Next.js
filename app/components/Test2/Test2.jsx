@@ -1,5 +1,5 @@
 import "./Test2.css";
-import TestItem from "../UI/TestItem/TestItem";
+import MovieItemHorizont from "../UI/MovieItemHorizont/MovieItemHorizont";
 
 export default function Test2({ data }) {
   return (
@@ -7,7 +7,7 @@ export default function Test2({ data }) {
       <h3 className='text'>Фильмография ({data.length})</h3>
       <div className='person-list__list'>
         {data.map((movie) => (
-          <TestItem data={movie} key={movie.id} />
+          <MovieItemHorizont data={movie} key={movie.id} />
         ))}
       </div>
     </section>

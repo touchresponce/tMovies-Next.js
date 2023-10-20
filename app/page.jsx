@@ -1,5 +1,6 @@
 import "./page.css";
 import Slider from "./components/Slider/Slider";
+import ThemeSlider from "./components/ThemeSlider/ThemeSlider";
 
 async function getMovies() {
   const responce = await fetch(
@@ -45,17 +46,21 @@ export default async function Home() {
   return (
     <>
       <section className='section section__type_movies'>
-        <p className='section__title'>Фильмы</p>
+        <p className='section__title text'>Фильмы</p>
         <Slider data={movies} />
       </section>
 
+      {/* <section className='section section__type_relative'> */}
+      {/* <ThemeSlider /> */}
+      {/* </section> */}
+
       <section className='section section__type_serials'>
-        <p className='section__title'>Сериалы</p>
+        <p className='section__title text'>Сериалы</p>
         <Slider data={serials} />
       </section>
 
       <section className='section section__type_cartoons'>
-        <p className='section__title'>Мультфильмы</p>
+        <p className='section__title text'>Мультфильмы</p>
         <Slider data={cartoons} />
       </section>
     </>

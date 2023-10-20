@@ -6,10 +6,10 @@ export default function Background({ data }) {
     <div className='background noselect'>
       {data.backdrop.url && (
         <Image
+          priority
           src={data.backdrop.url}
           alt=''
           fill
-          priority
           sizes='(max-width: 768px) 100vw'
           style={{
             objectFit: "cover",

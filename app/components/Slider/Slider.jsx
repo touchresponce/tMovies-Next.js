@@ -4,12 +4,12 @@ import "./Slider.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SWIPER_BREAKPOINTS } from "@/utils/constants";
-import MovieItem from "../UI/MovieItem/MovieItem";
+import MovieItemVertical from "../UI/MovieItemVertical/MovieItemVertical";
 
 export default function Slider({ data }) {
   const list = data?.map((item) => (
     <SwiperSlide key={item.id}>
-      <MovieItem data={item} />
+      <MovieItemVertical data={item} />
     </SwiperSlide>
   ));
 

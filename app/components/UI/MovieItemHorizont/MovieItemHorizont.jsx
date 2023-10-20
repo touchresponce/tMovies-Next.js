@@ -1,8 +1,8 @@
-import "./TestItem.css";
+import "./MovieItemHorizont.css";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function TestItem({ data }) {
+export default function MovieItemHorizont({ data }) {
   const { id, backdrop, name, enName, alternativeName, logo } = data;
 
   return (

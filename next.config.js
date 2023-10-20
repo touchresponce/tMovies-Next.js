@@ -7,11 +7,10 @@ const nextConfig = {
       "www.themoviedb.org",
       "imagetmdb.com",
     ],
+    // unoptimized: true,
+    formats: ["image/webp"],
   },
   reactStrictMode: false,
-  // images: {
-  //   unoptimized: true,
-  // },
 };
 
 module.exports = nextConfig;
