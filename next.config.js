@@ -7,7 +7,7 @@ const nextConfig = {
       "www.themoviedb.org",
       "imagetmdb.com",
     ],
-    // unoptimized: true,
+    unoptimized: true,
     formats: ["image/webp"],
   },
   reactStrictMode: false,
