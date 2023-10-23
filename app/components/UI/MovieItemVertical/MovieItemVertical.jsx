@@ -5,7 +5,8 @@ import formatTime from "@/utils/formatTime";
 
 export default function MovieItemVertical({ data }) {
   const genres = data.genres ? data.genres.slice(0, 2) : null;
-  const duration = formatTime(data.movieLength);
+  const duration =
+    data.movieLength !== "undefined" ? formatTime(data.movieLength) : null;
   const ratingKp = data.rating?.kp
     ? data.rating.kp.toString().substring(0, 3)
     : null;
@@ -35,26 +36,33 @@ export default function MovieItemVertical({ data }) {
           />
           <div className='details'>
             <h1 className='details__title text'>{data.name || data.enName}</h1>
-            <h2 className='details__subtitle text'>
-              {data.year} • {data.ageRating} • {duration}
-            </h2>
+
+            {data.year && (
+              <h2 className='details__subtitle text'>
+                {data.year} • {data.ageRating} • {duration}
+              </h2>
+            )}
+
             {ratingKp !== null && (
               <div className='rating'>
                 <i className='fas fa-star' />
                 <span>{`${ratingKp}/10`}</span>
               </div>
             )}
-            {Array.isArray(data.countries) && (
-              <p className='country text'>{data.countries[0].name}</p>
+            {Array.isArray(data.countries) && data.countries.length > 0 && (
+              <p className='country text'>{data.countries[0]?.name}</p>
             )}
-            <div className='tags'>
-              {Array.isArray(genres) &&
-                genres.map((genre) => (
+
+            {Array.isArray(genres) && (
+              <div className='tags'>
+                {genres.map((genre) => (
                   <span className='tag' key={genre.name}>
                     {genre.name}
                   </span>
                 ))}
-            </div>
+              </div>
+            )}
+
             {data.description && (
               <p className='item__description text'>{data.description}</p>
             )}

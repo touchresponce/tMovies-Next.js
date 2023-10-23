@@ -64,7 +64,7 @@ export const OPTIONS_RATING = [
   { title: "1-4", value: "1-4" },
 ];
 
-export const SWIPER_BREAKPOINTS = {
+export const SWIPER_BREAKPOINTS_VERTICAL = {
   1480: {
     slidesPerView: 6.3,
   },
@@ -79,5 +79,23 @@ export const SWIPER_BREAKPOINTS = {
   },
   320: {
     slidesPerView: 2.3,
+  },
+};
+
+export const SWIPER_BREAKPOINTS_HORIZONT = {
+  1480: {
+    slidesPerView: 5.2,
+  },
+  1280: {
+    slidesPerView: 4.1,
+  },
+  1024: {
+    slidesPerView: 3.6,
+  },
+  768: {
+    slidesPerView: 2.7,
+  },
+  320: {
+    slidesPerView: 1.4,
   },
 };

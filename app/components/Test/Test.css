@@ -6,7 +6,7 @@
 }
 
 .person-info__image {
-  width: 270px;
+  min-width: 270px;
   height: 320px;
   position: relative;
 }

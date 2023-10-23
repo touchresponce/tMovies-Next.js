@@ -8,6 +8,11 @@
   border: 1px solid #9a9a9a;
   border-radius: 16px;
   z-index: 1;
+  transition: 0.3s ease;
+}
+
+.test-item:hover {
+  scale: 102%;
 }
 
 .test-item__logo {

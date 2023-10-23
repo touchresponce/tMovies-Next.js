@@ -1,9 +1,9 @@
-import Image from "next/image";
 import "./ThemeSlider.css";
+import Image from "next/image";
 
 export default function ThemeSlider() {
   return (
-    <section className='theme'>
+    <div className='theme'>
       <Image
         src='https://avatars.mds.yandex.net/get-ott/224348/2a0000018a99f213aa7ff90d3441f5df2dbc/orig'
         alt='test'
@@ -16,6 +16,6 @@ export default function ThemeSlider() {
       />
       <p>НАЗВАНИЕ</p>
       <div></div>
-    </section>
+    </div>
   );
 }
