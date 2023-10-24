@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { getMovieByFilters } from "@/utils/api";
 import { useFilters } from "./useFiltersStore";
+import { getSearch } from "@/utils/actions";
 
 export const useSearch = create((set, get) => ({
   initial: {
@@ -14,7 +14,9 @@ export const useSearch = create((set, get) => ({
     set({ status: "loading" });
     const { link } = useFilters.getState();
     const req = pageNum ? `${link}&page=${pageNum}` : link;
-    const { docs, pages, page } = await getMovieByFilters(req);
+
+    const { docs, pages, page } = await getSearch(req);
+
     docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
     set({
       content: [...get().content, ...docs],

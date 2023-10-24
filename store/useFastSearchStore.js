@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { getFastSearch } from "@/utils/api";
+import { getFastSearch } from "@/utils/actions";
 
 export const useFastSearch = create((set) => ({
   initial: {

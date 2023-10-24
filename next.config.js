@@ -8,11 +8,10 @@ const nextConfig = {
       "imagetmdb.com",
     ],
     unoptimized: true,
-    formats: ["image/webp"],
   },
   reactStrictMode: false,
   experimental: {
-    appDir: true,
+    serverActions: true,
   },
 };
 
