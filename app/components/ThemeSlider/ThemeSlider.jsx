@@ -14,8 +14,8 @@ export default function ThemeSlider() {
           objectFit: "cover",
         }}
       />
-      <p>НАЗВАНИЕ</p>
-      <div></div>
+      {/* <p>НАЗВАНИЕ</p> */}
+      {/* <div></div> */}
     </div>
   );
 }

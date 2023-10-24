@@ -5,22 +5,34 @@
   padding: 0 70px;
 }
 
+.person-list__title {
+}
+
 .person-list__list {
+  list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
   padding: 0;
   margin: 30px 0 50px;
 }
 
+.person-list__list_type_first {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.person-list__list_type_second {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 @media screen and (max-width: 1440px) {
-  .person-list__list {
+  .person-list__list_type_first {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .person-list__list {
+  .person-list__list_type_first {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
@@ -37,7 +49,7 @@
 }
 
 @media screen and (max-width: 760px) {
-  .person-list__list {
+  .person-list__list_type_first {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }

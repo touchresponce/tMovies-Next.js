@@ -39,16 +39,22 @@ export default function MovieItemVertical({ data }) {
 
             {data.year && (
               <h2 className='details__subtitle text'>
-                {data.year} • {data.ageRating} • {duration}
+                {data.year} • {`18+`} • {duration}
               </h2>
             )}
 
             {ratingKp !== null && (
-              <div className='rating'>
-                <i className='fas fa-star' />
-                <span>{`${ratingKp}/10`}</span>
+              <div className='details__rating'>
+                <Image
+                  src={`/images/${ratingKp > 4.9 ? "star" : "chunk-star"}.svg`}
+                  width={24}
+                  height={24}
+                  alt='Рейтинг'
+                />
+                <span>{ratingKp}</span>
               </div>
             )}
+
             {Array.isArray(data.countries) && data.countries.length > 0 && (
               <p className='country text'>{data.countries[0]?.name}</p>
             )}

@@ -99,3 +99,20 @@ export const SWIPER_BREAKPOINTS_HORIZONT = {
     slidesPerView: 1.4,
   },
 };
+
+export const LINKS_MAIN = {
+  serials:
+    "https://api.kinopoisk.dev/v1.3/movie?name=!null&poster.previewUrl=!null&rating.kp=5-10&rating.imdb=5-10&year=2022-2023&type=tv-series&limit=30&page=1&sortField=year&sortType=-1&sortField=votes.imdb&sortType=-1",
+  cartoons:
+    "https://api.kinopoisk.dev/v1.3/movie?name=!null&poster.previewUrl=!null&rating.kp=5-10&rating.imdb=5-10&year=2022-2023&type=cartoon&limit=30&page=1&sortField=year&sortType=-1&sortField=votes.imdb&sortType=-1",
+  comedy:
+    "https://api.kinopoisk.dev/v1.3/movie?selectFields=id&selectFields=backdrop&selectFields=logo&selectFields=name&selectFields=enName&selectFields=alternativeName&sortField=votes.imdb&sortType=-1&page=1&limit=20&type=movie&rating.imdb=6-10&logo.url=!null&backdrop.previewUrl=!null&genres.name=комедия&genres.name=!драма",
+  family:
+    "https://api.kinopoisk.dev/v1.3/movie?selectFields=id&selectFields=backdrop&selectFields=logo&selectFields=name&selectFields=enName&selectFields=alternativeName&sortField=votes.kp&sortType=-1&page=1&limit=20&type=movie&rating.imdb=6-10&logo.url=!null&backdrop.previewUrl=!null&genres.name=семейный",
+  best: "https://api.kinopoisk.dev/v1.3/movie?sortField=votes.imdb&sortType=-1&limit=30&year=2023&rating.imdb=6.6-10&name=!null&poster.previewUrl=!null&countries.name=!Россия&countries.name=!Индия",
+};
+
+export const LINKS = {
+  personMovies:
+    "https://api.kinopoisk.dev/v1.3/movie?selectFields=rating&selectFields=year&selectFields=movieLength&selectFields=name&selectFields=logo&selectFields=id&selectFields=enName&selectFields=alternativeName&selectFields=backdrop&sortField=premiere.world&sortType=-1&page=1&name=%21null&poster.previewUrl=%21null&limit=250&persons.id=",
+};

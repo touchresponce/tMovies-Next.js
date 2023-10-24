@@ -1,5 +1,6 @@
 import Test from "@/app/components/Test/Test";
 import Test2 from "@/app/components/Test2/Test2";
+import { LINKS } from "@/utils/constants";
 
 export async function generateMetadata({ params: { id } }) {
   const { name, enName } = await getPerson(id);
@@ -18,14 +19,11 @@ async function getPerson(id) {
 }
 
 async function getMovies(id) {
-  const responce = await fetch(
-    `https://api.kinopoisk.dev/v1.3/movie?selectFields=name&selectFields=logo&selectFields=id&selectFields=enName&selectFields=alternativeName&selectFields=backdrop&sortField=premiere.world&sortType=-1&page=1&name=%21null&poster.previewUrl=%21null&limit=250&persons.id=${id}`,
-    {
-      headers: {
-        "X-API-KEY": process.env.KEY,
-      },
-    }
-  );
+  const responce = await fetch(`${LINKS.personMovies}${id}`, {
+    headers: {
+      "X-API-KEY": process.env.KEY,
+    },
+  });
   return responce.json();
 }
 

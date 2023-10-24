@@ -1,3 +1,5 @@
+"use client";
+
 import "./FastSearchItem.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -39,7 +41,11 @@ export default function FastSearchItem({ data }) {
         </div>
       </div>
 
-      <div className={`right ${isHighRating}`}>{Number(rating).toFixed(1)}</div>
+      {typeof rating === "number" && (
+        <div className={`right ${isHighRating}`}>
+          {Number(rating).toFixed(1)}
+        </div>
+      )}
     </Link>
   );
 }
