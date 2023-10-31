@@ -23,10 +23,10 @@ export default function MovieInfo({ data }) {
         />
       )}
       {premiere?.world && (
-        <InfoItem data={formatDate(premiere.world)} title='Примьера в мире' />
+        <InfoItem data={formatDate(premiere.world)} title='Премьера в мире' />
       )}
       {premiere?.russia && (
-        <InfoItem data={formatDate(premiere.russia)} title='Примьера в РФ' />
+        <InfoItem data={formatDate(premiere.russia)} title='Премьера в РФ' />
       )}
     </div>
   );
