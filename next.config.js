@@ -10,9 +10,6 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: false,
-  experimental: {
-    serverActions: true,
-  },
 };
 
 module.exports = nextConfig;

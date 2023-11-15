@@ -9,9 +9,14 @@ export const useFastSearch = create((set) => ({
 
   getContent: async (query) => {
     set({ status: "loading" });
-    const { docs } = await getFastSearch(query);
-    docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
-    set({ content: [...docs] });
+
+    try {
+      const { docs } = await getFastSearch(query);
+      docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
+      set({ content: [...docs] });
+    } catch (error) {
+      set({ status: "error" });
+    }
   },
 
   reset: () => {

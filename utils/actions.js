@@ -1,4 +1,5 @@
-"use server"; // not supported in turbo
+"use server";
+import { LINKS } from "./constants";
 
 const headers = {
   headers: {
@@ -7,14 +8,14 @@ const headers = {
 };
 
 export async function getSearch(link) {
-  const url = `https://api.kinopoisk.dev/v1.3/movie?name=!null&poster.previewUrl=!null&limit=36&${link}`;
+  const url = `${LINKS.search}&${link}`;
   const data = await fetch(url, headers);
 
   return data.json();
 }
 
 export async function getFastSearch(query) {
-  const url = `https://api.kinopoisk.dev/v1.2/movie/search?query=${query}&limit=30`;
+  const url = `${LINKS.fastSearch}&query=${query}`;
   const data = await fetch(url, headers);
 
   return data.json();

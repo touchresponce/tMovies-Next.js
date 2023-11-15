@@ -1,7 +1,7 @@
 import "./page.css";
-import Slider from "./components/Slider/Slider";
-import ThemeSlider from "./components/ThemeSlider/ThemeSlider";
 import { LINKS_MAIN } from "@/utils/constants";
+import Slider from "./components/Slider/Slider";
+import SliderWithVideo from "./components/SliderWithVideo/SliderWithVideo";
 
 async function fetchData(url) {
   const response = await fetch(url, {
@@ -13,41 +13,54 @@ async function fetchData(url) {
 }
 
 export default async function Home() {
-  const { docs: serials } = await fetchData(LINKS_MAIN.serials);
-  const { docs: cartoons } = await fetchData(LINKS_MAIN.cartoons);
-  const { docs: comedy } = await fetchData(LINKS_MAIN.comedy);
-  const { docs: family } = await fetchData(LINKS_MAIN.family);
+  // const { docs: mainSlider } = await fetchData(LINKS_MAIN.mainSlider);
   const { docs: best } = await fetchData(LINKS_MAIN.best);
+  const { docs: familyComedy } = await fetchData(LINKS_MAIN.familyComedy);
+  const { docs: popular } = await fetchData(LINKS_MAIN.popular);
+  const { docs: cartoons } = await fetchData(LINKS_MAIN.bestCartoons);
+  const { docs: catastrophe } = await fetchData(LINKS_MAIN.catastrophe);
+  const { docs: space } = await fetchData(LINKS_MAIN.space);
+  const { docs: comics } = await fetchData(LINKS_MAIN.comics);
 
   return (
     <>
+      {/* <section className='section section__type_main'>
+        <SliderWithVideo data={mainSlider} />
+      </section> */}
+
       <section className='section section__type_movies'>
         <p className='section__title text noselect'>Лучшее 2023</p>
         <Slider data={best} />
       </section>
 
-      {/* <section className='section section__type_relative'> */}
-      {/* <ThemeSlider /> */}
-      {/* </section> */}
-
-      <section className='section section__type_horizontal'>
-        <p className='section__title text noselect'>Комедийные фильмы</p>
-        <Slider data={comedy} horizontal />
-      </section>
-
-      <section className='section section__type_horizontal'>
-        <p className='section__title text noselect'>Для семейного просмотра</p>
-        <Slider data={family} horizontal />
-      </section>
-
       <section className='section section__type_serials'>
-        <p className='section__title text noselect'>Сериалы</p>
-        <Slider data={serials} />
+        <p className='section__title text noselect'>Популярные фильмы</p>
+        <Slider data={popular} horizontal />
+      </section>
+
+      <section className='section section__type_horizontal'>
+        <p className='section__title text noselect'>Семейные комедии</p>
+        <Slider data={familyComedy} horizontal />
+      </section>
+
+      <section className='section section__type_horizontal'>
+        <p className='section__title text noselect'>Фильмы про космос</p>
+        <Slider data={space} />
+      </section>
+
+      <section className='section section__type_horizontal'>
+        <p className='section__title text noselect'>Фильмы-катастрофы</p>
+        <Slider data={catastrophe} horizontal />
       </section>
 
       <section className='section section__type_cartoons'>
-        <p className='section__title text noselect'>Мультфильмы</p>
+        <p className='section__title text noselect'>Лучшая анимация</p>
         <Slider data={cartoons} />
+      </section>
+
+      <section className='section section__type_horizontal'>
+        <p className='section__title text noselect'>Фильмы по комиксам</p>
+        <Slider data={comics} />
       </section>
     </>
   );

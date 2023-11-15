@@ -76,7 +76,9 @@ export default function SearchList() {
       {status === "empty" && notFound}
       {status === "error" && error}
       {content?.length > 0 && listNode}
-      {currentPage < totalPages && content?.length > 0 && <MoreButton />}
+      {currentPage < totalPages && content?.length > 0 && (
+        <MoreButton title='Показать еще' />
+      )}
     </section>
   );
 }

@@ -18,13 +18,13 @@ export default function Sidebar() {
       <nav className='sidebar__wrapper'>
         {HEADER_LINKS.map((item) => (
           <Link
-            key={item.link}
+            key={item.value}
             className={
-              item.link === pathname
+              item.value === pathname
                 ? "sidebar__link sidebar__link-active"
                 : "sidebar__link"
             }
-            href={item.link}
+            href={item.value}
             onClick={() => closeSidebar()}
           >
             {item.title}

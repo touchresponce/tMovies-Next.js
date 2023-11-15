@@ -39,7 +39,8 @@ export default function MovieItemVertical({ data }) {
 
             {data.year && (
               <h2 className='details__subtitle text'>
-                {data.year} • {`18+`} • {duration}
+                {data.year} {data.ageRating && `• ${data.ageRating}+`}
+                {duration && ` • ${duration}`}
               </h2>
             )}
 

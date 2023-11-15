@@ -15,7 +15,6 @@ export default function Crew({ data }) {
 
   return (
     <div className='crew'>
-      {/* <h2 className='crew__title text'>Съёмочная группа</h2> */}
       {professions.map((p) =>
         data.persons.filter((x) => x.enProfession === p.profession).length ? (
           <CrewItem

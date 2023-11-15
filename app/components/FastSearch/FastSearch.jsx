@@ -37,6 +37,10 @@ export default function FastSearch() {
     </p>
   );
 
+  const error = (
+    <p className='fast-search__error'>Ошибка, попробуйте еще раз</p>
+  );
+
   // отложенный запрос после изменения инпута
   useEffect(() => {
     // debouncedValue && handleRequest();
@@ -109,6 +113,7 @@ export default function FastSearch() {
       {content && <FastSearchList data={content} />}
       {status === "loading" && <MainLoader />}
       {status === "empty" && notFound}
+      {status === "error" && error}
     </div>
   );
 }

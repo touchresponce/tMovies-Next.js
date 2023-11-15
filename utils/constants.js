@@ -1,11 +1,11 @@
 export const CURRENT_YEAR = new Date().getFullYear();
 
 export const HEADER_LINKS = [
-  { title: "Главная", link: "/" },
-  { title: "Фильмы", link: "/movie" },
-  { title: "Сериалы", link: "/tv-series" },
-  { title: "Мультфильмы", link: "/cartoon" },
-  { title: "Аниме", link: "/anime" },
+  { title: "Главная", value: "/" },
+  { title: "Фильмы", value: "/movie" },
+  { title: "Сериалы", value: "/tv-series" },
+  { title: "Мультфильмы", value: "/cartoon" },
+  { title: "Аниме", value: "/anime" },
 ];
 
 export const OPTIONS_ORDER = [
@@ -78,7 +78,7 @@ export const SWIPER_BREAKPOINTS_VERTICAL = {
     slidesPerView: 3.4,
   },
   320: {
-    slidesPerView: 2.3,
+    slidesPerView: 2.1,
   },
 };
 
@@ -96,23 +96,51 @@ export const SWIPER_BREAKPOINTS_HORIZONT = {
     slidesPerView: 2.7,
   },
   320: {
-    slidesPerView: 1.4,
+    slidesPerView: 1.2,
   },
 };
 
+export const SWIPER_BREAKPOINTS_BIG = {
+  1480: {
+    slidesPerView: 1.7,
+    spaceBetween: 20,
+  },
+  1280: {
+    slidesPerView: 1.4,
+    spaceBetween: 16,
+  },
+  1024: {
+    slidesPerView: 1.3,
+    spaceBetween: 12,
+  },
+  768: {
+    slidesPerView: 1.2,
+    spaceBetween: 10,
+  },
+  320: {
+    slidesPerView: 1.1,
+  },
+};
+
+const notNullFields =
+  "notNullFields=id&notNullFields=name&notNullFields=poster.url";
+
+const selectFields =
+  "selectFields=id&selectFields=name&selectFields=enName&selectFields=alternativeName&selectFields=description&selectFields=shortDescription&selectFields=year&selectFields=rating&selectFields=ageRating&selectFields=movieLength&selectFields=genres&selectFields=countries&selectFields=poster&selectFields=backdrop&selectFields=logo";
+
 export const LINKS_MAIN = {
-  serials:
-    "https://api.kinopoisk.dev/v1.3/movie?name=!null&poster.previewUrl=!null&rating.kp=5-10&rating.imdb=5-10&year=2022-2023&type=tv-series&limit=30&page=1&sortField=year&sortType=-1&sortField=votes.imdb&sortType=-1",
-  cartoons:
-    "https://api.kinopoisk.dev/v1.3/movie?name=!null&poster.previewUrl=!null&rating.kp=5-10&rating.imdb=5-10&year=2022-2023&type=cartoon&limit=30&page=1&sortField=year&sortType=-1&sortField=votes.imdb&sortType=-1",
-  comedy:
-    "https://api.kinopoisk.dev/v1.3/movie?selectFields=id&selectFields=backdrop&selectFields=logo&selectFields=name&selectFields=enName&selectFields=alternativeName&sortField=votes.imdb&sortType=-1&page=1&limit=20&type=movie&rating.imdb=6-10&logo.url=!null&backdrop.previewUrl=!null&genres.name=комедия&genres.name=!драма",
-  family:
-    "https://api.kinopoisk.dev/v1.3/movie?selectFields=id&selectFields=backdrop&selectFields=logo&selectFields=name&selectFields=enName&selectFields=alternativeName&sortField=votes.kp&sortType=-1&page=1&limit=20&type=movie&rating.imdb=6-10&logo.url=!null&backdrop.previewUrl=!null&genres.name=семейный",
-  best: "https://api.kinopoisk.dev/v1.3/movie?sortField=votes.imdb&sortType=-1&limit=30&year=2023&rating.imdb=6.6-10&name=!null&poster.previewUrl=!null&countries.name=!Россия&countries.name=!Индия",
+  mainSlider: `https://api.kinopoisk.dev/v1.4/movie?limit=30&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&year=2023`,
+  bestCartoons: `https://api.kinopoisk.dev/v1.4/movie?limit=30&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=cartoon&type=anime`,
+  familyComedy: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=theme_family_comedy&${notNullFields}&countries.name=!Россия&countries.name=!СССР`,
+  best: `https://api.kinopoisk.dev/v1.4/movie?limit=30&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&type=cartoon&year=2023`,
+  popular: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=popular-films&countries.name=!Россия&countries.name=!СССР&${notNullFields}`,
+  catastrophe: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=theme_catastrophe&${notNullFields}`,
+  space: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=theme_space&${notNullFields}`,
+  comics: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=theme_comics&${notNullFields}&sortField=votes.imdb&sortType=-1`,
 };
 
 export const LINKS = {
-  personMovies:
-    "https://api.kinopoisk.dev/v1.3/movie?selectFields=rating&selectFields=year&selectFields=movieLength&selectFields=name&selectFields=logo&selectFields=id&selectFields=enName&selectFields=alternativeName&selectFields=backdrop&sortField=premiere.world&sortType=-1&page=1&name=%21null&poster.previewUrl=%21null&limit=250&persons.id=",
+  personMovies: `https://api.kinopoisk.dev/v1.4/movie?limit=250&${selectFields}&${notNullFields}&sortField=year&sortType=-1&persons.id=`,
+  search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}`,
+  fastSearch: "https://api.kinopoisk.dev/v1.4/movie/search?limit=30",
 };

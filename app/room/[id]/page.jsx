@@ -4,7 +4,7 @@ import Additional from "@/app/components/Additional/Additional";
 import MovieModal from "@/app/components/MovieModal/MovieModal";
 
 async function getContent(id) {
-  const responce = await fetch(`https://api.kinopoisk.dev/v1.3/movie/${id}`, {
+  const responce = await fetch(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {
     headers: {
       "X-API-KEY": process.env.KEY,
     },

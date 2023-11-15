@@ -14,13 +14,13 @@ export default function Navigation() {
       <nav className='navigation'>
         {HEADER_LINKS.map((item) => (
           <Link
-            key={item.link}
+            key={item.value}
             className={
-              item.link === pathname
+              item.value === pathname
                 ? "navigation__link navigation__link-active"
                 : "navigation__link"
             }
-            href={item.link}
+            href={item.value}
           >
             {item.title}
             <span className='navigation__link-span' />

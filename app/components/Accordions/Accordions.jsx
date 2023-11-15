@@ -33,7 +33,3 @@ export default function Accordions({ data }) {
     </div>
   );
 }
-
-{
-  /* {isEmptyFees(data.fees) && <Fees data={data} />} */
-}

@@ -15,14 +15,17 @@ export const useSearch = create((set, get) => ({
     const { link } = useFilters.getState();
     const req = pageNum ? `${link}&page=${pageNum}` : link;
 
-    const { docs, pages, page } = await getSearch(req);
-
-    docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
-    set({
-      content: [...get().content, ...docs],
-      totalPages: pages,
-      currentPage: page,
-    });
+    try {
+      const { docs, pages, page } = await getSearch(req);
+      docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
+      set({
+        content: [...get().content, ...docs],
+        totalPages: pages,
+        currentPage: page,
+      });
+    } catch (error) {
+      set({ status: "error" });
+    }
   },
 
   resetContent: () => {
