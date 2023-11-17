@@ -10,6 +10,7 @@ export default function ModalButtons({ type }) {
   return (
     <button
       className='panel__button panel__button_type_room'
+      type='button'
       onClick={() => openMovieModal()}
     >
       Смотреть {formatTypeText(type)}

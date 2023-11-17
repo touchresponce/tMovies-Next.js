@@ -2,15 +2,17 @@ export const CURRENT_YEAR = new Date().getFullYear();
 
 export const HEADER_LINKS = [
   { title: "Главная", value: "/" },
-  { title: "Фильмы", value: "/movie" },
-  { title: "Сериалы", value: "/tv-series" },
-  { title: "Мультфильмы", value: "/cartoon" },
-  { title: "Аниме", value: "/anime" },
+  // { title: "Фильмы", value: "/movie" },
+  // { title: "Сериалы", value: "/tv-series" },
+  // { title: "Мультфильмы", value: "/cartoon" },
+  // { title: "Аниме", value: "/anime" },
+  { title: "Каталог", value: "/catalog" },
 ];
 
 export const OPTIONS_ORDER = [
-  { title: "Новые", value: "-1" },
-  { title: "Старые", value: "1" },
+  { title: "Рекомендуемые", value: "recommended" },
+  { title: "По рейтингу", value: "rating" },
+  { title: "По дате выхода", value: "date" },
 ];
 
 export const OPTIONS_TYPE = [
@@ -19,6 +21,23 @@ export const OPTIONS_TYPE = [
   "Мультфильм",
   "Аниме",
   "Мультсериал",
+];
+
+export const OPTIONS_SHORTCUTS = [
+  { title: "Боевики", value: "боевик" },
+  { title: "Семейные", value: "семейный" },
+  { title: "Космос", value: "семейный" },
+  { title: "Мелодрамы", value: "мелодрама" },
+  { title: "Драмы", value: "драма" },
+  { title: "Зомби", value: "семейный" },
+  { title: "Приключения", value: "приключения" },
+  { title: "Комедии", value: "комедия" },
+  { title: "Детективы", value: "детектив" },
+  { title: "Катастрофы", value: "семейный" },
+  { title: "Криминал", value: "криминал" },
+  { title: "Ужасы", value: "ужасы" },
+  { title: "Фантастика", value: "фантастика" },
+  { title: "Триллеры", value: "триллер" },
 ];
 
 export const OPTIONS_GENRES = [
@@ -63,6 +82,29 @@ export const OPTIONS_RATING = [
   { title: "5-10", value: "5-10" },
   { title: "1-4", value: "1-4" },
 ];
+
+export const SWIPER_BREAKPOINTS_SHORTCUTS = {
+  1480: {
+    slidesPerView: 8,
+    spaceBetween: 15,
+  },
+  1280: {
+    slidesPerView: 7,
+    spaceBetween: 14,
+  },
+  1024: {
+    slidesPerView: 6,
+    spaceBetween: 13,
+  },
+  768: {
+    slidesPerView: 5,
+    spaceBetween: 12,
+  },
+  320: {
+    slidesPerView: 4,
+    spaceBetween: 10,
+  },
+};
 
 export const SWIPER_BREAKPOINTS_VERTICAL = {
   1480: {
@@ -129,14 +171,14 @@ const selectFields =
   "selectFields=id&selectFields=name&selectFields=enName&selectFields=alternativeName&selectFields=description&selectFields=shortDescription&selectFields=year&selectFields=rating&selectFields=ageRating&selectFields=movieLength&selectFields=genres&selectFields=countries&selectFields=poster&selectFields=backdrop&selectFields=logo";
 
 export const LINKS_MAIN = {
-  mainSlider: `https://api.kinopoisk.dev/v1.4/movie?limit=30&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&year=2023`,
-  bestCartoons: `https://api.kinopoisk.dev/v1.4/movie?limit=30&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=cartoon&type=anime`,
-  familyComedy: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=theme_family_comedy&${notNullFields}&countries.name=!Россия&countries.name=!СССР`,
-  best: `https://api.kinopoisk.dev/v1.4/movie?limit=30&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&type=cartoon&year=2023`,
-  popular: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=popular-films&countries.name=!Россия&countries.name=!СССР&${notNullFields}`,
-  catastrophe: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=theme_catastrophe&${notNullFields}`,
-  space: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=theme_space&${notNullFields}`,
-  comics: `https://api.kinopoisk.dev/v1.4/movie?limit=36&type=movie&lists=theme_comics&${notNullFields}&sortField=votes.imdb&sortType=-1`,
+  mainSlider: `https://api.kinopoisk.dev/v1.4/movie?limit=6&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&year=2023`,
+  bestCartoons: `https://api.kinopoisk.dev/v1.4/movie?limit=18&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=cartoon&type=anime`,
+  familyComedy: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_family_comedy&${notNullFields}&countries.name=!Россия&countries.name=!СССР`,
+  best: `https://api.kinopoisk.dev/v1.4/movie?limit=18&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&type=cartoon&year=2023`,
+  popular: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=popular-films&countries.name=!Россия&countries.name=!СССР&${notNullFields}`,
+  catastrophe: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_catastrophe&${notNullFields}`,
+  space: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_space&${notNullFields}`,
+  comics: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_comics&${notNullFields}&sortField=votes.imdb&sortType=-1`,
 };
 
 export const LINKS = {

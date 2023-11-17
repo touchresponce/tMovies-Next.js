@@ -1,11 +1,14 @@
 .section {
-  margin: 30px 0 0;
+  margin: 36px 0 0;
   padding: 0 70px;
-  transition: all 0.2s ease-in-out;
 }
 
 .section:first-of-type {
   margin-top: 100px;
+}
+
+.section:nth-of-type(2) {
+  margin-top: 56px;
 }
 
 .section:last-of-type {
@@ -16,16 +19,6 @@
   font-size: clamp(21px, 5vw, 28px);
   font-style: normal;
   font-weight: 500;
-}
-
-.section__type_movies {
-  margin-top: 56px;
-}
-
-.section__type_relative {
-  position: relative;
-  width: 100%;
-  height: 500px;
 }
 
 @media screen and (max-width: 1024px) {

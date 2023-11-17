@@ -25,19 +25,19 @@ export default function SearchList() {
 
   useEffect(() => {
     switch (pathName) {
-      case "/movie":
+      case "/catalog/movie":
         changeFilters("type", "movie");
         break;
 
-      case "/tv-series":
+      case "/catalog/tv-series":
         changeFilters("type", "tv-series");
         break;
 
-      case "/cartoon":
+      case "/catalog/cartoon":
         changeFilters("type", "cartoon");
         break;
 
-      case "/anime":
+      case "/catalog/anime":
         changeFilters("type", "anime");
         break;
 

@@ -9,11 +9,21 @@ export const updateLink = (filters) => {
     link.append("genres.name", `${filters.genre}`);
   }
 
-  link.append("sortField", "year");
-  link.append("sortType", `${filters.order}`);
+  const sortOptions = {
+    recommended: { field: "votes.kp", type: "-1" },
+    date: { field: "premiere.world", type: "-1" },
+    rating: { field: "rating.kp", type: "-1" },
+  };
 
-  link.append("sortField", "premiere.world");
-  link.append("sortType", `${filters.order}`);
+  if (filters.order in sortOptions) {
+    const { field, type } = sortOptions[filters.order];
+    if (filters.order === "date") {
+      link.append("sortField", "year");
+      link.append("sortType", "-1");
+    }
+    link.append("sortField", field);
+    link.append("sortType", type);
+  }
 
   return link.toString();
 };

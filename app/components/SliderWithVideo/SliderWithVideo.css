@@ -21,8 +21,3 @@
 .big-slider:hover .swiper-button-next {
   opacity: 1;
 }
-
-.big-slider .swiper-slide-next,
-.big-slider .swiper-slide-prev {
-  pointer-events: none;
-}

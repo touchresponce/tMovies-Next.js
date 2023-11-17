@@ -8,7 +8,11 @@ export default function SearchButton() {
   const { openSearch, sidebar } = useModals();
 
   return (
-    <button className='search-button' onClick={() => openSearch()}>
+    <button
+      className='search-button'
+      type='button'
+      onClick={() => openSearch()}
+    >
       <span
         className='search-button__span'
         style={{

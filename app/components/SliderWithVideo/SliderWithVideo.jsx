@@ -40,8 +40,6 @@ export default function SliderWithVideo({ data }) {
       modules={[Navigation, Autoplay]}
       navigation={true}
       speed={800}
-      // autoHeight={true}
-      simulateTouch={false}
       onSlideChange={handleSlideChange}
       autoplay={{
         delay: 90000,
