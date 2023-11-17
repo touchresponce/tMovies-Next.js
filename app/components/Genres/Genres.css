@@ -1,0 +1,8 @@
+.section-genres {
+  margin: 36px 0 0;
+  padding: 0 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 100px;
+}

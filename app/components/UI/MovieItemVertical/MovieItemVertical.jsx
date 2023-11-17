@@ -29,6 +29,7 @@ export default function MovieItemVertical({ data }) {
             alt={`постер ${data.name || data.alternativeName}`}
             fill
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            quality={75}
             style={{
               width: "100%",
               objectFit: "cover",

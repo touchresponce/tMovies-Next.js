@@ -4,10 +4,9 @@ import "./ShortcutSlider.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
-  OPTIONS_SHORTCUTS,
+  OPTIONS_GENRES,
   SWIPER_BREAKPOINTS_SHORTCUTS,
 } from "@/utils/constants";
-import MoreButton from "../UI/MoreButton/MoreButton";
 
 export default function ShortcutSlider() {
   const handleClick = (e) => {
@@ -17,7 +16,6 @@ export default function ShortcutSlider() {
 
   return (
     <Swiper
-      // className='slider'
       className='shortcuts'
       breakpoints={SWIPER_BREAKPOINTS_SHORTCUTS}
       speed={800}
@@ -25,7 +23,7 @@ export default function ShortcutSlider() {
         overflow: "visible",
       }}
     >
-      {OPTIONS_SHORTCUTS.map((item) => (
+      {OPTIONS_GENRES.map((item) => (
         <SwiperSlide key={item.title}>
           <article className='genre noselect'>{item.title}</article>
         </SwiperSlide>

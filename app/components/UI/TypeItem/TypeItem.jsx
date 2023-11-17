@@ -14,7 +14,7 @@ import Anime2 from "../../../../public/images/anime2.webp";
 import Anime3 from "../../../../public/images/anime3.webp";
 import Link from "next/link";
 
-export default function TypeItem({ type }) {
+export default function TypeItem({ type, title }) {
   let images;
   if (type === "movie") {
     images = [Movie3, Movie2, Movie1];
@@ -28,7 +28,7 @@ export default function TypeItem({ type }) {
 
   return (
     <article className='type-item noselect'>
-      <h2 className='type-item__title'>{type}</h2>
+      <h2 className='type-item__title text'>{title}</h2>
       <Link href={`/catalog/${type}`}>
         <div className='type-item__wrapper'>
           {images.map((image, index) => (

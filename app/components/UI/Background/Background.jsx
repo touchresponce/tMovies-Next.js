@@ -14,6 +14,7 @@ export default async function Background({ data }) {
           alt=''
           fill
           sizes='(max-width: 768px) 100vw'
+          quality={75}
           style={{
             objectFit: "cover",
             objectPosition: "50% 30%",

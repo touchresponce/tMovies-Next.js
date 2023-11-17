@@ -16,6 +16,7 @@ export default function MovieItemHorizont({ data }) {
               title={name || alternativeName || enName}
               fill
               sizes='(max-width: 768px) 100vw'
+              quality={75}
               style={{
                 objectFit: "contain",
               }}

@@ -23,23 +23,6 @@ export const OPTIONS_TYPE = [
   "Мультсериал",
 ];
 
-export const OPTIONS_SHORTCUTS = [
-  { title: "Боевики", value: "боевик" },
-  { title: "Семейные", value: "семейный" },
-  { title: "Космос", value: "семейный" },
-  { title: "Мелодрамы", value: "мелодрама" },
-  { title: "Драмы", value: "драма" },
-  { title: "Зомби", value: "семейный" },
-  { title: "Приключения", value: "приключения" },
-  { title: "Комедии", value: "комедия" },
-  { title: "Детективы", value: "детектив" },
-  { title: "Катастрофы", value: "семейный" },
-  { title: "Криминал", value: "криминал" },
-  { title: "Ужасы", value: "ужасы" },
-  { title: "Фантастика", value: "фантастика" },
-  { title: "Триллеры", value: "триллер" },
-];
-
 export const OPTIONS_GENRES = [
   { title: "Все жанры", value: "" },
   { title: "Боевики", value: "боевик" },
@@ -176,13 +159,14 @@ export const LINKS_MAIN = {
   familyComedy: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_family_comedy&${notNullFields}&countries.name=!Россия&countries.name=!СССР`,
   best: `https://api.kinopoisk.dev/v1.4/movie?limit=18&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&type=cartoon&year=2023`,
   popular: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=popular-films&countries.name=!Россия&countries.name=!СССР&${notNullFields}`,
-  catastrophe: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_catastrophe&${notNullFields}`,
-  space: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_space&${notNullFields}`,
-  comics: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_comics&${notNullFields}&sortField=votes.imdb&sortType=-1`,
+  catastrophe: `https://api.kinopoisk.dev/v1.4/movie?limit=18&lists=theme_catastrophe&${notNullFields}`,
+  space: `https://api.kinopoisk.dev/v1.4/movie?limit=18&lists=theme_space&${notNullFields}`,
+  comics: `https://api.kinopoisk.dev/v1.4/movie?limit=18&lists=theme_comics&${notNullFields}&sortField=votes.imdb&sortType=-1`,
 };
 
 export const LINKS = {
   personMovies: `https://api.kinopoisk.dev/v1.4/movie?limit=250&${selectFields}&${notNullFields}&sortField=year&sortType=-1&persons.id=`,
   search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}`,
   fastSearch: "https://api.kinopoisk.dev/v1.4/movie/search?limit=30",
+  shortcut: `https://api.kinopoisk.dev/v1.4/movie?limit=18&lists=`,
 };
