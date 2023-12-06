@@ -57,13 +57,13 @@
   animation: glow 1s ease-out infinite alternate;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (width < 1400px) {
   .navigation {
     gap: 3.57vw;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (width <= 480px) {
   .navigation {
     display: none;
   }

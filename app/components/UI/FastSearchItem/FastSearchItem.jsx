@@ -6,8 +6,6 @@ import Image from "next/image";
 import { useModals } from "@/store/useModalsStore";
 
 export default function FastSearchItem({ data }) {
-  console.log(data);
-
   const { closeSearch } = useModals();
   const { id, rating, name, enName, alternativeName, movieLength, year } = data;
   const title =

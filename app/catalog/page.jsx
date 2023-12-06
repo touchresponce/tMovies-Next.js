@@ -1,52 +1,30 @@
-import "./page.css";
-import { LINKS_MAIN } from "@/utils/constants";
-import Slider from "@/app/components/Slider/Slider";
-import Genres from "../components/Genres/Genres";
-
-async function fetchData(url) {
-  const response = await fetch(url, {
-    headers: {
-      "X-API-KEY": process.env.KEY,
-    },
-  });
-  return response.json();
-}
+import { LINKS_MAIN, SHORTCUTS } from "@/utils/constants";
+import { updateLink } from "@/utils/updateLink";
+import fetchData from "@/utils/fetchData";
+import Library from "../components/Library/Library";
+import SliderSelection from "../components/SliderSelection/SliderSelection";
 
 export default async function CatalogPage() {
-  const { docs: familyComedy } = await fetchData(LINKS_MAIN.familyComedy);
-  const { docs: catastrophe } = await fetchData(LINKS_MAIN.catastrophe);
-  const { docs: space } = await fetchData(LINKS_MAIN.space);
-  const { docs: comics } = await fetchData(LINKS_MAIN.comics);
+  const fetchPromises = Object.keys(SHORTCUTS).map(async (key) => {
+    const link = updateLink(SHORTCUTS[key].filters);
+    const data = await fetchData(`${LINKS_MAIN.search}&${link}`);
+    return { key, data: data.docs.slice(0, 15) };
+  });
+
+  const results = await Promise.all(fetchPromises);
 
   return (
     <>
-      <Genres />
-
-      <section className='section-catalog section-catalog__selection'>
-        <p className='section-catalog__title text noselect'>Семейные комедии</p>
-        <Slider data={familyComedy} horizontal />
-      </section>
-
-      <section className='section-catalog section-catalog__selection'>
-        <p className='section-catalog__title text noselect'>
-          Фильмы про космос
-        </p>
-        <Slider data={space} horizontal />
-      </section>
-
-      <section className='section-catalog section-catalog__selection'>
-        <p className='section-catalog__title text noselect'>
-          Фильмы по комиксам
-        </p>
-        <Slider data={comics} horizontal />
-      </section>
-
-      <section className='section-catalog section-catalog__selection'>
-        <p className='section-catalog__title text noselect'>
-          Фильмы-катастрофы
-        </p>
-        <Slider data={catastrophe} horizontal />
-      </section>
+      <Library />
+      {results.map(({ key, data }) => (
+        <SliderSelection
+          key={key}
+          data={data}
+          title={SHORTCUTS[key].title}
+          selection={key}
+          horizontal
+        />
+      ))}
     </>
   );
 }

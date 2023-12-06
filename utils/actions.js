@@ -1,5 +1,5 @@
 "use server";
-import { LINKS } from "./constants";
+import { LINKS_MAIN } from "./constants";
 
 const headers = {
   headers: {
@@ -8,14 +8,14 @@ const headers = {
 };
 
 export async function getSearch(link) {
-  const url = `${LINKS.search}&${link}`;
+  const url = `${LINKS_MAIN.search}&${link}`;
   const data = await fetch(url, headers);
 
   return data.json();
 }
 
 export async function getFastSearch(query) {
-  const url = `${LINKS.fastSearch}&query=${query}`;
+  const url = `${LINKS_MAIN.fastSearch}&query=${query}`;
   const data = await fetch(url, headers);
 
   return data.json();

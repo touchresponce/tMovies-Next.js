@@ -4,11 +4,11 @@ import { CURRENT_YEAR } from "@/utils/constants";
 import { useSearch } from "./useSearchStore";
 
 const initialFilters = {
-  genre: "",
-  order: "-1",
-  type: "",
-  rating: "1-10",
-  year: `1960-${CURRENT_YEAR}`,
+  type: [],
+  genre: [],
+  rating: ["1-10"],
+  year: [`1960-${CURRENT_YEAR}`],
+  order: ["recommended"],
 };
 
 export const useFilters = create((set, get) => ({
@@ -17,8 +17,19 @@ export const useFilters = create((set, get) => ({
   },
   link: "",
 
+  setFilters: ({ filters }) => {
+    for (let key in filters) {
+      set({
+        filters: { ...get().filters, [key]: filters[key] },
+      });
+    }
+    set({
+      link: updateLink(get().filters),
+    });
+  },
+
   changeFilters: (type, value) => {
-    useSearch.getState().resetContent();
+    useSearch.getState().reset();
     if (value === "") {
       set({
         filters: { ...get().filters, [type]: initialFilters[type] },
@@ -28,7 +39,7 @@ export const useFilters = create((set, get) => ({
       });
     } else {
       set({
-        filters: { ...get().filters, [type]: value },
+        filters: { ...get().filters, [type]: [value] },
       });
       set({
         link: updateLink(get().filters),

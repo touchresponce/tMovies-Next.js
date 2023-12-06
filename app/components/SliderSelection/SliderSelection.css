@@ -1,0 +1,50 @@
+.selection {
+  margin: 36px 0 0;
+  padding: 0 70px;
+}
+
+.selection__title {
+  text-decoration: none;
+  color: inherit;
+  font-size: clamp(21px, 5vw, 28px);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.selection__span {
+  opacity: 0;
+  padding-left: 10px;
+  transition: opacity 0.2s ease-in;
+}
+
+.selection:hover .selection__span {
+  opacity: 1;
+}
+
+.selection:last-of-type {
+  margin-bottom: 50px;
+}
+
+@media screen and (width <= 1024px) {
+  .selection {
+    padding: 0 50px;
+  }
+}
+
+@media screen and (width <= 949px) {
+  .selection {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (width < 768px) {
+  .selection__span {
+    opacity: 1;
+  }
+}
+
+@media screen and (width <= 460px) {
+  .selection {
+    padding: 0 10px;
+  }
+}

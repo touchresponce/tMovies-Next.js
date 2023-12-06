@@ -10,10 +10,6 @@
   transition: 0.3s ease;
 }
 
-.test-item:hover {
-  scale: 102%;
-}
-
 .test-item__logo {
   position: absolute;
   margin: auto;
@@ -27,4 +23,10 @@
 
 .test-item .test-item__background {
   opacity: 0.6;
+}
+
+@media (hover: hover) {
+  .test-item:hover {
+    scale: 102%;
+  }
 }

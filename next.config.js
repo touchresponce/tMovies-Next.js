@@ -10,6 +10,7 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: false,
+  staticPageGenerationTimeout: 180,
 };
 
 module.exports = nextConfig;

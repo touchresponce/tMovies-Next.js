@@ -2,7 +2,9 @@
 
 import "./Slider.css";
 import "swiper/css";
+import "swiper/css/free-mode";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode } from "swiper/modules";
 import MovieItemVertical from "../UI/MovieItemVertical/MovieItemVertical";
 import MovieItemHorizont from "../UI/MovieItemHorizont/MovieItemHorizont";
 import {
@@ -25,6 +27,8 @@ export default function Slider({ data, horizontal = false }) {
     <Swiper
       className='slider'
       spaceBetween={15}
+      modules={[FreeMode]}
+      freeMode={true}
       breakpoints={
         horizontal ? SWIPER_BREAKPOINTS_HORIZONT : SWIPER_BREAKPOINTS_VERTICAL
       }

@@ -1,9 +1,9 @@
-import "./Genres.css";
+import "./Library.css";
 import TypeItem from "../UI/TypeItem/TypeItem";
 
-export default function Genres() {
+export default function Library() {
   return (
-    <section className='section-genres'>
+    <section className='section-library'>
       <TypeItem type='movie' title='Фильмы' />
       <TypeItem type='tv-series' title='Сериалы' />
       <TypeItem type='cartoon' title='Мультфильмы' />

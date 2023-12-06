@@ -1,6 +1,6 @@
 import Test from "@/app/components/Test/Test";
 import Test2 from "@/app/components/Test2/Test2";
-import { LINKS } from "@/utils/constants";
+import { LINKS_MAIN } from "@/utils/constants";
 
 export async function generateMetadata({ params: { id } }) {
   const { name, enName } = await getPerson(id);
@@ -19,7 +19,7 @@ async function getPerson(id) {
 }
 
 async function getMovies(id) {
-  const responce = await fetch(`${LINKS.personMovies}${id}`, {
+  const responce = await fetch(`${LINKS_MAIN.personMovies}${id}`, {
     headers: {
       "X-API-KEY": process.env.KEY,
     },

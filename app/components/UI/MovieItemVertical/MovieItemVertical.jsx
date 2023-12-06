@@ -5,8 +5,7 @@ import formatTime from "@/utils/formatTime";
 
 export default function MovieItemVertical({ data }) {
   const genres = data.genres ? data.genres.slice(0, 2) : null;
-  const duration =
-    data.movieLength !== "undefined" ? formatTime(data.movieLength) : null;
+  const duration = !isNaN(data.movieLength) && formatTime(data.movieLength);
   const ratingKp = data.rating?.kp
     ? data.rating.kp.toString().substring(0, 3)
     : null;
@@ -37,13 +36,10 @@ export default function MovieItemVertical({ data }) {
           />
           <div className='details'>
             <h1 className='details__title text'>{data.name || data.enName}</h1>
-
-            {data.year && (
-              <h2 className='details__subtitle text'>
-                {data.year} {data.ageRating && `• ${data.ageRating}+`}
-                {duration && ` • ${duration}`}
-              </h2>
-            )}
+            <h2 className='details__subtitle text'>
+              {data.year} {data.ageRating && `• ${data.ageRating}+`}
+              {duration && ` • ${duration}`}
+            </h2>
 
             {ratingKp !== null && (
               <div className='details__rating'>
@@ -69,10 +65,6 @@ export default function MovieItemVertical({ data }) {
                   </span>
                 ))}
               </div>
-            )}
-
-            {data.description && (
-              <p className='item__description text'>{data.description}</p>
             )}
           </div>
         </div>

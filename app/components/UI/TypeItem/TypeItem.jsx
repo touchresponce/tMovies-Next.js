@@ -1,5 +1,6 @@
 import "./TypeItem.css";
 import Image from "next/image";
+import Link from "next/link";
 import Movie1 from "../../../../public/images/movie1.webp";
 import Movie2 from "../../../../public/images/movie2.webp";
 import Movie3 from "../../../../public/images/movie3.webp";
@@ -12,7 +13,6 @@ import Cartoon3 from "../../../../public/images/cartoon3.webp";
 import Anime1 from "../../../../public/images/anime1.webp";
 import Anime2 from "../../../../public/images/anime2.webp";
 import Anime3 from "../../../../public/images/anime3.webp";
-import Link from "next/link";
 
 export default function TypeItem({ type, title }) {
   let images;
@@ -29,66 +29,22 @@ export default function TypeItem({ type, title }) {
   return (
     <article className='type-item noselect'>
       <h2 className='type-item__title text'>{title}</h2>
-      <Link href={`/catalog/${type}`}>
-        <div className='type-item__wrapper'>
-          {images.map((image, index) => (
-            <Image
-              key={index}
-              className={`type-item__image type-item__image_type_${
-                index % 3 === 0 ? "center" : index % 3 === 1 ? "left" : "right"
-              }`}
-              src={image}
-              width={200}
-              height={300}
-              alt={`поиск ${type}`}
-            />
-          ))}
-        </div>
+      <Link href={`/catalog/${type}`} className='type-item__wrapper'>
+        {images.map((image, index) => (
+          <Image
+            key={index}
+            className={`type-item__image type-item__image_type_${
+              index % 3 === 0 ? "center" : index % 3 === 1 ? "left" : "right"
+            }`}
+            src={image}
+            alt={`поиск ${type}`}
+            width={200}
+            height={300}
+            priority={index % 3 === 0}
+            placeholder='blur'
+          />
+        ))}
       </Link>
     </article>
   );
 }
-
-// import "./TypeItem.css";
-// import Image from "next/image";
-
-// export default function TypeItem({ type }) {
-//   let images;
-//   if (type === "movie") {
-//     images = ["movie3.webp", "movie2.webp", "movie1.webp"];
-//   } else if (type === "anime") {
-//     images = ["anime1.webp", "anime2.webp", "anime3.webp"];
-//   } else if (type === "serial") {
-//     images = ["serial1.webp", "serial2.webp", "serial3.webp"];
-//   } else if (type === "cartoon") {
-//     images = ["cartoon1.webp", "cartoon2.webp", "cartoon3.webp"];
-//   }
-
-//   const importAll = (r) => {
-//     return r.keys().map(r);
-//   };
-
-//   const imageFiles = importAll(
-//     require.context("../../../../public/images", false, /\.(webp)$/)
-//   );
-
-//   return (
-//     <article className='type-item noselect'>
-//       <h2 className='type-item__title'>{type}</h2>
-//       <div className='type-item__wrapper'>
-//         {images.map((image, index) => (
-//           <Image
-//             key={index}
-//             className={`type-item__image type-item__image_type_${
-//               index % 3 === 0 ? "center" : index % 3 === 1 ? "left" : "right"
-//             }`}
-//             src={imageFiles.find((file) => file.includes(image))}
-//             width={200}
-//             height={300}
-//             alt={`Поиск ${type}`}
-//           />
-//         ))}
-//       </div>
-//     </article>
-//   );
-// }

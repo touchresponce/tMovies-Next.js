@@ -3,14 +3,17 @@
 import "./SearchList.css";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import MoreButton from "../UI/MoreButton/MoreButton";
+import MovieItemVertical from "../UI/MovieItemVertical/MovieItemVertical";
 import { useEffect, useState } from "react";
 import { useFilters } from "@/store/useFiltersStore";
 import { useSearch } from "@/store/useSearchStore";
 import { usePathname } from "next/navigation";
-import MovieItemVertical from "../UI/MovieItemVertical/MovieItemVertical";
+import { SHORTCUTS } from "@/utils/constants";
 
 export default function SearchList() {
-  const pathName = usePathname();
+  const pathname = usePathname();
+  const pathParts = pathname.split("/"); // Разбиваем путь на части
+  const lastPart = pathParts[pathParts.length - 1];
   const {
     content,
     currentPage,
@@ -19,26 +22,19 @@ export default function SearchList() {
     getContent,
     reset: resetContent,
   } = useSearch();
-  const { changeFilters, link, reset: resetLink } = useFilters();
-
+  const { setFilters, changeFilters, link, reset: resetFilters } = useFilters();
   const [prevLink, setPrevLink] = useState(link);
+  // const isSelection = Object.keys(SHORTCUTS).some((key) => lastPart.includes(key));
 
   useEffect(() => {
-    switch (pathName) {
-      case "/catalog/movie":
-        changeFilters("type", "movie");
+    switch (pathname) {
+      case `/catalog/${lastPart}`:
+        changeFilters("type", lastPart);
         break;
 
-      case "/catalog/tv-series":
-        changeFilters("type", "tv-series");
-        break;
-
-      case "/catalog/cartoon":
-        changeFilters("type", "cartoon");
-        break;
-
-      case "/catalog/anime":
-        changeFilters("type", "anime");
+      case `/catalog/selection/${lastPart}`:
+        // isSelection &&
+        setFilters(SHORTCUTS[lastPart]);
         break;
 
       default:
@@ -47,7 +43,7 @@ export default function SearchList() {
 
     return () => {
       resetContent();
-      resetLink();
+      resetFilters();
     };
   }, []);
 

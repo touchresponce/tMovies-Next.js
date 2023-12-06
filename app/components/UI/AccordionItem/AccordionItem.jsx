@@ -11,7 +11,7 @@ export default function AccordionItem({ children, title }) {
 
   return (
     <div className={`accordion ${isOpen ? "active" : ""}`}>
-      <button className='accordion__button' onClick={handleClick}>
+      <button className='accordion__button noselect' onClick={handleClick}>
         {title}
       </button>
       <div

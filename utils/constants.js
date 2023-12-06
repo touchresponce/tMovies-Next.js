@@ -2,10 +2,6 @@ export const CURRENT_YEAR = new Date().getFullYear();
 
 export const HEADER_LINKS = [
   { title: "Главная", value: "/" },
-  // { title: "Фильмы", value: "/movie" },
-  // { title: "Сериалы", value: "/tv-series" },
-  // { title: "Мультфильмы", value: "/cartoon" },
-  // { title: "Аниме", value: "/anime" },
   { title: "Каталог", value: "/catalog" },
 ];
 
@@ -13,14 +9,6 @@ export const OPTIONS_ORDER = [
   { title: "Рекомендуемые", value: "recommended" },
   { title: "По рейтингу", value: "rating" },
   { title: "По дате выхода", value: "date" },
-];
-
-export const OPTIONS_TYPE = [
-  "Фильм",
-  "Сериал",
-  "Мультфильм",
-  "Аниме",
-  "Мультсериал",
 ];
 
 export const OPTIONS_GENRES = [
@@ -103,7 +91,7 @@ export const SWIPER_BREAKPOINTS_VERTICAL = {
     slidesPerView: 3.4,
   },
   320: {
-    slidesPerView: 2.1,
+    slidesPerView: 2.6,
   },
 };
 
@@ -121,7 +109,7 @@ export const SWIPER_BREAKPOINTS_HORIZONT = {
     slidesPerView: 2.7,
   },
   320: {
-    slidesPerView: 1.2,
+    slidesPerView: 1.8,
   },
 };
 
@@ -151,22 +139,147 @@ const notNullFields =
   "notNullFields=id&notNullFields=name&notNullFields=poster.url";
 
 const selectFields =
-  "selectFields=id&selectFields=name&selectFields=enName&selectFields=alternativeName&selectFields=description&selectFields=shortDescription&selectFields=year&selectFields=rating&selectFields=ageRating&selectFields=movieLength&selectFields=genres&selectFields=countries&selectFields=poster&selectFields=backdrop&selectFields=logo";
+  "selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=enName&selectFields=type&selectFields=year&selectFields=description&selectFields=shortDescription&selectFields=movieLength&selectFields=isSeries&selectFields=ticketsOnSale&selectFields=totalSeriesLength&selectFields=seriesLength&selectFields=ratingMpaa&selectFields=ageRating&selectFields=top10&selectFields=top250&selectFields=typeNumber&selectFields=status&selectFields=names&selectFields=logo&selectFields=poster&selectFields=backdrop&selectFields=rating&selectFields=votes&selectFields=genres&selectFields=countries&selectFields=releaseYears";
 
 export const LINKS_MAIN = {
   mainSlider: `https://api.kinopoisk.dev/v1.4/movie?limit=6&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&year=2023`,
-  bestCartoons: `https://api.kinopoisk.dev/v1.4/movie?limit=18&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=cartoon&type=anime`,
-  familyComedy: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=theme_family_comedy&${notNullFields}&countries.name=!Россия&countries.name=!СССР`,
-  best: `https://api.kinopoisk.dev/v1.4/movie?limit=18&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&type=cartoon&year=2023`,
-  popular: `https://api.kinopoisk.dev/v1.4/movie?limit=18&type=movie&lists=popular-films&countries.name=!Россия&countries.name=!СССР&${notNullFields}`,
-  catastrophe: `https://api.kinopoisk.dev/v1.4/movie?limit=18&lists=theme_catastrophe&${notNullFields}`,
-  space: `https://api.kinopoisk.dev/v1.4/movie?limit=18&lists=theme_space&${notNullFields}`,
-  comics: `https://api.kinopoisk.dev/v1.4/movie?limit=18&lists=theme_comics&${notNullFields}&sortField=votes.imdb&sortType=-1`,
-};
-
-export const LINKS = {
   personMovies: `https://api.kinopoisk.dev/v1.4/movie?limit=250&${selectFields}&${notNullFields}&sortField=year&sortType=-1&persons.id=`,
   search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}`,
   fastSearch: "https://api.kinopoisk.dev/v1.4/movie/search?limit=30",
-  shortcut: `https://api.kinopoisk.dev/v1.4/movie?limit=18&lists=`,
 };
+
+export const SHORTCUTS = {
+  bestOfYear: {
+    title: "Лучшее 2023",
+    filters: {
+      type: ["movie", "tv-series", "cartoon"],
+      rating: ["6.5-10"],
+      year: ["2023"],
+      order: ["recommended"],
+      genre: ["!реальное ТВ", "!документальный"],
+    },
+  },
+  bestCartoons: {
+    title: "Лучшая анимация",
+    filters: {
+      type: ["anime", "cartoon"],
+      rating: ["6.5-10"],
+    },
+  },
+  familyComedy: {
+    title: "Семейные комедии",
+    filters: {
+      type: ["movie"],
+      rating: ["6-10"],
+      genre: ["+комедия", "+семейный", "!драма"],
+    },
+  },
+  bestHorror: {
+    title: "Лучшие ужасы",
+    filters: {
+      type: ["movie"],
+      rating: ["6-10"],
+      genre: ["+ужасы", "!комедия", "!боевик", "!короткометражка"],
+    },
+  },
+  comedyAction: {
+    title: "Комедийные боевики",
+    filters: {
+      lists: ["theme_action_comdey"],
+    },
+  },
+  catastrophe: {
+    title: "Фильмы-катастрофы",
+    filters: {
+      lists: ["theme_catastrophe"],
+    },
+  },
+  space: {
+    title: "Фильмы про космос",
+    filters: {
+      lists: ["theme_space"],
+    },
+  },
+  vampire: {
+    title: "Фильмы про вампиров",
+    filters: {
+      lists: ["theme_vampire"],
+    },
+  },
+  comics: {
+    title: "Фильмы по комиксам",
+    filters: {
+      lists: ["theme_comics"],
+    },
+  },
+  oscarBestFilm: {
+    title: "Оскар",
+    filters: {
+      lists: ["oscar-best-film"],
+    },
+  },
+  realStory: {
+    title: "Фильмы по реальным событиям",
+    filters: {
+      lists: ["hd-real-story"],
+    },
+  },
+  adaptation: {
+    title: "Лучшие экранизации",
+    filters: {
+      lists: ["hd-adaptation"],
+    },
+  },
+  marvel: {
+    title: "Киновселенная MARVEL",
+    filters: {
+      lists: ["marvel_universe"],
+    },
+  },
+  blockbusters: {
+    title: "Блокбастеры",
+    filters: {
+      lists: ["hd-blockbusters"],
+    },
+  },
+  hbo: {
+    title: "Шедевры HBO",
+    filters: {
+      lists: ["hbo_best"],
+    },
+  },
+  greatestSerials: {
+    title: "100 лучших сериалов",
+    filters: {
+      lists: ["100_greatest_TVseries"],
+    },
+  },
+  themeLove: {
+    title: "Фильмы про любовь",
+    filters: {
+      lists: ["theme_love"],
+    },
+  },
+  boxWorld: {
+    title: "Самые кассовые",
+    filters: {
+      lists: ["box-world-not-usa"],
+    },
+  },
+  mustSee: {
+    title: "Стоит посмотреть",
+    filters: {
+      lists: ["hd-must-see"],
+    },
+  },
+};
+
+//
+// Хаяо Миядзаки (аниме)
+// Макото Синкай
+// Стивен Спилберг
+// Стивен Кинг
+// Гай Ричи
+// Квентин Тарантино
+// Кристофер Нолан
+//

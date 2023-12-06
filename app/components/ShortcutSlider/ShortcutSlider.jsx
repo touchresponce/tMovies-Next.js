@@ -15,19 +15,21 @@ export default function ShortcutSlider() {
   };
 
   return (
-    <Swiper
-      className='shortcuts'
-      breakpoints={SWIPER_BREAKPOINTS_SHORTCUTS}
-      speed={800}
-      style={{
-        overflow: "visible",
-      }}
-    >
-      {OPTIONS_GENRES.map((item) => (
-        <SwiperSlide key={item.title}>
-          <article className='genre noselect'>{item.title}</article>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <section className='shortcut'>
+      <Swiper
+        className='shortcuts'
+        breakpoints={SWIPER_BREAKPOINTS_SHORTCUTS}
+        speed={800}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        {OPTIONS_GENRES.map((item) => (
+          <SwiperSlide key={item.title}>
+            <article className='genre noselect'>{item.title}</article>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
   );
 }

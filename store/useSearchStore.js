@@ -2,13 +2,15 @@ import { create } from "zustand";
 import { useFilters } from "./useFiltersStore";
 import { getSearch } from "@/utils/actions";
 
+const initial = {
+  content: [],
+  totalPages: 0,
+  currentPage: 0,
+  status: "init", // init | loading | error | empty | success
+};
+
 export const useSearch = create((set, get) => ({
-  initial: {
-    content: [],
-    totalPages: 0,
-    currentPage: 0,
-    status: "init", // init | loading | error | empty | succsess
-  },
+  ...initial,
 
   getContent: async (pageNum) => {
     set({ status: "loading" });
@@ -17,7 +19,7 @@ export const useSearch = create((set, get) => ({
 
     try {
       const { docs, pages, page } = await getSearch(req);
-      docs.length ? set({ status: "succsess" }) : set({ status: "empty" });
+      docs.length ? set({ status: "success" }) : set({ status: "empty" });
       set({
         content: [...get().content, ...docs],
         totalPages: pages,
@@ -28,11 +30,8 @@ export const useSearch = create((set, get) => ({
     }
   },
 
-  resetContent: () => {
-    set({ content: [] });
-  },
-
   reset: () => {
-    set((state) => ({ ...state, ...state.initial }));
+    // set((state) => ({ ...state, ...state.initial }));
+    set({ ...initial });
   },
 }));

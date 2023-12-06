@@ -1,7 +1,11 @@
+.shortcut {
+  margin: 36px 0 0;
+  padding: 0 70px;
+}
+
 .genre {
   padding: 14px;
   text-align: center;
-  /* border: none; */
   border: 1px solid #2f2f2f;
   border-radius: 8px;
   color: inherit;

@@ -1,28 +1,29 @@
+const sortOptions = {
+  // recommended: { field: "votes.kp", value: "-1" },
+  recommended: { field: "votes.imdb", value: "-1" },
+  date: { field: "premiere.world", value: "-1" },
+  rating: { field: "rating.kp", value: "-1" },
+};
+
 export const updateLink = (filters) => {
-  const link = new URLSearchParams({
-    year: filters.year,
-    type: filters.type,
-    [`rating.kp`]: filters.rating,
-  });
+  const link = new URLSearchParams();
 
-  if (filters.genre !== "") {
-    link.append("genres.name", `${filters.genre}`);
-  }
-
-  const sortOptions = {
-    recommended: { field: "votes.kp", type: "-1" },
-    date: { field: "premiere.world", type: "-1" },
-    rating: { field: "rating.kp", type: "-1" },
-  };
-
-  if (filters.order in sortOptions) {
-    const { field, type } = sortOptions[filters.order];
-    if (filters.order === "date") {
-      link.append("sortField", "year");
-      link.append("sortType", "-1");
+  for (let key in filters) {
+    if (key === "order") {
+      const { field, value } = sortOptions[filters.order];
+      if (filters.order[0] === "date") {
+        link.append("sortField", "year");
+        link.append("sortType", "-1");
+      }
+      link.append("sortField", field);
+      link.append("sortType", value);
+    } else if (key === "rating") {
+      filters[key].forEach((value) => link.append("rating.kp", value));
+    } else if (key === "genre") {
+      filters[key].forEach((value) => link.append("genres.name", value));
+    } else {
+      filters[key].forEach((value) => link.append(key, value));
     }
-    link.append("sortField", field);
-    link.append("sortType", type);
   }
 
   return link.toString();

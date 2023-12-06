@@ -1,0 +1,8 @@
+.section-library {
+  margin: 100px 0 0;
+  padding: 0 70px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-content: space-evenly;
+  gap: 40px;
+}

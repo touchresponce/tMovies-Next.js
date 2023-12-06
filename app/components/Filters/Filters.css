@@ -6,25 +6,32 @@
   transition: all 0.2s ease-in-out;
 }
 
+.filters__title {
+  color: inherit;
+  font-size: clamp(21px, 5vw, 28px);
+  font-style: normal;
+  font-weight: 500;
+}
+
 .block {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (width < 1024px) {
   .fitlers {
     padding: 0 50px;
   }
 }
 
-@media screen and (max-width: 949px) {
+@media screen and (width < 949px) {
   .fitlers {
     padding: 0 20px;
   }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (width < 760px) {
   .fitlers {
     display: flex;
     flex-direction: column;

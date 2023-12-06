@@ -1,60 +1,65 @@
 import "./page.css";
-import { LINKS_MAIN } from "@/utils/constants";
-import Slider from "./components/Slider/Slider";
+import fetchData from "@/utils/fetchData";
+import { updateLink } from "@/utils/updateLink";
+import { LINKS_MAIN, SHORTCUTS } from "@/utils/constants";
 import SliderWithVideo from "./components/SliderWithVideo/SliderWithVideo";
 import ShortcutSlider from "./components/ShortcutSlider/ShortcutSlider";
+import SliderSelection from "./components/SliderSelection/SliderSelection";
 
-async function fetchData(url) {
-  const response = await fetch(url, {
-    headers: {
-      "X-API-KEY": process.env.KEY,
-    },
-  });
-  return response.json();
+async function getSliderData(key) {
+  const link = updateLink(SHORTCUTS[key].filters);
+  const { docs } = await fetchData(`${LINKS_MAIN.search}&${link}`);
+  return { docs, key };
 }
 
-export default async function Home() {
-  // const { docs: mainSlider } = await fetchData(LINKS_MAIN.mainSlider);
-  const { docs: best } = await fetchData(LINKS_MAIN.best);
-  const { docs: popular } = await fetchData(LINKS_MAIN.popular);
-  const { docs: cartoons } = await fetchData(LINKS_MAIN.bestCartoons);
-  const { docs: catastrophe } = await fetchData(LINKS_MAIN.catastrophe);
-  const { docs: space } = await fetchData(LINKS_MAIN.space);
+export default async function HomePage() {
+  const { docs: mainSlider } = await fetchData(LINKS_MAIN.mainSlider);
+
+  const { docs: best, key: bestKey } = await getSliderData("bestOfYear");
+  const { docs: mustSee, key: mustSeeKey } = await getSliderData("mustSee");
+  const { docs: catastrophe, key: catastropheKey } = await getSliderData(
+    "catastrophe"
+  );
+  const { docs: hbo, key: hboKey } = await getSliderData("hbo");
+  const { docs: animation, key: animationKey } = await getSliderData(
+    "bestCartoons"
+  );
 
   return (
     <>
-      {/* <section className='section section__type_main'>
+      <section className='section section__type_main'>
         <SliderWithVideo data={mainSlider} />
-      </section> */}
-
-      <section className='section section__type_genres'>
-        <ShortcutSlider />
       </section>
 
-      <section className='section '>
-        <p className='section__title text noselect'>Лучшее 2023</p>
-        <Slider data={best} />
-      </section>
+      <ShortcutSlider />
 
-      <section className='section section__type_serials'>
-        <p className='section__title text noselect'>Популярные фильмы</p>
-        <Slider data={popular} horizontal />
-      </section>
-
-      <section className='section'>
-        <p className='section__title text noselect'>Фильмы про космос</p>
-        <Slider data={space} />
-      </section>
-
-      <section className='section'>
-        <p className='section__title text noselect'>Фильмы-катастрофы</p>
-        <Slider data={catastrophe} horizontal />
-      </section>
-
-      <section className='section section__type_cartoons'>
-        <p className='section__title text noselect'>Лучшая анимация</p>
-        <Slider data={cartoons} />
-      </section>
+      <SliderSelection
+        data={best}
+        title={SHORTCUTS[bestKey].title}
+        selection={bestKey}
+      />
+      <SliderSelection
+        data={mustSee}
+        title={SHORTCUTS[mustSeeKey].title}
+        selection={mustSeeKey}
+        horizontal
+      />
+      <SliderSelection
+        data={hbo}
+        title={SHORTCUTS[hboKey].title}
+        selection={hboKey}
+      />
+      <SliderSelection
+        data={catastrophe}
+        title={SHORTCUTS[catastropheKey].title}
+        selection={catastropheKey}
+        horizontal
+      />
+      <SliderSelection
+        data={animation}
+        title={SHORTCUTS[animationKey].title}
+        selection={animationKey}
+      />
     </>
   );
 }
