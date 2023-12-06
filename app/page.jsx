@@ -17,13 +17,7 @@ export default async function HomePage() {
 
   const { docs: best, key: bestKey } = await getSliderData("bestOfYear");
   const { docs: mustSee, key: mustSeeKey } = await getSliderData("mustSee");
-  const { docs: catastrophe, key: catastropheKey } = await getSliderData(
-    "catastrophe"
-  );
   const { docs: hbo, key: hboKey } = await getSliderData("hbo");
-  const { docs: animation, key: animationKey } = await getSliderData(
-    "bestCartoons"
-  );
 
   return (
     <>
@@ -42,23 +36,11 @@ export default async function HomePage() {
         data={mustSee}
         title={SHORTCUTS[mustSeeKey].title}
         selection={mustSeeKey}
-        horizontal
       />
       <SliderSelection
         data={hbo}
         title={SHORTCUTS[hboKey].title}
         selection={hboKey}
-      />
-      <SliderSelection
-        data={catastrophe}
-        title={SHORTCUTS[catastropheKey].title}
-        selection={catastropheKey}
-        horizontal
-      />
-      <SliderSelection
-        data={animation}
-        title={SHORTCUTS[animationKey].title}
-        selection={animationKey}
       />
     </>
   );

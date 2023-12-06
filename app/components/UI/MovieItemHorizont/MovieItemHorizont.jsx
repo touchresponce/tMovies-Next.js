@@ -15,7 +15,7 @@ export default function MovieItemHorizont({ data }) {
               alt={`логотип ${name || alternativeName || enName}`}
               title={name || alternativeName || enName}
               fill
-              sizes='(max-width: 768px) 100vw'
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
               quality={75}
               style={{
                 objectFit: "contain",
@@ -29,7 +29,7 @@ export default function MovieItemHorizont({ data }) {
             src={backdrop?.previewUrl}
             alt={`постер ${name || alternativeName || enName}`}
             fill
-            sizes='(max-width: 768px) 100vw'
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             style={{
               width: "100%",
               objectFit: "cover",

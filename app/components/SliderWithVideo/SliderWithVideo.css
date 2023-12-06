@@ -12,12 +12,14 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  scale: 120%;
-}
+@media (hover: hover) {
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    scale: 120%;
+  }
 
-.big-slider:hover .swiper-button-prev,
-.big-slider:hover .swiper-button-next {
-  opacity: 1;
+  .big-slider:hover .swiper-button-prev,
+  .big-slider:hover .swiper-button-next {
+    opacity: 1;
+  }
 }

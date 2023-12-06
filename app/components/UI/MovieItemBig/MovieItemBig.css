@@ -1,7 +1,9 @@
 .movie-item-big {
   position: relative;
   width: 100%;
-  padding-bottom: 60%;
+  /* padding-bottom: 60%; */
+  padding-bottom: 56.25%;
+  /* height: 620px; */
   --transition-duration: 700ms;
   color: inherit;
   border-radius: 20px;
@@ -59,4 +61,10 @@
 
 .content__type_active .content {
   transform: translateY(61px);
+}
+
+@media screen and (max-width: 576px) {
+  .movie-item-big {
+    padding-bottom: 62%;
+  }
 }

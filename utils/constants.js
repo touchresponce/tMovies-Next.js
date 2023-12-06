@@ -114,24 +114,21 @@ export const SWIPER_BREAKPOINTS_HORIZONT = {
 };
 
 export const SWIPER_BREAKPOINTS_BIG = {
-  1480: {
-    slidesPerView: 1.7,
-    spaceBetween: 20,
-  },
-  1280: {
-    slidesPerView: 1.4,
-    spaceBetween: 16,
-  },
-  1024: {
-    slidesPerView: 1.3,
-    spaceBetween: 12,
-  },
-  768: {
-    slidesPerView: 1.2,
+  320: {
+    slidesPerView: 0.8,
     spaceBetween: 10,
   },
-  320: {
-    slidesPerView: 1.1,
+  768: {
+    slidesPerView: 0.9,
+    spaceBetween: 12,
+  },
+  1024: {
+    slidesPerView: 1.2,
+    spaceBetween: 16,
+  },
+  1440: {
+    slidesPerView: 1.7,
+    spaceBetween: 20,
   },
 };
 
