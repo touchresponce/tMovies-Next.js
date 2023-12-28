@@ -31,16 +31,10 @@ export default function MovieItemVertical({ data }) {
       >
         <div className='item__cover'>
           <Image
-            src={
-              data?.poster?.previewUrl
-                ? data.poster.previewUrl
-                : `https://st.kp.yandex.net/images/film_iphone/iphone360_${data.id}.jpg`
-            }
+            src={data?.poster?.previewUrl}
             alt={`постер ${data.name || data.alternativeName}`}
-            priority={true}
             fill
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            quality={75}
+            sizes='(max-width: 768px) 30vw, 20vw'
             style={{
               width: "100%",
               objectFit: "cover",

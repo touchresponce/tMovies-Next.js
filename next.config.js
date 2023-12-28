@@ -1,13 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "st.kp.yandex.net",
-      "avatars.mds.yandex.net",
-      "www.themoviedb.org",
-      "imagetmdb.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "st.kp.yandex.net",
+      },
+      {
+        protocol: "https",
+        hostname: "imagetmdb.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.themoviedb.org",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.mds.yandex.net",
+      },
     ],
-    unoptimized: true,
+    // unoptimized: true,
+    formats: ["image/avif", "image/webp"],
   },
   reactStrictMode: false,
   staticPageGenerationTimeout: 180,

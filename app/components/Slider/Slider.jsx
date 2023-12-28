@@ -1,5 +1,3 @@
-"use client";
-
 import "./Slider.css";
 import "@splidejs/react-splide/css";
 import { useEffect, useRef, useState } from "react";

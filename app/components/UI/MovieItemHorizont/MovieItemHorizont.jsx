@@ -13,11 +13,9 @@ export default function MovieItemHorizont({ data }) {
             <Image
               src={logo?.url}
               alt={`логотип ${name || alternativeName || enName}`}
-              priority={true}
               title={name || alternativeName || enName}
               fill
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-              quality={75}
+              sizes='(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 20vw'
               style={{
                 objectFit: "contain",
               }}
@@ -29,9 +27,8 @@ export default function MovieItemHorizont({ data }) {
             className='horizont-item__background'
             src={backdrop?.previewUrl}
             alt={`постер ${name || alternativeName || enName}`}
-            priority={true}
             fill
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            sizes='(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 20vw'
             style={{
               width: "100%",
               objectFit: "cover",

@@ -1,10 +1,9 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import dynamic from "next/dynamic";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import FastSearch from "./components/FastSearch/FastSearch";
-import Sidebar from "./components/Sidebar/Sidebar";
 import Providers from "./providers";
 import Error from "./error";
 
@@ -14,6 +13,14 @@ export const metadata = {
   title:
     "Смотреть фильмы онлайн в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре Tastemovies",
 };
+
+const FastSearch = dynamic(() => import("./components/FastSearch/FastSearch"), {
+  ssr: false,
+});
+
+const Sidebar = dynamic(() => import("./components/Sidebar/Sidebar"), {
+  ssr: false,
+});
 
 export default function RootLayout({ children }) {
   return (

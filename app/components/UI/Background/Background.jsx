@@ -8,10 +8,9 @@ export default async function Background({ data }) {
         <Image
           src={data.backdrop.url}
           alt=''
-          priority={true}
+          priority
           fill
-          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-          quality={75}
+          sizes='(max-width: 768px) 100vw, 70vw'
           style={{
             objectFit: "cover",
             objectPosition: "50% 30%",

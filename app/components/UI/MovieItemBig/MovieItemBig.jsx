@@ -26,10 +26,9 @@ export default function MovieItemBig({ data }) {
         <Image
           src={backdrop?.url}
           alt=''
-          priority={true}
+          priority
           fill
-          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-          quality={50}
+          sizes='(max-width: 768px) 70vw, 55vw'
           style={{
             objectFit: "cover",
             zIndex: 1,

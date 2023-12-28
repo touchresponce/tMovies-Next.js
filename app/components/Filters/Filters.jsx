@@ -39,12 +39,7 @@ export default function Filters({ title }) {
         </>
       ) : (
         <>
-          <h1
-            className='text noselect filters__title'
-            style={{
-              alignSelf: "center",
-            }}
-          >
+          <h1 className='text noselect filters__title filters__title_type_second'>
             {title}
           </h1>
           <Dropdown options={OPTIONS_ORDER} inputType='order' />

@@ -18,7 +18,8 @@ export default function BigSlider({ data }) {
           speed: 1600,
           // arrows: false,
           autoplay: true,
-          interval: 15000,
+          interval: 20000,
+          pauseOnHover: true,
         }}
       >
         {data?.map((item) => (

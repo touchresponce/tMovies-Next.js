@@ -11,9 +11,9 @@ export default function MovieLogo({ data }) {
             className='logo'
             src={logo.url}
             alt={name || enName}
-            priority={true}
             fill
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            sizes='(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 33vw'
+            quality={65}
           />
         </div>
       ) : (
