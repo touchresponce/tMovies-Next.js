@@ -1,5 +1,5 @@
-import Test from "@/app/components/Test/Test";
-import Test2 from "@/app/components/Test2/Test2";
+import PersonInfo from "@/app/components/PersonInfo/PersonInfo";
+import PersonMovies from "@/app/components/PersonMovies/PersonMovies";
 import { LINKS_MAIN } from "@/utils/constants";
 
 export async function generateMetadata({ params: { id } }) {
@@ -33,8 +33,8 @@ export default async function Person({ params: { id } }) {
 
   return (
     <>
-      <Test data={person} />
-      <Test2 data={movies} />
+      <PersonInfo data={person} />
+      <PersonMovies data={movies} />
     </>
   );
 }

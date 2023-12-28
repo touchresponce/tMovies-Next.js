@@ -1,4 +1,4 @@
-.test-item {
+.horizont-item {
   position: relative;
   width: 100%;
   padding-bottom: 63%;
@@ -10,7 +10,7 @@
   transition: 0.3s ease;
 }
 
-.test-item__logo {
+.horizont-item__logo {
   position: absolute;
   margin: auto;
   top: 0;
@@ -21,12 +21,12 @@
   z-index: 2;
 }
 
-.test-item .test-item__background {
+.horizont-item .horizont-item__background {
   opacity: 0.6;
 }
 
 @media (hover: hover) {
-  .test-item:hover {
+  .horizont-item:hover {
     scale: 102%;
   }
 }

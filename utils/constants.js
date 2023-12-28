@@ -1,8 +1,17 @@
 export const CURRENT_YEAR = new Date().getFullYear();
 
-export const HEADER_LINKS = [
+export const HEADER_LINKS_MAIN = [
   { title: "Главная", value: "/" },
   { title: "Каталог", value: "/catalog" },
+];
+
+export const HEADER_LINKS_SIDEBAR = [
+  { title: "Главная", value: "/" },
+  { title: "Каталог", value: "/catalog" },
+  { title: "Фильмы", value: "/catalog/movie" },
+  { title: "Сериалы", value: "/catalog/tv-series" },
+  { title: "Мультфильмы", value: "/catalog/cartoon" },
+  { title: "Аниме", value: "/catalog/anime" },
 ];
 
 export const OPTIONS_ORDER = [
@@ -54,81 +63,30 @@ export const OPTIONS_RATING = [
   { title: "1-4", value: "1-4" },
 ];
 
-export const SWIPER_BREAKPOINTS_SHORTCUTS = {
-  1480: {
-    slidesPerView: 8,
-    spaceBetween: 15,
-  },
+export const SLIDER_BREAKPOINTS_VERTICAL = {
   1280: {
-    slidesPerView: 7,
-    spaceBetween: 14,
+    perPage: 5,
   },
   1024: {
-    slidesPerView: 6,
-    spaceBetween: 13,
+    perPage: 4,
   },
   768: {
-    slidesPerView: 5,
-    spaceBetween: 12,
+    perPage: 3,
   },
-  320: {
-    slidesPerView: 4,
-    spaceBetween: 10,
+  480: {
+    perPage: 2,
   },
 };
 
-export const SWIPER_BREAKPOINTS_VERTICAL = {
-  1480: {
-    slidesPerView: 6.3,
-  },
+export const SLIDER_BREAKPOINTS_HORIZONT = {
   1280: {
-    slidesPerView: 5.2,
+    perPage: 4,
   },
   1024: {
-    slidesPerView: 4.1,
+    perPage: 3,
   },
   768: {
-    slidesPerView: 3.4,
-  },
-  320: {
-    slidesPerView: 2.6,
-  },
-};
-
-export const SWIPER_BREAKPOINTS_HORIZONT = {
-  1480: {
-    slidesPerView: 5.2,
-  },
-  1280: {
-    slidesPerView: 4.1,
-  },
-  1024: {
-    slidesPerView: 3.6,
-  },
-  768: {
-    slidesPerView: 2.7,
-  },
-  320: {
-    slidesPerView: 1.8,
-  },
-};
-
-export const SWIPER_BREAKPOINTS_BIG = {
-  320: {
-    slidesPerView: 0.8,
-    spaceBetween: 10,
-  },
-  768: {
-    slidesPerView: 0.9,
-    spaceBetween: 12,
-  },
-  1024: {
-    slidesPerView: 1.2,
-    spaceBetween: 16,
-  },
-  1440: {
-    slidesPerView: 1.7,
-    spaceBetween: 20,
+    perPage: 2,
   },
 };
 
@@ -139,7 +97,7 @@ const selectFields =
   "selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=enName&selectFields=type&selectFields=year&selectFields=description&selectFields=shortDescription&selectFields=movieLength&selectFields=isSeries&selectFields=ticketsOnSale&selectFields=totalSeriesLength&selectFields=seriesLength&selectFields=ratingMpaa&selectFields=ageRating&selectFields=top10&selectFields=top250&selectFields=typeNumber&selectFields=status&selectFields=names&selectFields=logo&selectFields=poster&selectFields=backdrop&selectFields=rating&selectFields=votes&selectFields=genres&selectFields=countries&selectFields=releaseYears";
 
 export const LINKS_MAIN = {
-  mainSlider: `https://api.kinopoisk.dev/v1.4/movie?limit=6&${selectFields}&${notNullFields}&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&year=2023`,
+  mainSlider: `https://api.kinopoisk.dev/v1.4/movie?limit=10&${selectFields}&${notNullFields}&notNullFields=ageRating&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&year=2023`,
   personMovies: `https://api.kinopoisk.dev/v1.4/movie?limit=250&${selectFields}&${notNullFields}&sortField=year&sortType=-1&persons.id=`,
   search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}`,
   fastSearch: "https://api.kinopoisk.dev/v1.4/movie/search?limit=30",
@@ -153,7 +111,7 @@ export const SHORTCUTS = {
       rating: ["6.5-10"],
       year: ["2023"],
       order: ["recommended"],
-      genre: ["!реальное ТВ", "!документальный"],
+      genre: ["!реальное ТВ", "!документальный", "!концерт"],
     },
   },
   bestCartoons: {

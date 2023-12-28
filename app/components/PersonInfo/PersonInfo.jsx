@@ -1,8 +1,8 @@
-import "./Test.css";
+import "./PersonInfo.css";
 import Image from "next/image";
 import formatDate from "@/utils/formatDate";
 
-export default function Test({ data }) {
+export default function PersonInfo({ data }) {
   const { name, enName, photo, age, death, birthday } = data;
 
   const birthPlace =
@@ -20,7 +20,7 @@ export default function Test({ data }) {
             alt={`фотография ${name}`}
             fill
             priority
-            sizes='(max-width: 768px) 100vw'
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             style={{
               width: "100%",
               objectFit: "cover",

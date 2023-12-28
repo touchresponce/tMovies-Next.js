@@ -1,11 +1,30 @@
-.slider {
-  padding: 16px 0 10px !important;
-  transition: all ease-in-out 0.3s;
-  position: relative;
+.carousel {
+  padding: 16px 0;
+}
+
+.splide__track {
+  overflow: visible !important;
+}
+
+/* progressbar */
+.my-slider-progress {
+  align-self: flex-end;
+  background: #2f2f2f;
+  width: 34%;
+  border-radius: 3px;
+}
+
+/* progressbar */
+.my-slider-progress-bar {
+  background: #0a2fff;
+  height: 3px;
+  border-radius: 3px;
+  transition: width 400ms ease;
+  width: 0;
 }
 
 @media screen and (max-width: 460px) {
-  .slider {
-    padding: 10px 0 5px !important;
+  .carousel {
+    padding: 10px 0;
   }
 }

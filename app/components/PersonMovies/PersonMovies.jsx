@@ -1,10 +1,12 @@
-import "./Test2.css";
+import "./PersonMovies.css";
 import FastSearchItem from "../UI/FastSearchItem/FastSearchItem";
 
-export default function Test2({ data }) {
+export default function PersonMovies({ data }) {
   return (
     <section className='person-list'>
-      <h3 className='text'>Фильмография ({data.length})</h3>
+      <h3 className='person-list__title text'>
+        Фильмография (<span className='person-list__span'>{data.length}</span>)
+      </h3>
       <ul className='person-list__list '>
         {data.map((movie) => (
           <li

@@ -5,10 +5,21 @@ import formatTime from "@/utils/formatTime";
 
 export default function MovieItemVertical({ data }) {
   const genres = data.genres ? data.genres.slice(0, 2) : null;
-  const duration = !isNaN(data.movieLength) && formatTime(data.movieLength);
   const ratingKp = data.rating?.kp
     ? data.rating.kp.toString().substring(0, 3)
     : null;
+
+  const renderAgeRating = () => {
+    if (typeof data.ageRating === "number" && data.ageRating !== 0) {
+      return ` • ${data.ageRating}+`;
+    }
+  };
+
+  const renderLenght = () => {
+    if (typeof data.movieLength === "number" && data.movieLength !== 0) {
+      return ` • ${formatTime(data.movieLength)}`;
+    }
+  };
 
   return (
     <div className='item noselect'>
@@ -26,6 +37,7 @@ export default function MovieItemVertical({ data }) {
                 : `https://st.kp.yandex.net/images/film_iphone/iphone360_${data.id}.jpg`
             }
             alt={`постер ${data.name || data.alternativeName}`}
+            priority={true}
             fill
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             quality={75}
@@ -37,8 +49,9 @@ export default function MovieItemVertical({ data }) {
           <div className='details'>
             <h1 className='details__title text'>{data.name || data.enName}</h1>
             <h2 className='details__subtitle text'>
-              {data.year} {data.ageRating && `• ${data.ageRating}+`}
-              {duration && ` • ${duration}`}
+              {data.year}
+              {renderAgeRating()}
+              {renderLenght()}
             </h2>
 
             {ratingKp !== null && (

@@ -1,7 +1,6 @@
 .header {
   position: fixed;
   width: 100%;
-  /* background-color: #0f0f0f; */
   background-color: #000;
   z-index: 21;
   transition: all 0.3s ease-in-out;
@@ -9,11 +8,26 @@
 
 .header__wrapper {
   display: flex;
+  align-items: center;
   padding: 12px 70px;
 }
 
-.header__logo {
-  min-width: 127px;
+.header__test {
+  width: fit-content;
+  font-size: clamp(28px, 5vw, 32px);
+  font-style: normal;
+  font-weight: 700;
+  background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    rgb(14, 239, 246),
+    rgb(10, 47, 255),
+    rgb(14, 239, 246)
+  );
+  color: #000;
+  letter-spacing: calc(1em / 8);
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: calc(1em / 16);
 }
 
 .header__container {

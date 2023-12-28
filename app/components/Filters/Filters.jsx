@@ -21,17 +21,35 @@ export default function Filters({ title }) {
   const containsPath = path.some((item) => pathname.includes(item));
 
   return (
-    <section className='fitlers'>
+    <section
+      className='fitlers'
+      style={{
+        flexDirection: containsPath ? "column" : "row",
+      }}
+    >
       {containsPath ? (
         <>
-          <Dropdown options={OPTIONS_GENRES} inputType='genre' />
-          <Dropdown options={OPTIONS_RATING} inputType='rating' />
-          <Dropdown options={OPTIONS_YEARS} inputType='year' />
+          <h1 className='text noselect filters__title'>{title}</h1>
+          <div className='filters__wrapper'>
+            <Dropdown options={OPTIONS_GENRES} inputType='genre' />
+            <Dropdown options={OPTIONS_RATING} inputType='rating' />
+            <Dropdown options={OPTIONS_YEARS} inputType='year' />
+            <Dropdown options={OPTIONS_ORDER} inputType='order' />
+          </div>
         </>
       ) : (
-        <h1 className='text noselect filters__title'>{title}</h1>
+        <>
+          <h1
+            className='text noselect filters__title'
+            style={{
+              alignSelf: "center",
+            }}
+          >
+            {title}
+          </h1>
+          <Dropdown options={OPTIONS_ORDER} inputType='order' />
+        </>
       )}
-      <Dropdown options={OPTIONS_ORDER} inputType='order' />
     </section>
   );
 }

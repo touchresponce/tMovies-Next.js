@@ -29,8 +29,10 @@
   .major {
     padding-left: 50px;
   }
+
   .major__wrapper {
     position: static;
+    margin-top: -45px;
   }
 }
 

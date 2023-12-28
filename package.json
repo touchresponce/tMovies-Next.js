@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
     "next": "^14.0.1",
-    "next13-progressbar": "^1.0.3",
+    "next13-progressbar": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-tabs": "^6.0.2",
-    "swiper": "^11.0.3",
     "zustand": "^4.4.1"
   }
 }

@@ -1,13 +1,22 @@
 import "./SliderSelection.css";
 import Link from "next/link";
-import Slider from "../Slider/Slider";
+import dynamic from "next/dynamic";
+import MainLoader from "../UI/MainLoader/MainLoader";
 
 export default function SliderSelection({
   data,
   title,
   selection,
   horizontal = false,
+  progressBar = false,
 }) {
+  //
+  // suspense
+  const Slider = dynamic(() => import("../Slider/Slider"), {
+    loading: () => <MainLoader />,
+    ssr: false,
+  });
+
   return (
     <section className='selection'>
       <Link
@@ -18,7 +27,7 @@ export default function SliderSelection({
         <span className='selection__span'>›</span>
       </Link>
 
-      <Slider data={data} horizontal={horizontal} />
+      <Slider data={data} horizontal={horizontal} progressBar={progressBar} />
     </section>
   );
 }

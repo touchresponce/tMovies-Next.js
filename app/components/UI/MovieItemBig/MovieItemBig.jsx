@@ -1,40 +1,57 @@
 import "./MovieItemBig.css";
+import Link from "next/link";
 import Image from "next/image";
 import MovieLogo from "../MovieLogo/MovieLogo";
+import formatTime from "@/utils/formatTime";
 
-export default function MovieItemBig({ data, isVideo }) {
+export default function MovieItemBig({ data }) {
+  const { id, backdrop, year, movieLength, ageRating } = data;
+  const ratingKp = data.rating?.kp.toString().substring(0, 3);
+  const genres = data.genres[0].name;
+
+  const renderLenght = () => {
+    if (typeof movieLength === "number" && movieLength !== 0) {
+      return formatTime(movieLength);
+    }
+  };
+
   return (
-    <article
-      className={`movie-item-big noselect ${
-        isVideo ? "content__type_active" : ""
-      }`}
+    <Link
+      href={`/room/${id}`}
+      style={{
+        color: "inherit",
+      }}
     >
-      {isVideo ? (
-        <iframe
-          width='100%'
-          height='100%'
-          src={`${data.videos.trailers[0].url}?autoplay=1&mute=1`}
-          frameBorder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; web-share'
-          allowFullScreen='0'
-          autoPlay='1'
-          mute='1'
-        ></iframe>
-      ) : (
+      <div className='big-item'>
         <Image
-          src={data.backdrop.url}
-          alt={`Постер фильма ${data.name}`}
-          priority
-          quality={75}
+          src={backdrop?.url}
+          alt=''
+          priority={true}
           fill
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+          quality={50}
+          style={{
+            objectFit: "cover",
+            zIndex: 1,
+          }}
         />
-      )}
-
-      <div className='content content__type_active'>
-        <MovieLogo data={data} />
-        <div className='infos'>Здесь информация</div>
+        <div className='big-item__container'>
+          <div style={{ width: "70%" }}>
+            <MovieLogo data={data} />
+          </div>
+          <ul className='big-item__list'>
+            <li className='big-item__item big-item__item_type_rating'>
+              {ratingKp}
+            </li>
+            <li className='big-item__item'>{year}</li>
+            <li className='big-item__item big-item__item_type_genre'>
+              {genres}
+            </li>
+            <li className='big-item__item'>{renderLenght()}</li>
+            <li className='big-item__item'>{`${ageRating}+`}</li>
+          </ul>
+        </div>
       </div>
-    </article>
+    </Link>
   );
 }

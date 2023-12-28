@@ -7,12 +7,13 @@ export default function MovieItemHorizont({ data }) {
 
   return (
     <Link href={`/room/${id}`}>
-      <div className='test-item noselect'>
+      <div className='horizont-item noselect'>
         {logo?.url !== null && (
-          <div className='test-item__logo'>
+          <div className='horizont-item__logo'>
             <Image
               src={logo?.url}
               alt={`логотип ${name || alternativeName || enName}`}
+              priority={true}
               title={name || alternativeName || enName}
               fill
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
@@ -25,9 +26,10 @@ export default function MovieItemHorizont({ data }) {
         )}
         {backdrop?.previewUrl && (
           <Image
-            className='test-item__background'
+            className='horizont-item__background'
             src={backdrop?.previewUrl}
             alt={`постер ${name || alternativeName || enName}`}
+            priority={true}
             fill
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             style={{

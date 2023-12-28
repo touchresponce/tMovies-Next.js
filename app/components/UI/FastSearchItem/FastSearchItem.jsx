@@ -14,7 +14,23 @@ export default function FastSearchItem({ data }) {
     alternativeName.slice(0, 40) ||
     "";
 
-  const isHighRating = Math.floor(Number(rating)) > 4 ? "green" : "red";
+  const isHighRating = Math.floor(Number(rating.kp)) > 4 ? "green" : "red";
+
+  const renderLenght = () => {
+    if (typeof movieLength === "number" && movieLength !== 0) {
+      return `, ${movieLength} мин`;
+    }
+  };
+
+  const renderColorRating = () => {
+    if (typeof rating.kp === "number" && rating.kp !== 0) {
+      return (
+        <div className={`right ${isHighRating}`}>
+          {Number(rating.kp).toFixed(1)}
+        </div>
+      );
+    }
+  };
 
   return (
     <Link
@@ -26,9 +42,10 @@ export default function FastSearchItem({ data }) {
         <div className='imageContainer'>
           <Image
             fill
+            priority
             src={`https://st.kp.yandex.net/images/film_iphone/iphone360_${id}.jpg`}
             alt={name}
-            sizes='(max-width: 768px) 100vw'
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           />
         </div>
 
@@ -36,16 +53,12 @@ export default function FastSearchItem({ data }) {
           <span className='fast-search-item__title text'>{title}</span>
           <span className='fast-search-item__list'>
             {year}
-            {movieLength !== 0 && `, ${movieLength} мин`}
+            {renderLenght()}
           </span>
         </div>
       </div>
 
-      {typeof rating === "number" && (
-        <div className={`right ${isHighRating}`}>
-          {Number(rating).toFixed(1)}
-        </div>
-      )}
+      {renderColorRating()}
     </Link>
   );
 }

@@ -1,0 +1,65 @@
+.carousel-big {
+  padding: 0 23%;
+}
+
+.splide__arrows svg {
+  fill: blue !important;
+  width: 24px !important;
+  height: 48px !important;
+}
+
+.splide__arrow {
+  background: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(80px);
+  border: 2px solid #2f2f2f !important;
+  border-radius: 5% !important;
+  height: 10em !important;
+  width: 4em !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.splide__arrow--prev {
+  left: 3em !important;
+}
+
+.splide__arrow--next {
+  right: 3em !important;
+}
+
+.splide__arrow--prev:hover {
+  scale: 1.1;
+}
+
+.splide__arrow--next:hover {
+  scale: 1.1;
+}
+
+@media screen and (width < 1440px) {
+  .carousel-big {
+    padding: 0 20%;
+  }
+}
+
+@media screen and (width < 1220px) {
+  .carousel-big {
+    padding: 0 17%;
+  }
+}
+
+@media screen and (width < 1140px) {
+  .carousel-big {
+    padding: 0 14%;
+  }
+}
+
+@media screen and (width < 1024px) {
+  .carousel-big {
+    padding: 0 11%;
+  }
+}
+
+@media screen and (width < 768px) {
+  .carousel-big {
+    padding: 0 10%;
+  }
+}

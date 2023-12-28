@@ -4,7 +4,7 @@ import SearchList from "@/app/components/SearchList/SearchList";
 export default function MoviePage() {
   return (
     <>
-      <Filters />
+      <Filters title='Сериалы' />
       <SearchList />
     </>
   );

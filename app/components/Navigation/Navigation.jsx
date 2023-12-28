@@ -3,7 +3,7 @@
 import "./Navigation.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HEADER_LINKS } from "@/utils/constants";
+import { HEADER_LINKS_MAIN } from "@/utils/constants";
 import BurgerButton from "../UI/BurgerButton/BurgerButton";
 
 export default function Navigation() {
@@ -12,7 +12,7 @@ export default function Navigation() {
   return (
     <>
       <nav className='navigation'>
-        {HEADER_LINKS.map((item) => (
+        {HEADER_LINKS_MAIN.map((item) => (
           <Link
             key={item.value}
             className={

@@ -1,9 +1,12 @@
 .selection {
+  display: flex;
+  flex-direction: column;
   margin: 36px 0 0;
   padding: 0 70px;
 }
 
 .selection__title {
+  width: fit-content;
   text-decoration: none;
   color: inherit;
   font-size: clamp(21px, 5vw, 28px);
@@ -17,12 +20,14 @@
   transition: opacity 0.2s ease-in;
 }
 
-.selection:hover .selection__span {
-  opacity: 1;
-}
-
 .selection:last-of-type {
   margin-bottom: 50px;
+}
+
+@media (hover: hover) {
+  .selection:hover .selection__span {
+    opacity: 1;
+  }
 }
 
 @media screen and (width <= 1024px) {
