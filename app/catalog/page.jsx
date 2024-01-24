@@ -22,7 +22,7 @@ export default async function CatalogPage() {
           data={data}
           title={SHORTCUTS[key].title}
           selection={key}
-          horizontal
+          // horizontal
           progressBar
         />
       ))}

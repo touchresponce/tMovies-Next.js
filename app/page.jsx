@@ -7,8 +7,9 @@ import BigSlider from "./components/BigSlider/BigSlider";
 
 async function getSliderData(key) {
   const link = updateLink(SHORTCUTS[key].filters);
-  const { docs } = await fetchData(`${LINKS_MAIN.search}&${link}`);
-  return { docs, key };
+  const data = await fetchData(`${LINKS_MAIN.search}&${link}`);
+  const slicedData = data.docs.slice(0, 15);
+  return { docs: slicedData, key };
 }
 
 export default async function HomePage() {
