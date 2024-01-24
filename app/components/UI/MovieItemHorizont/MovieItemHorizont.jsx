@@ -12,7 +12,7 @@ export default function MovieItemHorizont({ data }) {
           <div className='horizont-item__logo'>
             <Image
               src={logo?.url}
-              alt={`логотип ${name || alternativeName || enName}`}
+              alt={name || alternativeName || enName}
               title={name || alternativeName || enName}
               fill
               sizes='(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 20vw'

@@ -32,7 +32,7 @@ export default function MovieItemVertical({ data }) {
         <div className='item__cover'>
           <Image
             src={data?.poster?.previewUrl}
-            alt={`постер ${data.name || data.alternativeName}`}
+            alt={data.name || data.alternativeName}
             fill
             sizes='(max-width: 768px) 30vw, 20vw'
             style={{

@@ -46,7 +46,6 @@ export default function Header() {
       className={`header ${isScroll ? "scroll" : ""} ${isOut ? "out" : ""}`}
     >
       <div className='header__wrapper'>
-        {/* <img className='header__logo' alt='логотип сайта' /> */}
         <h1 className='header__test text noselect'>Tastemovies</h1>
         <div className='header__container'>
           <Navigation />
