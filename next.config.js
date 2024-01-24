@@ -19,8 +19,9 @@ const nextConfig = {
         hostname: "avatars.mds.yandex.net",
       },
     ],
-    // unoptimized: true,
     formats: ["image/avif", "image/webp"],
+    unoptimized:
+      process.env.IMAGE_OPTIMIZED_ENV === "unoptimized" ? true : false,
   },
   reactStrictMode: false,
   staticPageGenerationTimeout: 180,
