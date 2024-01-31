@@ -7,7 +7,7 @@
   left: 0;
   visibility: hidden;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.8);
@@ -30,20 +30,7 @@
   background-position: center;
   background-size: cover;
   cursor: pointer;
-}
-
-.modal__image {
-  max-height: 85vh;
-  max-width: 85vw;
-  object-fit: cover;
-  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
-}
-
-.modal__trailer {
-  height: 85vh;
-  width: 85vw;
-  object-fit: cover;
-  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+  z-index: 200;
 }
 
 @media screen and (max-width: 1200px) {
@@ -66,64 +53,7 @@
 /*  */
 /*  */
 
-.room {
+.kinobox_player {
   width: 100%;
-  margin: 0 70px;
-  z-index: 30;
-}
-
-.room__video {
-  display: block;
-  height: 680px !important;
-}
-
-.room__video iframe {
-  height: 680px !important;
-}
-
-@media screen and (max-width: 1024px) {
-  .room {
-    margin: 0 30px;
-  }
-
-  .room__container {
-    height: 640px !important;
-  }
-
-  .room__video {
-    height: 640px !important;
-  }
-
-  .room__video iframe {
-    height: 640px !important;
-  }
-}
-
-@media screen and (max-width: 940px) {
-  .room__container {
-    height: 67vw !important;
-  }
-
-  .room__video {
-    height: 67vw !important;
-  }
-
-  .room__video iframe {
-    height: 67vw !important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .room {
-    margin: 0 10px;
-  }
-
-  #kinobd-buttons div {
-    padding: 5px !important;
-    border-radius: 5px !important;
-  }
-}
-
-#kinobd-buttons div {
-  background: #0f0f0f !important;
+  height: 100%;
 }

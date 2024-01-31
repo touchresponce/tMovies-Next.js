@@ -12,14 +12,32 @@ export default function MovieModal({ id }) {
   useNoScroll(movieModal);
 
   useEffect(() => {
-    document.querySelector(".room__video").setAttribute("data-kinopoisk", id);
-
     const script = document.createElement("script");
-    script.src = "https://kinobd.net/js/player_.js";
+    script.src = "https://kinobox.tv/kinobox.min.js";
     document.body.appendChild(script);
 
+    script.onload = () => {
+      new Kinobox(".kinobox_player", {
+        search: {
+          kinopoisk: id,
+        },
+        players: {
+          Alloha: { enable: true, position: 1, token: "{token}" },
+          Ashdi: { enable: true, position: 2, token: "{token}" },
+          Bazon: { enable: true, position: 3, token: "{token}" },
+          Cdnmovies: { enable: true, position: 4, token: "{token}" },
+          Collaps: { enable: true, position: 5, token: "{token}" },
+          Hdvb: { enable: true, position: 6, token: "{token}" },
+          Iframe: { enable: true, position: 7, token: "{token}" },
+          Kodik: { enable: true, position: 8, token: "{token}" },
+          Videocdn: { enable: true, position: 9, token: "{token}" },
+          Voidboost: { enable: true, position: 10, token: "{token}" },
+        },
+      }).init();
+    };
+
     return () => {
-      script.remove();
+      document.body.removeChild(script);
     };
   }, [id]);
 
@@ -32,12 +50,8 @@ export default function MovieModal({ id }) {
           backgroundImage: `url(${closeBtn.src})`,
         }}
       />
-      {/* content */}
-      <div className='room'>
-        <div className='room__container'>
-          <div className='room__video' id='kinobd' />
-        </div>
-      </div>
+      {/* KINOBOX */}
+      <div className='kinobox_player' />
       {/*  */}
     </section>
   );
