@@ -4,6 +4,7 @@ import "./Header.css";
 import { useEffect, useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import SearchButton from "../UI/SearchButton/SearchButton";
+import Link from "next/link";
 
 export default function Header() {
   const [isScroll, setIsScroll] = useState(false);
@@ -46,7 +47,9 @@ export default function Header() {
       className={`header ${isScroll ? "scroll" : ""} ${isOut ? "out" : ""}`}
     >
       <div className='header__wrapper'>
-        <h1 className='header__test text noselect'>Tastemovies</h1>
+        <Link className='header__logo' href='/'>
+          Tastemovies
+        </Link>
         <div className='header__container'>
           <Navigation />
           <SearchButton />

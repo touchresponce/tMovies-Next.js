@@ -12,7 +12,8 @@
   padding: 12px 70px;
 }
 
-.header__test {
+.header__logo {
+  text-decoration: none;
   width: fit-content;
   font-size: clamp(28px, 5vw, 32px);
   font-style: normal;

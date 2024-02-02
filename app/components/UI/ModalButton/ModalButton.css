@@ -80,3 +80,9 @@
 .panel__button:focus .panel__button::before {
   opacity: 1;
 }
+
+@media screen and (width <= 460px) {
+  .panel__button {
+    max-width: 100%;
+  }
+}
