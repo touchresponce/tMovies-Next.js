@@ -3,28 +3,31 @@ import formatTime from "@/utils/formatTime";
 
 export default function InfoList({ data }) {
   const duration = formatTime(data.movieLength);
-  const ratingKp = data.rating?.kp.toString().substring(0, 3);
-  const ratingImdb = data.rating?.imdb;
   const countries = data.countries?.map((item) => item.name).join(", ");
   const genres = data.genres?.map((item) => item.name).join(", ");
+
+  const renderRating = (rating, type) => {
+    if (rating && rating[type]) {
+      return (
+        <li className='text'>
+          <span className='info__span'>{type.toUpperCase()}</span>
+          {type === "kp"
+            ? rating[type].toString().substring(0, 3)
+            : rating[type].toString()}
+        </li>
+      );
+    }
+  };
 
   return (
     <>
       <ul className='info'>
-        <li className='info__item text'>{data?.year}</li>
-        {data.movieLength && <li className='info__item text'>{duration}</li>}
-        <li>
-          <span className='info__span'>IMDB</span>
-          {ratingImdb}
-        </li>
-        <li>
-          <span className='info__span'>КП</span>
-          {ratingKp}
-        </li>
+        <li className='text'>{data?.year}</li>
+        {data.movieLength && <li className='text'>{duration}</li>}
+        {renderRating(data.rating, "imdb")}
+        {renderRating(data.rating, "kp")}
         {typeof data.ageRating === "number" && (
-          <li className='info__item text info__item_type_age'>
-            {`${data.ageRating}+`}
-          </li>
+          <li className='text info__item_type_age'>{`${data.ageRating}+`}</li>
         )}
       </ul>
       {data.shortDescription ? (
