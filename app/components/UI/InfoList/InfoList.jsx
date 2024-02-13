@@ -1,4 +1,5 @@
 import "./InfoList.css";
+import formatSeasonsWord from "@/utils/formatSeasonsWord";
 import formatTime from "@/utils/formatTime";
 
 export default function InfoList({ data }) {
@@ -19,20 +20,36 @@ export default function InfoList({ data }) {
     }
   };
 
+  const renderSeasonsInfo = () => {
+    if (data.seasonsInfo?.length) {
+      return (
+        <li className='text'>{formatSeasonsWord(data.seasonsInfo.length)}</li>
+      );
+    }
+  };
+
+  const renderAgeRating = () =>
+    typeof data.ageRating === "number" && (
+      <li className='text info__item_type_age'>{`${data.ageRating}+`}</li>
+    );
+
+  const renderShortDescription = () => {
+    if (data.shortDescription) {
+      return <p className='text'>{data.shortDescription}</p>;
+    }
+  };
+
   return (
     <>
       <ul className='info'>
         <li className='text'>{data?.year}</li>
         {data.movieLength && <li className='text'>{duration}</li>}
+        {renderSeasonsInfo()}
         {renderRating(data.rating, "imdb")}
         {renderRating(data.rating, "kp")}
-        {typeof data.ageRating === "number" && (
-          <li className='text info__item_type_age'>{`${data.ageRating}+`}</li>
-        )}
+        {renderAgeRating()}
       </ul>
-      {data.shortDescription ? (
-        <p className='text'>{data.shortDescription}</p>
-      ) : null}
+      {renderShortDescription()}
       <p className='text'>
         <span className='info__span'>Страна: </span>
         {countries}

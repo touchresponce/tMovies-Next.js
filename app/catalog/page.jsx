@@ -5,27 +5,31 @@ import Library from "../components/Library/Library";
 import SliderSelection from "../components/SliderSelection/SliderSelection";
 
 export default async function CatalogPage() {
-  const fetchPromises = Object.keys(SHORTCUTS).map(async (key) => {
+  const fetchAndProcessData = async (key) => {
     const link = updateLink(SHORTCUTS[key].filters);
     const data = await fetchData(`${LINKS_MAIN.search}&${link}`);
     return { key, data: data.docs.slice(0, 15) };
-  });
+  };
 
-  const results = await Promise.all(fetchPromises);
+  const fetchPromises = Object.keys(SHORTCUTS).map(fetchAndProcessData);
+  const results = await Promise.allSettled(fetchPromises);
+
+  const successfulResults = results
+    .filter((result) => result.status === "fulfilled")
+    .map(({ value }) => (
+      <SliderSelection
+        key={value.key}
+        data={value.data}
+        title={SHORTCUTS[value.key].title}
+        selection={value.key}
+        progressBar
+      />
+    ));
 
   return (
     <>
       <Library />
-      {results.map(({ key, data }) => (
-        <SliderSelection
-          key={key}
-          data={data}
-          title={SHORTCUTS[key].title}
-          selection={key}
-          // horizontal
-          progressBar
-        />
-      ))}
+      {successfulResults}
     </>
   );
 }

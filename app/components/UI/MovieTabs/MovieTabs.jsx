@@ -6,7 +6,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 export default function MovieTabs({ data }) {
   const sequelsAndPrequels = data.sequelsAndPrequels?.filter(
-    (item) => item.poster.url
+    (item) => item.poster.url && (item.rating?.kp || item.rating?.imdb)
   );
 
   return (

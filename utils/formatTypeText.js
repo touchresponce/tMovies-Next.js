@@ -4,6 +4,7 @@ export const formatTypeText = (type) => {
       return "фильм";
 
     case "tv-series":
+    case "animated-series":
       return "сериал";
 
     case "anime":
