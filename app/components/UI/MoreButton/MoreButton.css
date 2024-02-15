@@ -54,11 +54,6 @@
   vertical-align: text-top;
 }
 
-/* .button:active {
-  background-color: var(--bg-button-active);
-  color: var(--color-button-active);
-} */
-
 @media (hover: hover) {
   .button:hover {
     background-color: var(--bg-button-hover);

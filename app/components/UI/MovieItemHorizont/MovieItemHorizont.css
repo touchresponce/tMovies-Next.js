@@ -27,6 +27,6 @@
 
 @media (hover: hover) {
   .horizont-item:hover {
-    scale: 102%;
+    transform: translateY(-6px);
   }
 }

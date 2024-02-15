@@ -25,7 +25,7 @@ export default function MovieItemHorizont({ data }) {
         {backdrop?.previewUrl && (
           <Image
             className='horizont-item__background'
-            src={backdrop?.previewUrl}
+            src={backdrop?.url}
             alt={`постер ${name || alternativeName || enName}`}
             fill
             sizes='(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 20vw'

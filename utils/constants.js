@@ -99,7 +99,7 @@ const selectFields =
 export const LINKS_MAIN = {
   mainSlider: `https://api.kinopoisk.dev/v1.4/movie?limit=6&${selectFields}&${notNullFields}&notNullFields=ageRating&sortField=votes.imdb&sortType=-1&type=movie&type=tv-series&year=${
     CURRENT_YEAR - 1
-  }-${CURRENT_YEAR}`,
+  }-${CURRENT_YEAR}&countries.name=!Индия`,
   personMovies: `https://api.kinopoisk.dev/v1.4/movie?limit=250&${selectFields}&${notNullFields}&sortField=year&sortType=-1&persons.id=`,
   search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}&genres.name=!концерт`,
   fastSearch: "https://api.kinopoisk.dev/v1.4/movie/search?limit=30",
@@ -107,11 +107,11 @@ export const LINKS_MAIN = {
 
 export const SHORTCUTS = {
   bestOfYear: {
-    title: "Лучшее 2023",
+    title: "Лучшие новинки",
     filters: {
       type: ["movie", "tv-series", "cartoon"],
       rating: ["6.5-10"],
-      year: ["2023"],
+      year: [`${CURRENT_YEAR - 1}`, `${CURRENT_YEAR}`],
       order: ["recommended"],
       genre: ["!реальное ТВ", "!документальный", "!концерт"],
     },

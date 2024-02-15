@@ -4,7 +4,7 @@ import Image from "next/image";
 import formatTime from "@/utils/formatTime";
 
 export default function MovieItemVertical({ data }) {
-  const genres = data.genres ? data.genres.slice(0, 2) : null;
+  const genre = data.genres[0].name.toUpperCase() || null;
   const ratingKp = data.rating?.kp
     ? data.rating.kp.toString().substring(0, 3)
     : null;
@@ -64,15 +64,7 @@ export default function MovieItemVertical({ data }) {
               <p className='country text'>{data.countries[0]?.name}</p>
             )}
 
-            {Array.isArray(genres) && (
-              <div className='tags'>
-                {genres.map((genre) => (
-                  <span className='tag' key={genre.name}>
-                    {genre.name}
-                  </span>
-                ))}
-              </div>
-            )}
+            {genre && <p className='tag text'>{genre}</p>}
           </div>
         </div>
       </Link>
