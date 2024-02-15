@@ -78,18 +78,6 @@ export const SLIDER_BREAKPOINTS_VERTICAL = {
   },
 };
 
-export const SLIDER_BREAKPOINTS_HORIZONT = {
-  1280: {
-    perPage: 4,
-  },
-  1024: {
-    perPage: 3,
-  },
-  768: {
-    perPage: 2,
-  },
-};
-
 const notNullFields =
   "notNullFields=id&notNullFields=name&notNullFields=poster.url";
 

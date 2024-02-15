@@ -16,6 +16,7 @@ export async function generateMetadata({ params: { id } }) {
   const { name } = await getContent(id);
   return {
     title: name,
+    description: `Смотреть ${name} онлайн в Full HD 720 и 1080 в онлайн-кинотеатре Tastemovies`,
   };
 }
 

@@ -4,11 +4,6 @@ import Image from "next/image";
 import formatTime from "@/utils/formatTime";
 
 export default function MovieItemVertical({ data }) {
-  const genre = data.genres[0].name.toUpperCase() || null;
-  const ratingKp = data.rating?.kp
-    ? data.rating.kp.toString().substring(0, 3)
-    : null;
-
   const renderAgeRating = () => {
     if (typeof data.ageRating === "number" && data.ageRating !== 0) {
       return ` • ${data.ageRating}+`;
@@ -18,6 +13,36 @@ export default function MovieItemVertical({ data }) {
   const renderLenght = () => {
     if (typeof data.movieLength === "number" && data.movieLength !== 0) {
       return ` • ${formatTime(data.movieLength)}`;
+    }
+  };
+
+  const renderGenre = () => {
+    if (data.genres) {
+      const genre = data.genres[0].name.toUpperCase();
+      return <p className='tag text'>{genre}</p>;
+    }
+  };
+
+  const renderMovieRating = () => {
+    if (data.rating?.kp) {
+      const ratingKp = data.rating.kp.toString().substring(0, 3);
+      return (
+        <div className='details__rating'>
+          <Image
+            src={`/images/${ratingKp > 4.9 ? "star" : "chunk-star"}.svg`}
+            width={24}
+            height={24}
+            alt='Рейтинг'
+          />
+          <span>{ratingKp}</span>
+        </div>
+      );
+    }
+  };
+
+  const renderCountry = () => {
+    if (Array.isArray(data.countries) && data.countries.length) {
+      return <p className='country text'>{data.countries[0]?.name}</p>;
     }
   };
 
@@ -47,24 +72,9 @@ export default function MovieItemVertical({ data }) {
               {renderAgeRating()}
               {renderLenght()}
             </h2>
-
-            {ratingKp !== null && (
-              <div className='details__rating'>
-                <Image
-                  src={`/images/${ratingKp > 4.9 ? "star" : "chunk-star"}.svg`}
-                  width={24}
-                  height={24}
-                  alt='Рейтинг'
-                />
-                <span>{ratingKp}</span>
-              </div>
-            )}
-
-            {Array.isArray(data.countries) && data.countries.length > 0 && (
-              <p className='country text'>{data.countries[0]?.name}</p>
-            )}
-
-            {genre && <p className='tag text'>{genre}</p>}
+            {renderMovieRating()}
+            {renderCountry()}
+            {renderGenre()}
           </div>
         </div>
       </Link>

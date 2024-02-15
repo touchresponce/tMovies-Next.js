@@ -10,7 +10,8 @@ import Error from "./error";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title:
+  title: "Tastemovies",
+  description:
     "Смотреть фильмы онлайн в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре Tastemovies",
 };
 

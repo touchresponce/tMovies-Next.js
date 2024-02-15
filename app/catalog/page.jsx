@@ -4,6 +4,12 @@ import fetchData from "@/utils/fetchData";
 import Library from "../components/Library/Library";
 import SliderSelection from "../components/SliderSelection/SliderSelection";
 
+export const metadata = {
+  title: "Каталог",
+  description:
+    "Каталог фильмов в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре Tastemovies",
+};
+
 export default async function CatalogPage() {
   const fetchAndProcessData = async (key) => {
     const link = updateLink(SHORTCUTS[key].filters);

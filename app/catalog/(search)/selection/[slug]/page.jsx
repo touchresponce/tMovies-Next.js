@@ -5,6 +5,8 @@ import { SHORTCUTS } from "@/utils/constants";
 export async function generateMetadata({ params: { slug } }) {
   return {
     title: SHORTCUTS[slug].title,
+    description:
+      "Смотреть в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре Tastemovies",
   };
 }
 

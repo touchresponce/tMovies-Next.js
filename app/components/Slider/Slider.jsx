@@ -2,25 +2,17 @@ import "./Slider.css";
 import "@splidejs/react-splide/css";
 import { useEffect, useRef, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import MovieItemHorizont from "../UI/MovieItemHorizont/MovieItemHorizont";
+import { SLIDER_BREAKPOINTS_VERTICAL } from "@/utils/constants";
 import MovieItemVertical from "../UI/MovieItemVertical/MovieItemVertical";
-import {
-  SLIDER_BREAKPOINTS_HORIZONT,
-  SLIDER_BREAKPOINTS_VERTICAL,
-} from "@/utils/constants";
 
-export default function Slider({ data, horizontal, progressBar }) {
+export default function Slider({ data, progressBar }) {
   const [progressWidth, setProgressWidth] = useState("");
   const splideRef = useRef(null);
   const progressRef = useRef(null);
 
   const list = data?.map((item) => (
     <SplideSlide key={item.id}>
-      {horizontal ? (
-        <MovieItemHorizont data={item} />
-      ) : (
-        <MovieItemVertical data={item} />
-      )}
+      <MovieItemVertical data={item} />
     </SplideSlide>
   ));
 
@@ -42,10 +34,8 @@ export default function Slider({ data, horizontal, progressBar }) {
         className='carousel'
         options={{
           gap: "15px",
-          perPage: horizontal ? 5 : 6,
-          breakpoints: horizontal
-            ? SLIDER_BREAKPOINTS_HORIZONT
-            : SLIDER_BREAKPOINTS_VERTICAL,
+          perPage: 6,
+          breakpoints: SLIDER_BREAKPOINTS_VERTICAL,
           snap: true,
           speed: 800,
           pagination: false,
