@@ -12,7 +12,7 @@ import { SHORTCUTS } from "@/utils/constants";
 
 export default function SearchList() {
   const pathname = usePathname();
-  const pathParts = pathname.split("/"); // Разбиваем путь на части
+  const pathParts = pathname.split("/"); //
   const lastPart = pathParts[pathParts.length - 1];
   const {
     content,

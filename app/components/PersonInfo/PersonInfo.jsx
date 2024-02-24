@@ -25,7 +25,6 @@ export default function PersonInfo({ data }) {
               width: "100%",
               objectFit: "cover",
               objectPosition: "center",
-              borderRadius: "8px",
             }}
           />
         )}
