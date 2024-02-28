@@ -3,7 +3,7 @@ import "@splidejs/react-splide/css";
 import { useEffect, useRef, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { SLIDER_BREAKPOINTS_VERTICAL } from "@/utils/constants";
-import MovieItemVertical from "../UI/MovieItemVertical/MovieItemVertical";
+import MovieItem from "../UI/MovieItem/MovieItem";
 
 export default function Slider({ data, progressBar }) {
   const [progressWidth, setProgressWidth] = useState("");
@@ -12,7 +12,7 @@ export default function Slider({ data, progressBar }) {
 
   const list = data?.map((item) => (
     <SplideSlide key={item.id}>
-      <MovieItemVertical data={item} />
+      <MovieItem data={item} />
     </SplideSlide>
   ));
 

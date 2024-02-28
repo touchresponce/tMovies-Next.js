@@ -89,7 +89,7 @@ export const LINKS_MAIN = {
     CURRENT_YEAR - 1
   }-${CURRENT_YEAR}&countries.name=!Индия`,
   personMovies: `https://api.kinopoisk.dev/v1.4/movie?limit=250&${selectFields}&${notNullFields}&sortField=year&sortType=-1&persons.id=`,
-  search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}&genres.name=!концерт`,
+  search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}&genres.name=!для+взрослых&genres.name=!концерт`,
   fastSearch: "https://api.kinopoisk.dev/v1.4/movie/search?limit=30",
 };
 
@@ -101,7 +101,8 @@ export const SHORTCUTS = {
       rating: ["6.5-10"],
       year: [`${CURRENT_YEAR - 1}`, `${CURRENT_YEAR}`],
       order: ["recommended"],
-      genre: ["!реальное ТВ", "!документальный", "!концерт"],
+      genre: ["!реальное ТВ", "!документальный"],
+      // genre: ["!реальное ТВ", "!документальный", "!концерт"],
     },
   },
   bestCartoons: {
@@ -116,7 +117,7 @@ export const SHORTCUTS = {
     filters: {
       type: ["movie"],
       rating: ["6-10"],
-      genre: ["+комедия", "+семейный", "!драма"],
+      genre: ["!драма", "+комедия", "+семейный"],
     },
   },
   bestHorror: {
@@ -124,7 +125,15 @@ export const SHORTCUTS = {
     filters: {
       type: ["movie"],
       rating: ["6-10"],
-      genre: ["+ужасы", "!комедия", "!боевик", "!короткометражка"],
+      genre: ["!комедия", "!боевик", "+ужасы"],
+    },
+  },
+  bestShort: {
+    title: "Лучшие короткометражки",
+    filters: {
+      type: ["movie"],
+      rating: ["7-10"],
+      genre: ["+короткометражка"],
     },
   },
   comedyAction: {

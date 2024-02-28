@@ -1,9 +1,9 @@
-import "./MovieItemVertical.css";
+import "./MovieItem.css";
 import Link from "next/link";
 import Image from "next/image";
 import formatTime from "@/utils/formatTime";
 
-export default function MovieItemVertical({ data }) {
+export default function MovieItem({ data }) {
   const renderAgeRating = () => {
     if (typeof data.ageRating === "number" && data.ageRating !== 0) {
       return ` • ${data.ageRating}+`;

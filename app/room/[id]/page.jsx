@@ -23,9 +23,25 @@ export async function generateMetadata({ params: { id } }) {
 export default async function Movie({ params: { id } }) {
   const data = await getContent(id);
 
+  //
   const renderTabs = () => {
-    if (data.similarMovies?.length > 0 || data.sequelsAndPrequels?.length > 0) {
-      return <MovieTabs data={data} />;
+    const { similarMovies, sequelsAndPrequels } = data;
+
+    if (similarMovies?.length > 0 || sequelsAndPrequels?.length > 0) {
+      //
+      const filtredSimilar = similarMovies.filter((movie) => movie.poster.url);
+
+      //
+      const filtredSequelsAndPrequels = sequelsAndPrequels.filter(
+        (movie) => movie.poster.url && (movie.rating?.kp || movie.rating?.imdb)
+      );
+
+      return (
+        <MovieTabs
+          similarMovies={filtredSimilar}
+          sequelsAndPrequels={filtredSequelsAndPrequels}
+        />
+      );
     }
   };
 

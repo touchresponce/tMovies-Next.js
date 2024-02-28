@@ -31,7 +31,6 @@ export const useSearch = create((set, get) => ({
   },
 
   reset: () => {
-    // set((state) => ({ ...state, ...state.initial }));
     set({ ...initial });
   },
 }));

@@ -4,11 +4,7 @@ import "./MovieTabs.css";
 import Slider from "../../Slider/Slider";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
-export default function MovieTabs({ data }) {
-  const sequelsAndPrequels = data.sequelsAndPrequels?.filter(
-    (item) => item.poster.url && (item.rating?.kp || item.rating?.imdb)
-  );
-
+export default function MovieTabs({ similarMovies, sequelsAndPrequels }) {
   return (
     <section className='tabs'>
       <Tabs
@@ -16,7 +12,7 @@ export default function MovieTabs({ data }) {
         selectedTabClassName='tablist__tab-selected'
       >
         <TabList className='tablist'>
-          {data.similarMovies?.length > 0 && (
+          {similarMovies.length > 0 && (
             <Tab className='tablist__tab noselect'>Похожие</Tab>
           )}
           {sequelsAndPrequels?.length > 0 && (
@@ -24,13 +20,13 @@ export default function MovieTabs({ data }) {
           )}
         </TabList>
 
-        {data.similarMovies?.length > 0 && (
+        {similarMovies.length > 0 && (
           <TabPanel>
-            <Slider data={data.similarMovies} />
+            <Slider data={similarMovies} />
           </TabPanel>
         )}
 
-        {sequelsAndPrequels?.length > 0 && (
+        {sequelsAndPrequels.length > 0 && (
           <TabPanel>
             <Slider data={sequelsAndPrequels} />
           </TabPanel>

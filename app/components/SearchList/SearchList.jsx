@@ -3,7 +3,7 @@
 import "./SearchList.css";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import MoreButton from "../UI/MoreButton/MoreButton";
-import MovieItemVertical from "../UI/MovieItemVertical/MovieItemVertical";
+import MovieItem from "../UI/MovieItem/MovieItem";
 import { useEffect, useState } from "react";
 import { useFilters } from "@/store/useFiltersStore";
 import { useSearch } from "@/store/useSearchStore";
@@ -55,7 +55,7 @@ export default function SearchList() {
   const listNode = content?.length ? (
     <div className='search-list__list'>
       {content.map((item) => (
-        <MovieItemVertical data={item} key={item.id} />
+        <MovieItem data={item} key={item.id} />
       ))}
     </div>
   ) : null;
