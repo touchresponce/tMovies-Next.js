@@ -1,15 +1,16 @@
 import "./PersonInfo.css";
 import Image from "next/image";
 import formatDate from "@/utils/formatDate";
+import formatAge from "@/utils/formatAge";
 
 export default function PersonInfo({ data }) {
   const { name, enName, photo, age, death, birthday } = data;
 
   const birthPlace =
-    data.birthPlace !== null && data.birthPlace.map((x) => x.value).join(" ");
+    data.birthPlace !== null && data.birthPlace?.map((x) => x.value).join(" ");
 
   const profession =
-    data.profession !== null && data.profession.map((x) => x.value).join(" ");
+    data.profession !== null && data.profession?.map((x) => x.value).join(" ");
 
   return (
     <section className='person-info'>
@@ -35,7 +36,7 @@ export default function PersonInfo({ data }) {
 
         {birthday !== null && <p className='text'>{formatDate(birthday)}</p>}
         {death !== null && <p className='text'>{formatDate(death)}</p>}
-        {age !== null && <p className='text'>{age} лет</p>}
+        {age !== null && <p className='text'>{formatAge(age)}</p>}
 
         <p className='text'>{birthPlace}</p>
         <p className='text'>{profession}</p>

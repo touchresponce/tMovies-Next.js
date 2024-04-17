@@ -5,20 +5,19 @@
   margin: 40px 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
-  gap: 30px;
   justify-content: center;
+  gap: 30px;
   color: #f2f3f4;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (width < 1200px) {
   .fast-search-list {
     grid-template-columns: repeat(2, 1fr);
     width: 80%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width < 768px) {
   .fast-search-list {
     grid-template-columns: repeat(1, 1fr);
     width: 95%;

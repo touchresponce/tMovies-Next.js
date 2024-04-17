@@ -2,13 +2,16 @@
 
 import "./Header.css";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Navigation from "../Navigation/Navigation";
 import SearchButton from "../UI/SearchButton/SearchButton";
-import Link from "next/link";
+import BurgerButton from "../UI/BurgerButton/BurgerButton";
+import { useModals } from "@/store/useModalsStore";
 
 export default function Header() {
   const [isScroll, setIsScroll] = useState(false);
   const [isOut, setIsOut] = useState(false);
+  const { fastSearch, sidebar } = useModals();
   let scrollPrev = typeof window !== "undefined" && window.scrollY;
 
   // задник шапки
@@ -45,14 +48,16 @@ export default function Header() {
   return (
     <header
       className={`header ${isScroll ? "scroll" : ""} ${isOut ? "out" : ""}`}
+      style={fastSearch ? { visibility: "hidden" } : { visibility: "visible" }}
     >
       <div className='header__wrapper'>
         <Link className='header__logo' href='/'>
           Tastemovies
         </Link>
         <div className='header__container'>
-          <Navigation />
+          {!fastSearch && !sidebar && <Navigation />}
           <SearchButton />
+          {!fastSearch && <BurgerButton />}
         </div>
       </div>
     </header>

@@ -1,9 +1,11 @@
 import "./page.css";
 import fetchData from "@/utils/fetchData";
+import dynamic from "next/dynamic";
 import { updateLink } from "@/utils/updateLink";
 import { LINKS_MAIN, SHORTCUTS } from "@/utils/constants";
+import Test from "./components/Test/Test";
+import MainLoader from "./components/UI/MainLoader/MainLoader";
 import SliderSelection from "./components/SliderSelection/SliderSelection";
-import BigSlider from "./components/BigSlider/BigSlider";
 
 async function getSliderData(key) {
   const link = updateLink(SHORTCUTS[key].filters);
@@ -18,15 +20,21 @@ export default async function HomePage() {
   const { docs: mustSee, key: mustSeeKey } = await getSliderData("mustSee");
   const { docs: hbo, key: hboKey } = await getSliderData("hbo");
 
+  const BigSlider = dynamic(() => import("./components/BigSlider/BigSlider"), {
+    loading: () => <MainLoader />,
+    ssr: false,
+  });
+
   return (
     <>
-      <BigSlider data={mainSlider} />
+      <Test />
       <SliderSelection
         data={best}
         title={SHORTCUTS[bestKey].title}
         selection={bestKey}
         progressBar
       />
+      {/* <BigSlider data={mainSlider} /> */}
       <SliderSelection
         data={mustSee}
         title={SHORTCUTS[mustSeeKey].title}

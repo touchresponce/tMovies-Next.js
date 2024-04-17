@@ -1,7 +1,14 @@
+// "use client";
+
 import "./PersonMovies.css";
 import FastSearchItem from "../UI/FastSearchItem/FastSearchItem";
 
 export default function PersonMovies({ data }) {
+  // console.log(data);
+
+  // const test = data.filter((item) => item.rating.kp || item.rating.imdb);
+  // console.log(test);
+
   return (
     <section className='person-list'>
       <h3 className='person-list__title text'>
@@ -14,6 +21,7 @@ export default function PersonMovies({ data }) {
             key={movie.id}
           >
             <FastSearchItem data={movie} />
+            {/* <FastSearchItem data={test} /> */}
           </li>
         ))}
       </ul>

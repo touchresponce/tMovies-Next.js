@@ -7,7 +7,7 @@ import MovieItemBig from "../UI/MovieItemBig/MovieItemBig";
 
 export default function BigSlider({ data }) {
   return (
-    <section style={{ paddingTop: "80px" }}>
+    <section style={{ paddingTop: "64px" }}>
       <Splide
         className='carousel-big'
         options={{

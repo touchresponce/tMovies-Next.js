@@ -2,6 +2,7 @@
 
 import "./SliderSelection.css";
 import Link from "next/link";
+// import Slider from "../Slider/Slider";
 import dynamic from "next/dynamic";
 import MainLoader from "../UI/MainLoader/MainLoader";
 
@@ -12,8 +13,6 @@ export default function SliderSelection({
   horizontal = false,
   progressBar = false,
 }) {
-  //
-  // suspense
   const Slider = dynamic(() => import("../Slider/Slider"), {
     loading: () => <MainLoader />,
     ssr: false,

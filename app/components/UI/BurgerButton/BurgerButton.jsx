@@ -9,8 +9,12 @@ export default function BurgerButton() {
   };
 
   return (
-    <div className={`burger ${sidebar ? "open" : ""}`} onClick={toggleSidebar}>
-      <div className='burger__button' />
-    </div>
+    <button className='burger-button-wrap' onClick={toggleSidebar}>
+      <div className={sidebar ? "burger-button active" : "burger-button"}>
+        <span />
+        <span />
+        <span />
+      </div>
+    </button>
   );
 }

@@ -1,6 +1,6 @@
 .navigation {
   display: flex;
-  gap: 50px;
+  gap: 40px;
 }
 
 .navigation__link {
@@ -13,20 +13,21 @@
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  color: #9a9a9a;
+  /* color: #9a9a9a; */
+  color: inherit;
   transition: all ease-in-out 0.3s;
 }
 
 .navigation__link-span {
   margin-top: 2px;
-  width: 120%;
+  width: 140%;
   align-self: center;
   border: 1px solid #393;
   opacity: 0;
 }
 
 .navigation__link-active {
-  color: inherit;
+  /* color: inherit; */
   pointer-events: none;
 }
 

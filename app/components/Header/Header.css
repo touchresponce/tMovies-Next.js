@@ -2,8 +2,9 @@
   position: fixed;
   width: 100%;
   background-color: #000;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  /* z-index: 4; */
   z-index: 21;
-  transition: all 0.3s ease-in-out;
 }
 
 .header__wrapper {
@@ -43,11 +44,6 @@
 
 .scroll {
   border-bottom: 1px solid #2f2f2f;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out,
-    background-color 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out,
-    background-color 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .out {
@@ -62,16 +58,6 @@
 
 @media screen and (width < 1024px) {
   .header__wrapper {
-    padding: 12px 50px;
-  }
-
-  .header__container {
-    gap: 20px;
-  }
-}
-
-@media screen and (width < 949px) {
-  .header__wrapper {
     padding: 12px 20px;
   }
 }
@@ -79,12 +65,6 @@
 @media screen and (width < 640px) {
   .header__wrapper {
     padding: 12px 20px;
-  }
-}
-
-@media screen and (width <= 480px) {
-  .header__container {
-    flex-direction: row-reverse;
   }
 }
 

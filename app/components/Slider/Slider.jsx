@@ -2,7 +2,7 @@ import "./Slider.css";
 import "@splidejs/react-splide/css";
 import { useEffect, useRef, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { SLIDER_BREAKPOINTS_VERTICAL } from "@/utils/constants";
+import { SLIDER_BREAKPOINTS } from "@/utils/constants";
 import MovieItem from "../UI/MovieItem/MovieItem";
 
 export default function Slider({ data, progressBar }) {
@@ -35,7 +35,7 @@ export default function Slider({ data, progressBar }) {
         options={{
           gap: "15px",
           perPage: 6,
-          breakpoints: SLIDER_BREAKPOINTS_VERTICAL,
+          breakpoints: SLIDER_BREAKPOINTS,
           snap: true,
           speed: 800,
           pagination: false,

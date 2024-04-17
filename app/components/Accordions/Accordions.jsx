@@ -8,11 +8,31 @@ import AccordionItem from "../UI/AccordionItem/AccordionItem";
 
 export default function Accordions({ data }) {
   const isEmptyFees = (obj) => {
-    if (obj !== null && typeof obj === "object") {
-      return Object.values(obj).some(
-        (val) => typeof val === "object" && Object.keys(val).length > 0
-      );
+    if (obj && typeof obj === "object" && Object.keys(obj).length > 0) {
+      for (let key in obj) {
+        if (
+          obj[key] &&
+          typeof obj[key] === "object" &&
+          Object.keys(obj[key]).length > 0
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    } else {
+      return false;
     }
+  };
+
+  const renderFees = () => {
+    if (!isEmptyFees(data.fees)) return;
+
+    return (
+      <AccordionItem title={"Сборы"}>
+        <Fees data={data} />
+      </AccordionItem>
+    );
   };
 
   return (
@@ -25,11 +45,7 @@ export default function Accordions({ data }) {
         <Crew data={data} />
       </AccordionItem>
 
-      {isEmptyFees(data.fees) && (
-        <AccordionItem title={"Сборы"}>
-          <Fees data={data} />
-        </AccordionItem>
-      )}
+      {renderFees()}
     </div>
   );
 }

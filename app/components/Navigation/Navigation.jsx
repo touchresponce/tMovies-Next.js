@@ -4,7 +4,6 @@ import "./Navigation.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HEADER_LINKS_MAIN } from "@/utils/constants";
-import BurgerButton from "../UI/BurgerButton/BurgerButton";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -27,7 +26,6 @@ export default function Navigation() {
           </Link>
         ))}
       </nav>
-      <BurgerButton />
     </>
   );
 }

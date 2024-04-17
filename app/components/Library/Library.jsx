@@ -1,4 +1,7 @@
+"use client";
+
 import "./Library.css";
+import "@splidejs/react-splide/css";
 import TypeItem from "../UI/TypeItem/TypeItem";
 
 export default function Library() {

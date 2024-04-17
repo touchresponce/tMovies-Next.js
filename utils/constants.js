@@ -63,7 +63,7 @@ export const OPTIONS_RATING = [
   { title: "1-4", value: "1-4" },
 ];
 
-export const SLIDER_BREAKPOINTS_VERTICAL = {
+export const SLIDER_BREAKPOINTS = {
   1280: {
     perPage: 5,
   },

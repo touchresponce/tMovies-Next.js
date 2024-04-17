@@ -28,14 +28,15 @@ html,
 body {
   padding: 0;
   margin: 0;
-  scrollbar-color: #222 #0b0a0d; /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-color: #222 #000; /* «цвет ползунка» «цвет полосы скроллбара» */
   scrollbar-width: thin;
+  scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent; /* для мобилок */
 }
 
 /* полоса прокрутки (скроллбар) */
 ::-webkit-scrollbar {
-  background-color: #0b0a0d;
+  background-color: #000;
   border: 4px solid transparent;
   width: 8px;
 }
@@ -49,7 +50,7 @@ body {
 /* для настройки скроллбара в Firefox */
 .scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #222 #0b0a0d;
+  scrollbar-color: #222 #000;
 }
 
 /* стили для ползунка скроллбара в Firefox */

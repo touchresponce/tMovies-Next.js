@@ -25,9 +25,9 @@
   line-height: 22px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (width < 1024px) {
   .major {
-    padding-left: 50px;
+    padding-left: 20px;
   }
 
   .major__wrapper {
@@ -36,13 +36,7 @@
   }
 }
 
-@media screen and (max-width: 949px) {
-  .major {
-    padding: 0 20px;
-  }
-}
-
-@media screen and (max-width: 460px) {
+@media screen and (width < 460px) {
   .major {
     padding: 0 10px;
   }

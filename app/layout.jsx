@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             <div className='page'>
               <Header />
               <main className='main'>{children}</main>
-              <Footer />
+              {/* <Footer /> */}
             </div>
             <FastSearch />
             <Sidebar />

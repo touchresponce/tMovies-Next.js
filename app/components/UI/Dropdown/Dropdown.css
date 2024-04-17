@@ -1,8 +1,10 @@
 .dropdown {
   position: relative;
   width: 170px;
-  background: #1b1a1d;
-  border-radius: 8px;
+  /* background: #1b1a1d; */
+  background: transparent;
+  /* border-radius: 8px; */
+  border: 0.125rem solid rgba(255, 255, 255, 0.2);
 }
 
 .dropdown:last-child {
@@ -11,15 +13,9 @@
 
 .dropdown__text {
   color: inherit;
-  padding: 10px 8px;
+  padding: 8px;
   cursor: pointer;
   height: auto;
-  border-radius: 8px;
-}
-
-.dropdown__text:hover {
-  background: rgb(35, 35, 35);
-  transition: all 0.35s ease-out;
 }
 
 .dropdown__text:after {
@@ -49,7 +45,7 @@
   opacity: 0;
   max-height: 0px;
   transition: max-height 0.35s ease, opacity 0.35s ease;
-  background: inherit;
+  background: #000;
   overflow-y: scroll;
   z-index: 100;
 }

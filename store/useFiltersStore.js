@@ -30,25 +30,29 @@ export const useFilters = create((set, get) => ({
   },
 
   changeFilters: (type, value) => {
+    const { filters } = get();
+
     useSearch.getState().reset();
+
     if (value === "") {
       set({
-        filters: { ...get().filters, [type]: initialFilters[type] },
+        filters: { ...filters, [type]: initialFilters[type] },
       });
     } else {
       if (type === "genre") {
         set({
           filters: {
-            ...get().filters,
+            ...filters,
             genre: [...initialFilters[type], `+${value}`],
           },
         });
       } else {
         set({
-          filters: { ...get().filters, [type]: [value] },
+          filters: { ...filters, [type]: [value] },
         });
       }
     }
+
     set({
       link: updateLink(get().filters),
     });

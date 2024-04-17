@@ -22,13 +22,13 @@
   font-size: clamp(32px, 7vw, 64px);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (width < 1024px) {
   .person-info {
     padding: 0 50px;
   }
 }
 
-@media screen and (max-width: 949px) {
+@media screen and (width < 949px) {
   .person-info {
     padding: 0 20px;
     flex-direction: column;
@@ -40,7 +40,7 @@
   }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (width < 460px) {
   .person-info {
     padding: 0 10px;
   }

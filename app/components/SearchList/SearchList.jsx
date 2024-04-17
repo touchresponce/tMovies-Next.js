@@ -4,7 +4,7 @@ import "./SearchList.css";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import MoreButton from "../UI/MoreButton/MoreButton";
 import MovieItem from "../UI/MovieItem/MovieItem";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useFilters } from "@/store/useFiltersStore";
 import { useSearch } from "@/store/useSearchStore";
 import { usePathname } from "next/navigation";
@@ -23,7 +23,6 @@ export default function SearchList() {
     reset: resetContent,
   } = useSearch();
   const { setFilters, changeFilters, link, reset: resetFilters } = useFilters();
-  const [prevLink, setPrevLink] = useState(link);
   // const isSelection = Object.keys(SHORTCUTS).some((key) => lastPart.includes(key));
 
   useEffect(() => {
@@ -47,10 +46,12 @@ export default function SearchList() {
     };
   }, []);
 
-  useEffect(() => {
-    prevLink !== link && link.length > 0 && getContent();
-    setPrevLink(link);
-  }, [link]);
+  useEffect(
+    (prevLink) => {
+      prevLink !== link && link.length > 0 && getContent();
+    },
+    [link]
+  );
 
   const listNode = content?.length ? (
     <div className='search-list__list'>
