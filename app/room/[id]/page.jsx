@@ -29,7 +29,7 @@ export default async function Movie({ params: { id } }) {
 
     if (similarMovies?.length > 0 || sequelsAndPrequels?.length > 0) {
       //
-      const filtredSimilar = similarMovies.filter((movie) => movie.poster.url);
+      const filtredSimilar = similarMovies?.filter((movie) => movie.poster.url);
 
       //
       const filtredSequelsAndPrequels = sequelsAndPrequels.filter(

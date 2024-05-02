@@ -8,36 +8,19 @@ import { useEffect } from "react";
 import { useFilters } from "@/store/useFiltersStore";
 import { useSearch } from "@/store/useSearchStore";
 import { usePathname } from "next/navigation";
-import { SHORTCUTS } from "@/utils/constants";
+import { SHORTCUTS, CONTENT_TYPES } from "@/utils/constants";
 
 export default function SearchList() {
-  const pathname = usePathname();
-  const pathParts = pathname.split("/"); //
-  const lastPart = pathParts[pathParts.length - 1];
-  const {
-    content,
-    currentPage,
-    totalPages,
-    status,
-    getContent,
-    reset: resetContent,
-  } = useSearch();
-  const { setFilters, changeFilters, link, reset: resetFilters } = useFilters();
-  // const isSelection = Object.keys(SHORTCUTS).some((key) => lastPart.includes(key));
+  const lastPart = usePathname().split("/").pop();
+  const { setFilters, changeFilter, link, resetFilters } = useFilters();
+  const { content, currentPage, totalPages, status, getContent, resetContent } =
+    useSearch();
 
   useEffect(() => {
-    switch (pathname) {
-      case `/catalog/${lastPart}`:
-        changeFilters("type", lastPart);
-        break;
-
-      case `/catalog/selection/${lastPart}`:
-        // isSelection &&
-        setFilters(SHORTCUTS[lastPart]);
-        break;
-
-      default:
-        break;
+    if (CONTENT_TYPES.includes(lastPart)) {
+      changeFilter("type", lastPart);
+    } else if (lastPart in SHORTCUTS) {
+      setFilters(SHORTCUTS[lastPart]);
     }
 
     return () => {
@@ -53,7 +36,7 @@ export default function SearchList() {
     [link]
   );
 
-  const listNode = content?.length ? (
+  const listNode = content.length ? (
     <div className='search-list__list'>
       {content.map((item) => (
         <MovieItem data={item} key={item.id} />
@@ -69,13 +52,11 @@ export default function SearchList() {
 
   return (
     <section className='search-list'>
-      {status === "loading" && !content?.length > 0 && <MainLoader />}
+      {status === "loading" && !content.length && <MainLoader />}
       {status === "empty" && notFound}
       {status === "error" && error}
       {content?.length > 0 && listNode}
-      {currentPage < totalPages && content?.length > 0 && (
-        <MoreButton title='Показать еще' />
-      )}
+      {currentPage < totalPages && content?.length > 0 && <MoreButton />}
     </section>
   );
 }

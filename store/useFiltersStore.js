@@ -29,10 +29,10 @@ export const useFilters = create((set, get) => ({
     });
   },
 
-  changeFilters: (type, value) => {
+  changeFilter: (type, value) => {
     const { filters } = get();
 
-    useSearch.getState().reset();
+    useSearch.getState().resetContent();
 
     if (value === "") {
       set({
@@ -58,7 +58,7 @@ export const useFilters = create((set, get) => ({
     });
   },
 
-  reset: () => {
+  resetFilters: () => {
     set({
       filters: {
         ...initialFilters,

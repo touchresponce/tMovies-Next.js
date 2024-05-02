@@ -2,7 +2,7 @@ import "./MoreButton.css";
 import { useSearch } from "@/store/useSearchStore";
 import SearchLoader from "../SearchLoader/SearchLoader";
 
-export default function MoreButton({ title }) {
+export default function MoreButton() {
   const { status, getContent, currentPage, totalPages } = useSearch();
 
   const handleMoreContent = () => {
@@ -13,7 +13,7 @@ export default function MoreButton({ title }) {
     <>
       {status !== "loading" && (
         <button className='button' type='button' onClick={handleMoreContent}>
-          {title}
+          Показать еще
           <span className='shift'>›</span>
           <div className='mask'></div>
         </button>

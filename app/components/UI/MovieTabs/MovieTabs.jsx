@@ -12,7 +12,7 @@ export default function MovieTabs({ similarMovies, sequelsAndPrequels }) {
         selectedTabClassName='tablist__tab-selected'
       >
         <TabList className='tablist'>
-          {similarMovies.length > 0 && (
+          {similarMovies?.length > 0 && (
             <Tab className='tablist__tab noselect'>Похожие</Tab>
           )}
           {sequelsAndPrequels?.length > 0 && (

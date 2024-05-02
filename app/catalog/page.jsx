@@ -10,27 +10,34 @@ export const metadata = {
     "Каталог фильмов в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре Tastemovies",
 };
 
-export default async function CatalogPage() {
-  const fetchAndProcessData = async (key) => {
-    const link = updateLink(SHORTCUTS[key].filters);
-    const data = await fetchData(`${LINKS_MAIN.search}&${link}`);
-    return { key, data: data.docs.slice(0, 15) };
-  };
+const fetchAndProcessData = async (key) => {
+  const link = updateLink(SHORTCUTS[key].filters);
+  const response = await fetchData(`${LINKS_MAIN.search}&${link}`);
+  const docs = response.docs.slice(0, 15);
+  return { key, data: docs };
+};
 
-  const fetchPromises = Object.keys(SHORTCUTS).map(fetchAndProcessData);
+export default async function CatalogPage() {
+  const fetchPromises = Object.keys(SHORTCUTS).map((key) =>
+    fetchAndProcessData(key)
+  );
   const results = await Promise.allSettled(fetchPromises);
 
   const successfulResults = results
-    .filter((result) => result.status === "fulfilled")
-    .map(({ value }) => (
-      <SliderSelection
-        key={value.key}
-        data={value.data}
-        title={SHORTCUTS[value.key].title}
-        selection={value.key}
-        progressBar
-      />
-    ));
+    .filter(({ status }) => status === "fulfilled")
+    .map(({ value }) => {
+      const { key, data } = value;
+      const { title } = SHORTCUTS[key];
+      return (
+        <SliderSelection
+          key={key}
+          data={data}
+          title={title}
+          selection={key}
+          progressBar
+        />
+      );
+    });
 
   return (
     <>

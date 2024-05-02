@@ -8,7 +8,7 @@ export default function Dropdown({ options, inputType }) {
   const dropdownRef = useRef(null);
   const dropdownTextRef = useRef(null);
   const itemRef = useRef(null);
-  const { changeFilters } = useFilters();
+  const { changeFilter } = useFilters();
 
   const handleClickOutside = (e) => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -31,7 +31,7 @@ export default function Dropdown({ options, inputType }) {
     const { textContent } = e.currentTarget;
     setText(textContent);
     setIsOpen(false);
-    changeFilters(inputType, value);
+    changeFilter(inputType, value);
   };
 
   return (

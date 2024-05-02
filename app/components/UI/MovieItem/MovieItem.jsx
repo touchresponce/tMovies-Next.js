@@ -50,7 +50,7 @@ export default function MovieItem({ data }) {
     <div className='item noselect'>
       <Link
         href={`/room/${data.id}`}
-        target='_blank'
+        // target='_blank'
         style={{
           color: "inherit",
         }}

@@ -42,7 +42,7 @@ export const OPTIONS_GENRES = [
 
 export const OPTIONS_YEARS = [
   { title: "Все года", value: "" },
-  { title: "2022-2023", value: "2022-2023" },
+  { title: `2022-${CURRENT_YEAR}`, value: `2022-${CURRENT_YEAR}` },
   { title: "2020-2021", value: "2020-2021" },
   { title: "2014-2019", value: "2014-2019" },
   { title: "2010-2013", value: "2010-2013" },
@@ -92,6 +92,8 @@ export const LINKS_MAIN = {
   search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}&genres.name=!для+взрослых&genres.name=!концерт`,
   fastSearch: "https://api.kinopoisk.dev/v1.4/movie/search?limit=30",
 };
+
+export const CONTENT_TYPES = ["movie", "cartoon", "tv-series", "anime"];
 
 export const SHORTCUTS = {
   bestOfYear: {

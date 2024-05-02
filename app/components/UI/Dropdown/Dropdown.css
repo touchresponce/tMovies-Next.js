@@ -20,7 +20,7 @@
 
 .dropdown__text:after {
   content: "";
-  transition: all 0.35s;
+  transition: all 0.35s ease;
   border: solid #ccc;
   border-width: 0 1px 1px 0;
   float: right;
@@ -44,7 +44,7 @@
   visibility: hidden;
   opacity: 0;
   max-height: 0px;
-  transition: max-height 0.35s ease, opacity 0.35s ease;
+  transition: max-height 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
   background: #000;
   overflow-y: scroll;
   z-index: 100;
@@ -62,7 +62,7 @@
   cursor: pointer;
   padding: 10px;
   width: 290px;
-  transition: all 0.2s;
+  transition: all 0.35s ease;
 }
 
 .dropdown___item:not(:last-child) {

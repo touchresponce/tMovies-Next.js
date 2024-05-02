@@ -30,7 +30,7 @@ export const useSearch = create((set, get) => ({
     }
   },
 
-  reset: () => {
+  resetContent: () => {
     set({ ...initial });
   },
 }));

@@ -24,15 +24,11 @@
 
 @media screen and (width < 1024px) {
   .person-list {
-    padding: 0 50px;
+    padding: 0 20px;
   }
 }
 
 @media screen and (width < 949px) {
-  .person-list {
-    padding: 0 20px;
-  }
-
   .person-list__list {
     margin-top: 14px;
   }

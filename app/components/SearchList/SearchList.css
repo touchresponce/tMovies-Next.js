@@ -43,7 +43,8 @@
 
 @media screen and (width < 1024px) {
   .search-list {
-    padding: 0 50px;
+    /* padding: 0 50px; */
+    padding: 0 20px;
   }
 }
 
@@ -54,18 +55,13 @@
   }
 }
 
-@media screen and (width < 949px) {
-  .search-list {
-    padding: 0 20px;
-  }
-}
-
 @media screen and (width < 760px) {
   .search-list__list {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
   }
 }
+
 @media screen and (width < 460px) {
   .search-list {
     padding: 0 10px;

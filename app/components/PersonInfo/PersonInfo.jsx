@@ -34,9 +34,9 @@ export default function PersonInfo({ data }) {
         <h1 className='person__name text'>{name}</h1>
         <h2 className='person__engname text'>{enName}</h2>
 
-        {birthday !== null && <p className='text'>{formatDate(birthday)}</p>}
-        {death !== null && <p className='text'>{formatDate(death)}</p>}
-        {age !== null && <p className='text'>{formatAge(age)}</p>}
+        <p className='text'>{formatDate(birthday)}</p>
+        <p className='text'>{formatDate(death)}</p>
+        <p className='text'>{formatAge(age)}</p>
 
         <p className='text'>{birthPlace}</p>
         <p className='text'>{profession}</p>
