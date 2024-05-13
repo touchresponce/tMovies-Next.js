@@ -4,7 +4,7 @@ import SearchList from "@/app/components/SearchList/SearchList";
 export const metadata = {
   title: "Аниме",
   description:
-    "Аниме в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре Tastemovies",
+    "Аниме в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре TasteMovies",
 };
 
 export default function MoviePage() {

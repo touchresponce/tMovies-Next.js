@@ -1,4 +1,4 @@
-.carousel {
+.splide {
   padding: 16px 0;
 }
 
@@ -19,13 +19,17 @@
   background: #0a2fff;
   height: 3px;
   border-radius: 3px;
-  transition: width 400ms ease;
+  transition: width 400ms ease-in-out;
   width: 0;
   filter: drop-shadow(0px 4px 4px #0a2fff);
 }
 
+.splide:not(.is-overflow) ~ .my-slider-progress {
+  visibility: hidden;
+}
+
 @media screen and (width < 460px) {
-  .carousel {
+  .splide {
     padding: 10px 0;
   }
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 export default async function Background({ data }) {
   return (
     <div className='background noselect'>
-      {data.backdrop.url && (
+      {data.backdrop?.url && (
         <Image
           src={data.backdrop.url}
           alt=''

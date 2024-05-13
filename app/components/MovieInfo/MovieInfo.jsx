@@ -1,7 +1,7 @@
 import "./MovieInfo.css";
-import formatNumber from "@/utils/formatNumber";
+import formatNumber from "@/utils/formatFunctions/formatNumber";
 import InfoItem from "../UI/InfoItem/InfoItem";
-import formatDate from "@/utils/formatDate";
+import formatDate from "@/utils/formatFunctions/formatDate";
 
 export default function MovieInfo({ data }) {
   const { budget, premiere, enName, name, alternativeName } = data;

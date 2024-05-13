@@ -17,7 +17,7 @@ export default function SearchList() {
     useSearch();
 
   useEffect(() => {
-    if (CONTENT_TYPES.includes(lastPart)) {
+    if (CONTENT_TYPES.some((type) => type.value === lastPart)) {
       changeFilter("type", lastPart);
     } else if (lastPart in SHORTCUTS) {
       setFilters(SHORTCUTS[lastPart]);

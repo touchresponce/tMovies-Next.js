@@ -1,5 +1,5 @@
 import "./Fees.css";
-import formatNumber from "@/utils/formatNumber";
+import formatNumber from "@/utils/formatFunctions/formatNumber";
 import InfoItem from "../InfoItem/InfoItem";
 
 export default function Fees({ data }) {

@@ -3,14 +3,15 @@
 import "./Library.css";
 import "@splidejs/react-splide/css";
 import TypeItem from "../UI/TypeItem/TypeItem";
+import { CONTENT_TYPES } from "@/utils/constants";
 
 export default function Library() {
   return (
     <section className='section-library'>
-      <TypeItem type='movie' title='Фильмы' />
-      <TypeItem type='tv-series' title='Сериалы' />
-      <TypeItem type='cartoon' title='Мультфильмы' />
-      <TypeItem type='anime' title='Аниме' />
+      {CONTENT_TYPES.map((type) => {
+        const { title, value } = type;
+        return <TypeItem type={value} title={title} />;
+      })}
     </section>
   );
 }

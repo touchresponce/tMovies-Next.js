@@ -13,6 +13,11 @@
   z-index: 5;
 }
 
+.react-tabs__tab-panel {
+  display: flex;
+  flex-direction: column;
+}
+
 .tablist {
   border-bottom: 1px solid #2f2f2f;
   margin: 0;

@@ -1,6 +1,6 @@
 import "./InfoList.css";
-import formatSeasonsWord from "@/utils/formatSeasonsWord";
-import formatTime from "@/utils/formatTime";
+import formatSeasonsWord from "@/utils/formatFunctions/formatSeasonsWord";
+import formatTime from "@/utils/formatFunctions/formatTime";
 
 export default function InfoList({ data }) {
   const duration = formatTime(data.movieLength);

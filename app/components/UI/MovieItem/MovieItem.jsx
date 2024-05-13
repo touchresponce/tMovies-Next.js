@@ -1,7 +1,7 @@
 import "./MovieItem.css";
 import Link from "next/link";
 import Image from "next/image";
-import formatTime from "@/utils/formatTime";
+import formatTime from "@/utils/formatFunctions/formatTime";
 
 export default function MovieItem({ data }) {
   const renderAgeRating = () => {
@@ -18,7 +18,6 @@ export default function MovieItem({ data }) {
 
   const renderGenre = () => {
     if (!data.genres?.length) return;
-
     const genre = data.genres[0].name.toUpperCase();
     return <p className='tag text'>{genre}</p>;
   };
@@ -50,7 +49,6 @@ export default function MovieItem({ data }) {
     <div className='item noselect'>
       <Link
         href={`/room/${data.id}`}
-        // target='_blank'
         style={{
           color: "inherit",
         }}

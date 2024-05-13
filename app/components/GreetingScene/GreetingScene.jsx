@@ -1,14 +1,14 @@
-import "./Test.css";
+import "./GreetingScene.css";
 import Image from "next/image";
 import BackgroundImage from "@/public/images/bg.webp";
 import LogotypeImage from "@/public/logotype.svg";
 import ArrowsDownButton from "../UI/ArrowsDownButton/ArrowsDownButton";
 
-export default function Test() {
+export default function GreetingScene() {
   return (
-    <section className='main-bg'>
+    <section className='greeting'>
       <Image
-        className='main-bg__background'
+        className='greeting__background'
         src={BackgroundImage}
         alt=''
         fill
@@ -17,21 +17,23 @@ export default function Test() {
         placeholder='blur'
         blurDataURL={BackgroundImage.src}
       />
-      <div className='main-bg__wrapper'>
+      <div className='greeting__wrapper'>
         <Image
-          className='main-bg__logo'
+          className='greeting__logo'
           src={LogotypeImage}
-          alt=''
+          alt='Логотип'
           priority
           height={280}
           width={280}
           placeholder='blur'
           blurDataURL={LogotypeImage.src}
         />
-        <div className='main-bg__text-wrapper text'>
-          <h1 className='main-bg__title text'>The best streaming experience</h1>
-          <h2 className='main-bg__subtitle text'>
-            Погрузитесь в мир кино и развлечений с Tastemovies. У нас вы найдете
+        <div className='greeting__text-wrapper text'>
+          <h1 className='greeting__title text'>
+            The best streaming experience
+          </h1>
+          <h2 className='greeting__subtitle text'>
+            Погрузитесь в мир кино и развлечений с TasteMovies. У нас вы найдете
             огромную библиотеку контента различных жанров, доступную для
             просмотра абсолютно бесплатно.
           </h2>

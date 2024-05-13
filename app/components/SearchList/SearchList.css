@@ -25,6 +25,9 @@
   padding: 0;
   margin: 100px 0 0;
   align-self: center;
+  font-size: clamp(21px, 5vw, 28px);
+  font-style: normal;
+  font-weight: 500;
 }
 
 @media screen and (width < 1440px) {

@@ -5,6 +5,16 @@ import MovieLogo from "../UI/MovieLogo/MovieLogo";
 import ModalButton from "../UI/ModalButton/ModalButton";
 
 export default function MainInfo({ data }) {
+  const { rating, type } = data;
+
+  const renderButton = () => {
+    const { kp, imdb } = rating;
+
+    if (!kp && !imdb) return;
+
+    return <ModalButton type={type} />;
+  };
+
   return (
     <section className='major'>
       <Background data={data} />
@@ -13,7 +23,7 @@ export default function MainInfo({ data }) {
         <div className='major__text-wrapper'>
           <InfoList data={data} />
         </div>
-        <ModalButton type={data.type} />
+        {renderButton()}
       </div>
     </section>
   );

@@ -88,5 +88,5 @@ body {
 
 .noscroll {
   overflow: hidden;
-  padding-right: 8px;
+  scrollbar-gutter: stable;
 }

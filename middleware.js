@@ -6,7 +6,7 @@ export function middleware(request) {
 
   const shouldRedirect =
     !(lastPart in SHORTCUTS) &&
-    !CONTENT_TYPES.some((item) => lastPart.includes(item));
+    !CONTENT_TYPES.some((type) => type.value === lastPart);
 
   return shouldRedirect
     ? NextResponse.redirect(new URL("/", request.url))

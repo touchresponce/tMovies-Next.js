@@ -52,7 +52,7 @@ export default function Header() {
     >
       <div className='header__wrapper'>
         <Link className='header__logo' href='/'>
-          Tastemovies
+          TasteMovies
         </Link>
         <div className='header__container'>
           {!fastSearch && !sidebar && <Navigation />}

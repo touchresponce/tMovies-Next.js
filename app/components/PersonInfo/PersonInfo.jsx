@@ -1,7 +1,7 @@
 import "./PersonInfo.css";
 import Image from "next/image";
-import formatDate from "@/utils/formatDate";
-import formatAge from "@/utils/formatAge";
+import formatDate from "@/utils/formatFunctions/formatDate";
+import formatAge from "@/utils/formatFunctions/formatAge";
 
 export default function PersonInfo({ data }) {
   const { name, enName, photo, age, death, birthday } = data;
@@ -11,6 +11,39 @@ export default function PersonInfo({ data }) {
 
   const profession =
     data.profession !== null && data.profession?.map((x) => x.value).join(" ");
+
+  function renderLifetime(birthday, death, age) {
+    if (!birthday && !death) {
+      return null;
+    }
+
+    const formattedBirthday = birthday ? formatDate(birthday) : "";
+    const formattedDeath = death ? ` - ${formatDate(death)}` : "";
+    const formattedAge = age !== undefined ? `${formatAge(age)}` : "";
+
+    // Если дата смерти не указана, отображаем только дату рождения и возраст
+    if (!death) {
+      return (
+        <>
+          <p className='person-info__date text'>
+            {formattedBirthday} (
+            <span className='person-info__span'>{formattedAge}</span>)
+          </p>
+        </>
+      );
+    }
+
+    // Если указаны обе даты, отображаем диапазон жизни и возраст
+    return (
+      <>
+        <p className='person-info__date text'>
+          {formattedBirthday}
+          {formattedDeath} (
+          <span className='person-info__span'>{formattedAge}</span>)
+        </p>
+      </>
+    );
+  }
 
   return (
     <section className='person-info'>
@@ -33,11 +66,7 @@ export default function PersonInfo({ data }) {
       <div className='person'>
         <h1 className='person__name text'>{name}</h1>
         <h2 className='person__engname text'>{enName}</h2>
-
-        <p className='text'>{formatDate(birthday)}</p>
-        <p className='text'>{formatDate(death)}</p>
-        <p className='text'>{formatAge(age)}</p>
-
+        {renderLifetime(birthday, death, age)}
         <p className='text'>{birthPlace}</p>
         <p className='text'>{profession}</p>
       </div>

@@ -1,37 +1,43 @@
 import "./Slider.css";
 import "@splidejs/react-splide/css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { SLIDER_BREAKPOINTS } from "@/utils/constants";
 import MovieItem from "../UI/MovieItem/MovieItem";
 
-export default function Slider({ data, progressBar }) {
-  const [progressWidth, setProgressWidth] = useState("");
+export default function Slider({ data }) {
+  const [progressWidth, setProgressWidth] = useState("0%");
   const splideRef = useRef(null);
-  const progressRef = useRef(null);
 
-  const list = data?.map((item) => (
-    <SplideSlide key={item.id}>
-      <MovieItem data={item} />
-    </SplideSlide>
-  ));
+  const list = useMemo(
+    () =>
+      data?.map((item) => (
+        <SplideSlide key={item.id}>
+          <MovieItem data={item} />
+        </SplideSlide>
+      )),
+    [data]
+  );
 
-  const updateProgressBar = () => {
+  const updateProgressBar = useCallback(() => {
     if (splideRef.current) {
       const end = splideRef.current.splide.Components.Controller.getEnd() + 1;
       const rate = Math.min((splideRef.current.splide.index + 1) / end, 1);
       setProgressWidth(`${100 * rate}%`);
     }
-  };
+  }, []);
 
-  useEffect(() => updateProgressBar(), []);
+  useEffect(() => {
+    updateProgressBar();
+  }, [updateProgressBar]);
 
   return (
     <>
       <Splide
         ref={splideRef}
         onMove={updateProgressBar}
-        className='carousel'
+        onResize={updateProgressBar}
+        onResized={updateProgressBar}
         options={{
           gap: "15px",
           perPage: 6,
@@ -45,15 +51,12 @@ export default function Slider({ data, progressBar }) {
       >
         {list}
       </Splide>
-      {progressBar && (
-        <div className='my-slider-progress'>
-          <div
-            className='my-slider-progress-bar'
-            ref={progressRef}
-            style={{ width: progressWidth }}
-          />
-        </div>
-      )}
+      <div className='my-slider-progress'>
+        <div
+          className='my-slider-progress-bar'
+          style={{ width: progressWidth }}
+        />
+      </div>
     </>
   );
 }

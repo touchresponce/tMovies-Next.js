@@ -2,21 +2,9 @@
 
 import "./SliderSelection.css";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import MainLoader from "../UI/MainLoader/MainLoader";
+import Slider from "../Slider/Slider";
 
-export default function SliderSelection({
-  data,
-  title,
-  selection,
-  horizontal = false,
-  progressBar = false,
-}) {
-  const Slider = dynamic(() => import("../Slider/Slider"), {
-    loading: () => <MainLoader />,
-    ssr: false,
-  });
-
+export default function SliderSelection({ data, title, selection }) {
   return (
     <section className='selection'>
       <Link
@@ -26,8 +14,7 @@ export default function SliderSelection({
         {title}
         <span className='selection__span'>›</span>
       </Link>
-
-      <Slider data={data} horizontal={horizontal} progressBar={progressBar} />
+      <Slider data={data} />
     </section>
   );
 }

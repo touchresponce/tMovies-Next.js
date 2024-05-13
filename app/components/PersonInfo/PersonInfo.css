@@ -12,6 +12,18 @@
   border: 2px solid #2f2f2f;
   border-radius: 8px;
   overflow: hidden;
+  filter: drop-shadow(0 0 0.35rem rgb(10, 47, 255));
+}
+
+.person-info__date {
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.person-info__span {
+  color: #9a9a9a;
+  font-size: clamp(18px, 5vw, 24px);
+  font-weight: 500;
 }
 
 .person {
@@ -24,6 +36,7 @@
 .person__name {
   font-size: clamp(32px, 7vw, 58px);
   border-bottom: 2px solid #9a9a9a;
+  filter: drop-shadow(0 0 0.35rem rgb(10, 47, 255));
 }
 
 .person__engname {

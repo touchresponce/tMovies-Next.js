@@ -49,7 +49,7 @@ export default function TypeItem({ type, title }) {
               index % 3 === 0 ? "center" : index % 3 === 1 ? "left" : "right"
             }`}
             src={image}
-            alt={`поиск ${type}`}
+            alt={`поиск ${title}`}
             width={200}
             height={300}
             priority={index % 3 === 0}

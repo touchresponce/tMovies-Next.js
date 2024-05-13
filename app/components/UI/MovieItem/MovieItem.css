@@ -1,23 +1,13 @@
-:root {
-  --c_0: #000000;
-  --c_1: #353540;
-}
-
 .item {
   position: relative;
   z-index: 1;
   width: 100%;
   padding-bottom: 150%;
-  perspective: 1000px;
   cursor: pointer;
   border: 2px solid #2f2f2f;
   border-radius: 8px;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  /* 
-  * mf fix jump
-  */
-  transform: translateZ(0);
+  transition: transform 0.3s ease-in-out;
 }
 
 .item__cover {
@@ -60,7 +50,7 @@
   height: auto;
   padding: 4px;
   background: #000;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }
 
 .details__title,
@@ -111,7 +101,6 @@
     transform: translateY(-6px);
   }
 
-  /* белое заливное */
   .item:hover .item__cover::after {
     transform: translateY(0%);
   }

@@ -4,7 +4,7 @@ import SearchList from "@/app/components/SearchList/SearchList";
 export const metadata = {
   title: "Мультфильмы",
   description:
-    "Мультфильмы в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре Tastemovies",
+    "Мультфильмы в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре TasteMovies",
 };
 
 export default function MoviePage() {

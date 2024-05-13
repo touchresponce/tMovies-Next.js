@@ -2,7 +2,7 @@ import "./MovieItemBig.css";
 import Link from "next/link";
 import Image from "next/image";
 import MovieLogo from "../MovieLogo/MovieLogo";
-import formatTime from "@/utils/formatTime";
+import formatTime from "@/utils/formatFunctions/formatTime";
 
 export default function MovieItemBig({ data }) {
   const { id, backdrop, year, movieLength, ageRating } = data;
