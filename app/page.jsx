@@ -1,9 +1,7 @@
 import "./page.css";
 import fetchData from "@/utils/fetchData";
-// import dynamic from "next/dynamic";
 import { updateLink } from "@/utils/updateLink";
 import { LINKS_MAIN, SHORTCUTS } from "@/utils/constants";
-// import MainLoader from "./components/UI/MainLoader/MainLoader";
 import SliderSelection from "./components/SliderSelection/SliderSelection";
 import GreetingScene from "./components/GreetingScene/GreetingScene";
 
@@ -15,15 +13,9 @@ async function getSliderData(key) {
 }
 
 export default async function HomePage() {
-  // const { docs: mainSlider } = await fetchData(LINKS_MAIN.mainSlider);
   const { docs: best, key: bestKey } = await getSliderData("bestOfYear");
   const { docs: mustSee, key: mustSeeKey } = await getSliderData("mustSee");
   const { docs: hbo, key: hboKey } = await getSliderData("hbo");
-
-  // const BigSlider = dynamic(() => import("./components/BigSlider/BigSlider"), {
-  //   loading: () => <MainLoader />,
-  //   ssr: false,
-  // });
 
   return (
     <>
@@ -46,7 +38,6 @@ export default async function HomePage() {
         selection={hboKey}
         progressBar
       />
-      {/* <BigSlider data={mainSlider} /> */}
     </>
   );
 }
