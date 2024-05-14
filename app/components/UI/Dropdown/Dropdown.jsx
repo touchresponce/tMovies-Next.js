@@ -40,9 +40,13 @@ export default function Dropdown({ options, inputType }) {
       onClick={handleClick}
       ref={dropdownRef}
     >
-      <div className='dropdown__text' ref={dropdownTextRef}>
-        {text}
+      <div className='dropdown__inner'>
+        <div className='dropdown__mask'></div>
+        <div className='dropdown__text' ref={dropdownTextRef}>
+          {text}
+        </div>
       </div>
+
       <div className='dropdown__items'>
         {options.map(
           (item) =>
