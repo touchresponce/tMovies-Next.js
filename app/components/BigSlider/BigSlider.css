@@ -1,5 +1,25 @@
 .carousel-big {
   padding: 0 23%;
+
+  @media (width < 1440px) {
+    padding: 0 20%;
+  }
+
+  @media (width < 1220px) {
+    padding: 0 17%;
+  }
+
+  @media (width < 1140px) {
+    padding: 0 14%;
+  }
+
+  @media (width < 1024px) {
+    padding: 0 11%;
+  }
+
+  @media (width < 768px) {
+    padding: 0 10%;
+  }
 }
 
 .splide__arrows svg {
@@ -33,35 +53,5 @@
 
   .splide__arrow--next:hover {
     scale: 1.1;
-  }
-}
-
-@media screen and (width < 1440px) {
-  .carousel-big {
-    padding: 0 20%;
-  }
-}
-
-@media screen and (width < 1220px) {
-  .carousel-big {
-    padding: 0 17%;
-  }
-}
-
-@media screen and (width < 1140px) {
-  .carousel-big {
-    padding: 0 14%;
-  }
-}
-
-@media screen and (width < 1024px) {
-  .carousel-big {
-    padding: 0 11%;
-  }
-}
-
-@media screen and (width < 768px) {
-  .carousel-big {
-    padding: 0 10%;
   }
 }

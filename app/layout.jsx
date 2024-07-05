@@ -1,11 +1,11 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import Error from "./error";
 import dynamic from "next/dynamic";
 import Header from "./components/Header/Header";
 // import Footer from "./components/Footer/Footer";
 import Providers from "./providers";
-import Error from "./error";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +23,13 @@ const Sidebar = dynamic(() => import("./components/Sidebar/Sidebar"), {
   ssr: false,
 });
 
+const ProfileModal = dynamic(
+  () => import("./components/ProfileModal/ProfileModal"),
+  {
+    ssr: false,
+  }
+);
+
 export default function RootLayout({ children }) {
   return (
     <html lang='ru'>
@@ -34,6 +41,7 @@ export default function RootLayout({ children }) {
               <main className='main'>{children}</main>
               {/* <Footer /> */}
             </div>
+            <ProfileModal />
             <FastSearch />
             <Sidebar />
           </Providers>

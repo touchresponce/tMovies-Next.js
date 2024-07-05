@@ -5,6 +5,7 @@ export const useModals = create((set) => ({
     fastSearch: false,
     sidebar: false,
     movieModal: false,
+    profileModal: false,
   },
 
   openSearch: () => {
@@ -29,6 +30,14 @@ export const useModals = create((set) => ({
 
   closeMovieModal: () => {
     set({ movieModal: false });
+  },
+
+  openProfileModal: () => {
+    set({ profileModal: true });
+  },
+
+  closeProfileModal: () => {
+    set({ profileModal: false });
   },
 
   reset: () => {

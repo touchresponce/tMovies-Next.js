@@ -10,6 +10,12 @@ import { useSearch } from "@/store/useSearchStore";
 import { usePathname } from "next/navigation";
 import { SHORTCUTS, CONTENT_TYPES } from "@/utils/constants";
 
+const renderStatus = {
+  loading: <MainLoader />,
+  empty: <p className='search-list__error'>Ничего не найдено</p>,
+  error: <p className='search-list__error'>Ошибка, попробуйте еще раз</p>,
+};
+
 export default function SearchList() {
   const lastPart = usePathname().split("/").pop();
   const { setFilters, changeFilter, link, resetFilters } = useFilters();
@@ -44,19 +50,11 @@ export default function SearchList() {
     </div>
   ) : null;
 
-  const notFound = <p className='search-list__error'>Ничего не найдено</p>;
-
-  const error = (
-    <p className='search-list__error'>Ошибка, попробуйте еще раз</p>
-  );
-
   return (
     <section className='search-list'>
-      {status === "loading" && !content.length && <MainLoader />}
-      {status === "empty" && notFound}
-      {status === "error" && error}
-      {content?.length > 0 && listNode}
-      {currentPage < totalPages && content?.length > 0 && <MoreButton />}
+      {renderStatus[status] && !content.length && renderStatus[status]}
+      {content.length > 0 && listNode}
+      {currentPage < totalPages && content.length > 0 && <MoreButton />}
     </section>
   );
 }

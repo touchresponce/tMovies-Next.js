@@ -5,6 +5,14 @@
   justify-content: center;
   padding-left: 70px;
   margin-top: 56px;
+
+  @media screen and (width < 1024px) {
+    padding-left: 20px;
+  }
+
+  @media screen and (width < 460px) {
+    padding: 0 10px;
+  }
 }
 
 .major__wrapper {
@@ -14,6 +22,16 @@
   flex-direction: column;
   z-index: 5;
   transition: all 0.3s ease-in-out;
+
+  @media screen and (width < 1024px) {
+    position: static;
+    margin-top: -45px;
+  }
+
+  @media screen and (width < 460px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .major__text-wrapper {
@@ -23,25 +41,8 @@
   gap: 8px;
   font-size: 18px;
   line-height: 22px;
-}
 
-@media screen and (width < 1024px) {
-  .major {
-    padding-left: 20px;
-  }
-
-  .major__wrapper {
-    position: static;
-    margin-top: -45px;
-  }
-}
-
-@media screen and (width < 460px) {
-  .major {
-    padding: 0 10px;
-  }
-
-  .major__text-wrapper {
+  @media screen and (width < 460px) {
     font-size: 16px;
     line-height: 20px;
   }

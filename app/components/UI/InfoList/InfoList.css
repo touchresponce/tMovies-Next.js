@@ -7,6 +7,10 @@
   gap: 20px;
   align-items: center;
   transition: all 0.3s ease-in-out;
+
+  @media (width < 460px) {
+    gap: 10px;
+  }
 }
 
 .info__span {
@@ -17,10 +21,4 @@
   border: 1px solid #9a9a9a;
   border-radius: 6px;
   padding: 1px;
-}
-
-@media screen and (max-width: 460px) {
-  .info {
-    gap: 10px;
-  }
 }

@@ -1,9 +1,27 @@
-.fitlers {
+.filters {
   display: flex;
   gap: 15px;
   margin: 116px 0 0;
   padding: 0 70px;
   transition: all 0.2s ease-in-out;
+
+  @media (width < 1024px) {
+    padding: 0 20px;
+  }
+
+  @media (width < 760px) {
+    margin: 80px 0 0;
+  }
+
+  @media (width < 460px) {
+    padding: 0 10px;
+  }
+}
+
+.wrap-space {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .filters__title {
@@ -16,44 +34,23 @@
 
 .filters__title_type_second {
   align-self: center;
+
+  @media screen and (width < 760px) {
+    align-self: flex-start;
+  }
 }
 
 .filters__wrapper {
   display: flex;
   gap: 15px;
-}
 
-@media screen and (width <= 1024px) {
-  .fitlers {
-    padding: 0 20px;
-  }
-}
-
-@media screen and (width <= 760px) {
-  .fitlers {
-    margin: 80px 0 0;
-    flex-direction: column;
-  }
-
-  .filters__title_type_second {
-    align-self: flex-start;
-  }
-
-  .filters__wrapper {
+  @media (width < 760px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
-}
 
-@media screen and (width <= 460px) {
-  .fitlers {
-    padding: 0 10px;
-  }
-}
-
-@media screen and (width <= 375px) {
-  .filters__wrapper {
+  @media (width < 375px) {
     display: flex;
     flex-direction: column;
   }

@@ -1,14 +1,16 @@
 import "./Dropdown.css";
 import { useState, useEffect, useRef } from "react";
 import { useFilters } from "@/store/useFiltersStore";
+import { useSearch } from "@/store/useSearchStore";
 
 export default function Dropdown({ options, inputType }) {
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState(options[0].title);
+  const { changeFilter } = useFilters();
+  const { status } = useSearch();
   const dropdownRef = useRef(null);
   const dropdownTextRef = useRef(null);
   const itemRef = useRef(null);
-  const { changeFilter } = useFilters();
 
   const handleClickOutside = (e) => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -35,7 +37,9 @@ export default function Dropdown({ options, inputType }) {
   };
 
   return (
-    <div
+    <button
+      type='button'
+      disabled={status === "loading"}
       className={`dropdown noselect ${isOpen ? "active" : ""}`}
       onClick={handleClick}
       ref={dropdownRef}
@@ -62,6 +66,6 @@ export default function Dropdown({ options, inputType }) {
             )
         )}
       </div>
-    </div>
+    </button>
   );
 }

@@ -24,6 +24,6 @@ export const LINKS_MAIN = {
     CURRENT_YEAR - 1
   }-${CURRENT_YEAR}&countries.name=!Индия`,
   personMovies: `https://api.kinopoisk.dev/v1.4/movie?limit=250&${selectFields}&${notNullFields}&sortField=year&sortType=-1&persons.id=`,
-  search: `https://api.kinopoisk.dev/v1.4/movie?limit=36&${selectFields}&${notNullFields}&genres.name=!для+взрослых&genres.name=!концерт`,
+  search: `https://api.kinopoisk.dev/v1.4/movie?limit=42&${selectFields}&${notNullFields}&genres.name=!для+взрослых&genres.name=!концерт&genres.name=!церемония`,
   fastSearch: "https://api.kinopoisk.dev/v1.4/movie/search?limit=48",
 };

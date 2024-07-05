@@ -3,15 +3,18 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navigation from "../Navigation/Navigation";
 import SearchButton from "../UI/SearchButton/SearchButton";
 import BurgerButton from "../UI/BurgerButton/BurgerButton";
 import { useModals } from "@/store/useModalsStore";
+import LogotypeImage from "@/public/logotype.svg";
+import ProfileButton from "../UI/ProfileButton/ProfileButton";
 
 export default function Header() {
   const [isScroll, setIsScroll] = useState(false);
   const [isOut, setIsOut] = useState(false);
-  const { fastSearch, sidebar } = useModals();
+  const { fastSearch, sidebar, profileModal } = useModals();
   let scrollPrev = typeof window !== "undefined" && window.scrollY;
 
   // задник шапки
@@ -48,16 +51,30 @@ export default function Header() {
   return (
     <header
       className={`header ${isScroll ? "scroll" : ""} ${isOut ? "out" : ""}`}
-      style={fastSearch ? { visibility: "hidden" } : { visibility: "visible" }}
+      style={
+        fastSearch || profileModal
+          ? { visibility: "hidden" }
+          : { visibility: "visible" }
+      }
     >
       <div className='header__wrapper'>
         <Link className='header__logo' href='/'>
-          TasteMovies
+          <Image
+            className='header__image'
+            src={LogotypeImage}
+            alt='Логотип'
+            height={32}
+            width={32}
+            placeholder='blur'
+            blurDataURL={LogotypeImage.src}
+          />
+          <p className='header__title text'>TasteMovies</p>
         </Link>
         <div className='header__container'>
-          {!fastSearch && !sidebar && <Navigation />}
-          <SearchButton />
-          {!fastSearch && <BurgerButton />}
+          {!fastSearch && !sidebar && !profileModal && <Navigation />}
+          {!fastSearch && !sidebar && <ProfileButton />}
+          {!sidebar && !profileModal && <SearchButton />}
+          {!fastSearch && !profileModal && <BurgerButton />}
         </div>
       </div>
     </header>

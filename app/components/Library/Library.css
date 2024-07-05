@@ -5,22 +5,16 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   justify-content: space-evenly;
   gap: 40px;
-}
 
-@media screen and (width <= 1024px) {
-  .section-library {
+  @media (width <= 1024px) {
     padding: 0 50px;
   }
-}
 
-@media screen and (width <= 949px) {
-  .section-library {
+  @media (width <= 949px) {
     padding: 0 20px;
   }
-}
 
-@media screen and (width <= 460px) {
-  .section-library {
+  @media (width <= 460px) {
     padding: 0;
   }
 }

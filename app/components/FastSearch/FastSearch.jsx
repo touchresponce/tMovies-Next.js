@@ -8,15 +8,27 @@ import useDebounce from "@/hooks/useDebounce";
 import MainLoader from "../UI/MainLoader/MainLoader";
 import FastSearchList from "../FastSearchList/FastSearchList";
 import useNoScroll from "@/hooks/useNoScroll";
+import useEscClose from "@/hooks/useEscClose";
+
+const renderStatus = {
+  loading: <MainLoader />,
+  empty: (
+    <p className='fast-search__error text'>
+      По вашему запросу ничего не найдено
+    </p>
+  ),
+  error: <p className='fast-search__error'>Ошибка, попробуйте еще раз</p>,
+};
 
 export default function FastSearch() {
   const [query, setQuery] = useState("");
   const inputRef = useRef(null);
   const { debouncedValue, setDebouncedValue } = useDebounce(query, 500); //
-  const { fastSearch } = useModals();
+  const { fastSearch, closeSearch } = useModals();
   const { status, content, getContent, reset } = useFastSearch();
 
   useNoScroll(fastSearch);
+  useEscClose(closeSearch);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -28,22 +40,6 @@ export default function FastSearch() {
 
   const handleReset = () => {
     status !== "loading" && setQuery("");
-  };
-
-  const notFound = (
-    <p className='fast-search__error text'>
-      По вашему запросу ничего не найдено
-    </p>
-  );
-
-  const error = (
-    <p className='fast-search__error'>Ошибка, попробуйте еще раз</p>
-  );
-
-  const renderStatus = {
-    loading: <MainLoader />,
-    empty: notFound,
-    error: error,
   };
 
   // фокус на инпут

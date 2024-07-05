@@ -1,5 +1,9 @@
 .splide {
   padding: 16px 0;
+
+  @media (width < 460px) {
+    padding: 10px 0;
+  }
 }
 
 .splide__track {
@@ -26,10 +30,4 @@
 
 .splide:not(.is-overflow) ~ .my-slider-progress {
   visibility: hidden;
-}
-
-@media screen and (width < 460px) {
-  .splide {
-    padding: 10px 0;
-  }
 }

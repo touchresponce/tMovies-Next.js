@@ -1,9 +1,9 @@
-.search-button {
+.profile-button {
   padding: 0;
   width: 32px;
   height: 32px;
   background-color: transparent;
-  background-image: url("../../../../public/images/search.svg");
+  background-image: url("../../../../public/images/profile.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -11,6 +11,10 @@
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
   visibility: visible;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .close {
@@ -18,7 +22,7 @@
 }
 
 @media (hover: hover) {
-  .search-button:hover {
+  .profile-button:hover {
     opacity: 0.3;
   }
 }

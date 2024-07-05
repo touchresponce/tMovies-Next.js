@@ -53,6 +53,7 @@
   .person-info {
     flex-direction: column;
     gap: 15px;
+    margin-top: 95px;
   }
 
   .person-info__image {

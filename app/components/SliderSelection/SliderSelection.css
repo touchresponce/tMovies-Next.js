@@ -4,6 +4,14 @@
   margin: 36px 0 0;
   padding: 0 70px;
   z-index: 3;
+
+  @media (width <= 1024px) {
+    padding: 0 20px;
+  }
+
+  @media (width <= 460px) {
+    padding: 0 10px;
+  }
 }
 
 .selection__title {
@@ -19,6 +27,10 @@
   opacity: 0;
   padding-left: 10px;
   transition: opacity 0.2s ease-in;
+
+  @media (width < 768px) {
+    opacity: 1;
+  }
 }
 
 .selection:last-of-type {
@@ -28,23 +40,5 @@
 @media (hover: hover) {
   .selection:hover .selection__span {
     opacity: 1;
-  }
-}
-
-@media screen and (width <= 1024px) {
-  .selection {
-    padding: 0 20px;
-  }
-}
-
-@media screen and (width < 768px) {
-  .selection__span {
-    opacity: 1;
-  }
-}
-
-@media screen and (width <= 460px) {
-  .selection {
-    padding: 0 10px;
   }
 }

@@ -27,6 +27,14 @@
   transform: translateY(-180px) scale(0.7);
   transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out,
     scale 0.35s ease-in-out;
+
+  @media (width < 1200px) {
+    width: 80%;
+  }
+
+  @media (width < 768px) {
+    width: 95%;
+  }
 }
 
 .fast-search__form_mod_open {
@@ -118,22 +126,4 @@
 .fast-search__input:required,
 .fast-search__input:invalid {
   box-shadow: none;
-}
-
-@media screen and (max-width: 1200px) {
-  .fast-search__form {
-    width: 80%;
-  }
-
-  .fast-search__close {
-    width: 40px;
-    height: 40px;
-    right: 15px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .fast-search__form {
-    width: 95%;
-  }
 }

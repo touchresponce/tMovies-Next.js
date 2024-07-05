@@ -22,7 +22,8 @@ export default function Filters({ title }) {
 
   return (
     <section
-      className='fitlers'
+      // className='fitlers'
+      className={containsPath ? "filters" : "filters wrap-space"}
       style={{
         flexDirection: containsPath ? "column" : "row",
       }}

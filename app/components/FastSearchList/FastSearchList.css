@@ -8,17 +8,13 @@
   justify-content: center;
   gap: 30px;
   color: #f2f3f4;
-}
 
-@media screen and (width < 1200px) {
-  .fast-search-list {
+  @media (width < 1200px) {
     grid-template-columns: repeat(2, 1fr);
     width: 80%;
   }
-}
 
-@media screen and (width < 768px) {
-  .fast-search-list {
+  @media (width < 768px) {
     grid-template-columns: repeat(1, 1fr);
     width: 95%;
     gap: 20px;

@@ -24,8 +24,7 @@ const nextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
-    unoptimized:
-      process.env.IMAGE_OPTIMIZED_ENV === "unoptimized" ? true : false,
+    unoptimized: process.env.NODE_ENV === "production" ? true : false,
   },
   reactStrictMode: false,
   staticPageGenerationTimeout: 180,

@@ -3,6 +3,14 @@
   flex-direction: column;
   margin-top: 30px;
   padding: 0 70px;
+
+  @media screen and (width < 1024px) {
+    padding: 0 20px;
+  }
+
+  @media screen and (width < 460px) {
+    padding: 0 10px;
+  }
 }
 
 .person-list__title {
@@ -20,22 +28,8 @@
   margin: 30px 0 50px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-}
 
-@media screen and (width < 1024px) {
-  .person-list {
-    padding: 0 20px;
-  }
-}
-
-@media screen and (width < 949px) {
-  .person-list__list {
+  @media screen and (width < 949px) {
     margin-top: 14px;
-  }
-}
-
-@media screen and (width < 460px) {
-  .person-list {
-    padding: 0 10px;
   }
 }

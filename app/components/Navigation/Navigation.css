@@ -1,6 +1,14 @@
 .navigation {
   display: flex;
   gap: 40px;
+
+  @media (width < 1400px) {
+    gap: 2.57vw;
+  }
+
+  @media (width <= 480px) {
+    display: none;
+  }
 }
 
 .navigation__link {
@@ -26,7 +34,6 @@
 }
 
 .navigation__link-active {
-  /* color: inherit; */
   pointer-events: none;
 }
 
@@ -56,17 +63,5 @@
     );
     mask-size: 200%;
     animation: shine 2s infinite;
-  }
-}
-
-@media screen and (width < 1400px) {
-  .navigation {
-    gap: 3.57vw;
-  }
-}
-
-@media screen and (width <= 480px) {
-  .navigation {
-    display: none;
   }
 }

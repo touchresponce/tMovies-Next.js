@@ -20,6 +20,10 @@
   flex-direction: column;
   gap: 20px;
   padding: 100px 60px 0 20px;
+
+  @media (width < 460px) {
+    padding-left: 10px;
+  }
 }
 
 .sidebar__link {
@@ -59,29 +63,21 @@
 }
 
 @media (hover: hover) {
-  @media (hover: hover) {
-    .sidebar__link:hover {
-      -webkit-mask-image: linear-gradient(
-        -75deg,
-        rgba(0, 0, 0, 0.3) 30%,
-        #000 50%,
-        rgba(0, 0, 0, 0.3) 70%
-      );
-      -webkit-mask-size: 200%;
-      mask-image: linear-gradient(
-        -75deg,
-        rgba(0, 0, 0, 0.3) 30%,
-        #000 50%,
-        rgba(0, 0, 0, 0.3) 70%
-      );
-      mask-size: 200%;
-      animation: shine 2s infinite;
-    }
-  }
-}
-
-@media screen and (width < 460px) {
-  .sidebar__wrapper {
-    padding-left: 10px;
+  .sidebar__link:hover {
+    -webkit-mask-image: linear-gradient(
+      -75deg,
+      rgba(0, 0, 0, 0.3) 30%,
+      #000 50%,
+      rgba(0, 0, 0, 0.3) 70%
+    );
+    -webkit-mask-size: 200%;
+    mask-image: linear-gradient(
+      -75deg,
+      rgba(0, 0, 0, 0.3) 30%,
+      #000 50%,
+      rgba(0, 0, 0, 0.3) 70%
+    );
+    mask-size: 200%;
+    animation: shine 2s infinite;
   }
 }
