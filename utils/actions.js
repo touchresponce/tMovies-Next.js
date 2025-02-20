@@ -20,3 +20,18 @@ export async function getFastSearch(query) {
 
   return data.json();
 }
+
+export async function getSavedMovies(arr) {
+  const link = new URLSearchParams();
+
+  for (const movie of arr) {
+    link.append("id", movie.movieId);
+  }
+
+  const response = await fetch(
+    `https://api.kinopoisk.dev/v1.4/movie?limit=250&${link.toString()}`,
+    headers
+  );
+
+  return response.json();
+}

@@ -5,33 +5,25 @@ import { tokens } from "./services/auth-token.service";
 export async function middleware(request) {
   const { url, cookies } = request;
   const lastPart = url.split("/").pop();
-  const isProfilePage = lastPart === "/profile";
+  const refreshToken = cookies.get(tokens.REFRESH_TOKEN)?.value;
   const isShouldRedirect =
     !(lastPart in SHORTCUTS) &&
     !CONTENT_TYPES.some((type) => type.value === lastPart);
 
-  // refreshToken из cookies
-  const refreshToken = cookies.get(tokens.REFRESH_TOKEN)?.value;
+  const isProfilePage = url.includes("/profile");
+  const isCatalogPage = url.includes("/catalog");
 
-  // является ли текущий URL страницей аутентификации
-  // const isAuthPage = url.includes("/auth");
-
-  // // Проверяем, нужно ли перенаправить пользователя на главную страницу дашборда
-  // if (isAuthPage && refreshToken) {
-  //   return NextResponse.redirect(new URL('/profile', url));
-  // }
-
-  if (isShouldRedirect) {
+  if (isProfilePage && !refreshToken) {
     return NextResponse.redirect(new URL("/", url));
   }
 
-  if (isProfilePage && !refreshToken) {
-    return NextResponse.redirect(new URL("/auth", url));
+  if (isCatalogPage && isShouldRedirect) {
+    return NextResponse.redirect(new URL("/catalog", url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/profile/:path*", "/auth/:path", "/catalog/:path+"],
+  matcher: ["/profile", "/catalog/:path+"],
 };

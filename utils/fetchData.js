@@ -7,5 +7,6 @@ export default async function fetchData(url) {
       revalidate: 86400, // 24h
     },
   });
+
   return response.json();
 }

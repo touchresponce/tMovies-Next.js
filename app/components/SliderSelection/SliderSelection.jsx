@@ -5,6 +5,8 @@ import Link from "next/link";
 import Slider from "../Slider/Slider";
 
 export default function SliderSelection({ data, title, selection }) {
+  if (!data.length) return;
+
   return (
     <section className='selection'>
       <Link

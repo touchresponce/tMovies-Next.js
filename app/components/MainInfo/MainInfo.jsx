@@ -3,14 +3,16 @@ import Background from "../UI/Background/Background";
 import InfoList from "../UI/InfoList/InfoList";
 import MovieLogo from "../UI/MovieLogo/MovieLogo";
 import ModalButton from "../UI/ModalButton/ModalButton";
+import MarkButton from "../UI/MarkButton/MarkButton";
 
 export default function MainInfo({ data }) {
-  const { rating, type } = data;
+  const { type, id, premiere } = data;
+
+  const nowDate = new Date();
+  const premiereDate = new Date(premiere.world || premiere.russia);
 
   const renderButton = () => {
-    const { kp, imdb } = rating;
-
-    if (!kp && !imdb) return;
+    if (nowDate < premiereDate) return;
 
     return <ModalButton type={type} />;
   };
@@ -23,7 +25,10 @@ export default function MainInfo({ data }) {
         <div className='major__text-wrapper'>
           <InfoList data={data} />
         </div>
-        {renderButton()}
+        <div className='major__buttons'>
+          {renderButton()}
+          <MarkButton id={id} />
+        </div>
       </div>
     </section>
   );

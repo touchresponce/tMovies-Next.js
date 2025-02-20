@@ -10,6 +10,14 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.item__mark-button-wrapper {
+  position: absolute;
+  top: 2%;
+  left: 100%;
+  transition: transform 0.3s ease-in-out;
+  z-index: 2;
+}
+
 .item__cover {
   position: absolute;
   z-index: 1;
@@ -101,6 +109,10 @@
     transform: translateY(-6px);
   }
 
+  .item:hover .item__mark-button-wrapper {
+    transform: translateX(-120%);
+  }
+
   .item:hover .item__cover::after {
     transform: translateY(0%);
   }
@@ -122,6 +134,10 @@
 
 @media (width <= 768px) {
   .details {
+    display: none;
+  }
+
+  .item__button {
     display: none;
   }
 }

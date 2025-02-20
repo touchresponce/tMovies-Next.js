@@ -1,5 +1,4 @@
 import { axiosClassic } from "@/api/interceptors";
-
 import { removeFromStorage, saveTokenStorage } from "./auth-token.service";
 
 // type = signup | signin

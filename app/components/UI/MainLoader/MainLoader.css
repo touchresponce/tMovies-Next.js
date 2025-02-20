@@ -27,10 +27,10 @@
   position: relative;
   display: flex;
   align-items: center;
+  align-self: center;
   justify-content: center;
   width: 140px;
   height: 140px;
-  margin: 130px auto;
   perspective: 780px;
 }
 

@@ -48,9 +48,13 @@ export default function Header() {
     };
   }, []);
 
+  const isShouldVisible = !fastSearch && !sidebar && !profileModal;
+
   return (
     <header
-      className={`header ${isScroll ? "scroll" : ""} ${isOut ? "out" : ""}`}
+      className={`header ${isScroll ? "scroll" : ""} ${
+        isOut && isShouldVisible ? "out" : ""
+      }`}
       style={
         fastSearch || profileModal
           ? { visibility: "hidden" }
@@ -65,8 +69,6 @@ export default function Header() {
             alt='Логотип'
             height={32}
             width={32}
-            placeholder='blur'
-            blurDataURL={LogotypeImage.src}
           />
           <p className='header__title text'>TasteMovies</p>
         </Link>

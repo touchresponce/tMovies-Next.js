@@ -27,19 +27,20 @@
 
 .profile-modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100vh;
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   visibility: hidden;
   z-index: 5;
+
+  @media (width < 768px) {
+    justify-content: flex-start;
+  }
 }
 
 .profile-modal_mod_open {
@@ -48,7 +49,6 @@
 }
 
 .profile-modal__rings {
-  margin-top: -50px;
   position: relative;
   width: 500px;
   height: 500px;
@@ -56,6 +56,10 @@
   justify-content: center;
   align-items: center;
   gap: 50px;
+
+  @media (width < 768px) {
+    margin-top: 10vw;
+  }
 
   &:hover {
     .profile-modal__ring:nth-child(1) {

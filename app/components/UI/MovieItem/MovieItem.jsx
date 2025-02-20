@@ -2,6 +2,7 @@ import "./MovieItem.css";
 import Link from "next/link";
 import Image from "next/image";
 import formatTime from "@/utils/formatFunctions/formatTime";
+import MarkButton from "../MarkButton/MarkButton";
 
 export default function MovieItem({ data }) {
   const renderAgeRating = () => {
@@ -47,6 +48,9 @@ export default function MovieItem({ data }) {
 
   return (
     <div className='item noselect'>
+      <div className='item__mark-button-wrapper'>
+        <MarkButton id={data.id} />
+      </div>
       <Link
         href={`/room/${data.id}`}
         style={{

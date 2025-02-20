@@ -20,7 +20,7 @@ export const SHORTCUTS = {
     },
   },
   bestAnime: {
-    title: "Аниме",
+    title: "Аниме с высоким рейтингом",
     filters: {
       type: ["anime"],
       rating: ["6.8-10"],

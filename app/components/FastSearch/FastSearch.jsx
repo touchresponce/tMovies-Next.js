@@ -49,7 +49,6 @@ export default function FastSearch() {
     }
   }, [fastSearch]);
 
-  // отложенный запрос после изменения инпута
   useEffect(() => {
     if (debouncedValue) {
       reset();
@@ -57,7 +56,6 @@ export default function FastSearch() {
     }
   }, [debouncedValue]);
 
-  // сброс при закрытии
   useEffect(() => {
     if (!fastSearch) {
       reset();
@@ -65,6 +63,12 @@ export default function FastSearch() {
       setDebouncedValue("");
     }
   }, [fastSearch]);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
 
   return (
     <div
@@ -84,8 +88,8 @@ export default function FastSearch() {
           placeholder='title'
           name='title'
           id='title'
-          required
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           value={query}
           autoComplete='off'
           spellCheck='false'

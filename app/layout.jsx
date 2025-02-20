@@ -4,8 +4,9 @@ import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Error from "./error";
 import dynamic from "next/dynamic";
 import Header from "./components/Header/Header";
-// import Footer from "./components/Footer/Footer";
 import Providers from "./providers";
+import { Toaster } from "sonner";
+// import Footer from "./components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +45,13 @@ export default function RootLayout({ children }) {
             <ProfileModal />
             <FastSearch />
             <Sidebar />
+            <Toaster
+              theme='dark'
+              position='bottom-left'
+              duration={3500}
+              expand='true'
+              style={{ filter: "drop-shadow(0 0 0.65rem rgb(10, 47, 255))" }}
+            />
           </Providers>
         </ErrorBoundary>
       </body>

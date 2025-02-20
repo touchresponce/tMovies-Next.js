@@ -11,12 +11,12 @@ const MovieModal = dynamic(
 );
 
 async function getContent(id) {
-  const responce = await fetch(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {
+  const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {
     headers: {
       "X-API-KEY": process.env.KEY,
     },
   });
-  return responce.json();
+  return response.json();
 }
 
 export async function generateMetadata({ params: { id } }) {

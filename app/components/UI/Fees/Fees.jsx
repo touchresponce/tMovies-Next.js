@@ -16,13 +16,16 @@ export default function Fees({ data }) {
 
   return (
     <div className='fees'>
-      {Object.keys(fees).map((key) => (
-        <InfoItem
-          data={`${fees[key].currency} ${formatNumber(fees[key].value)}`}
-          title={formatFees(key)}
-          key={key}
-        />
-      ))}
+      {Object.keys(fees).map((key) => {
+        if (fees[key])
+          return (
+            <InfoItem
+              data={`${fees[key].currency} ${formatNumber(fees[key].value)}`}
+              title={formatFees(key)}
+              key={key}
+            />
+          );
+      })}
     </div>
   );
 }

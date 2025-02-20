@@ -1,0 +1,22 @@
+.mark-button {
+  display: flex;
+  padding: 5px;
+  border: 2px solid #2f2f2f;
+  border-radius: 10px;
+  background: #000;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.mark-button__span {
+  background-image: url("../../../../public/images/mark.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 36px;
+  height: 36px;
+}
+
+.mark-button__active .mark-button__span {
+  background-image: url("../../../../public/images/mark-active.svg");
+}

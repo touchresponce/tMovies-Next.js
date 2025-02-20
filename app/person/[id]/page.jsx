@@ -10,21 +10,21 @@ export async function generateMetadata({ params: { id } }) {
 }
 
 async function getPerson(id) {
-  const responce = await fetch(`https://api.kinopoisk.dev/v1/person/${id}`, {
+  const response = await fetch(`https://api.kinopoisk.dev/v1/person/${id}`, {
     headers: {
       "X-API-KEY": process.env.KEY,
     },
   });
-  return responce.json();
+  return response.json();
 }
 
 async function getMovies(id) {
-  const responce = await fetch(`${LINKS_MAIN.personMovies}${id}`, {
+  const response = await fetch(`${LINKS_MAIN.personMovies}${id}`, {
     headers: {
       "X-API-KEY": process.env.KEY,
     },
   });
-  return responce.json();
+  return response.json();
 }
 
 export default async function Person({ params: { id } }) {
