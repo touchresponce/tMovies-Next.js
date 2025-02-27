@@ -22,8 +22,8 @@ export default function MovieModal({ id }) {
           kinopoisk: id,
         },
         players: {
-          Alloha: { enable: true, position: 2, token: "{token}" },
-          Collaps: { enable: true, position: 1, token: "{token}" },
+          Alloha: { enable: true, position: 1, token: "{token}" },
+          Collaps: { enable: true, position: 2, token: "{token}" },
           Bazon: { enable: true, position: 3, token: "{token}" },
           Cdnmovies: { enable: true, position: 4, token: "{token}" },
           Hdvb: { enable: true, position: 5, token: "{token}" },

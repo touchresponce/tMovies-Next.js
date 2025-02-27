@@ -6,7 +6,9 @@ import dynamic from "next/dynamic";
 import Header from "./components/Header/Header";
 import Providers from "./providers";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
 // import Footer from "./components/Footer/Footer";
+import FastSearch from "./components/FastSearch/FastSearch";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,9 +18,9 @@ export const metadata = {
     "Смотреть фильмы онлайн в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре TasteMovies",
 };
 
-const FastSearch = dynamic(() => import("./components/FastSearch/FastSearch"), {
-  ssr: false,
-});
+// const FastSearch = dynamic(() => import("./components/FastSearch/FastSearch"), {
+//   ssr: false,
+// });
 
 const Sidebar = dynamic(() => import("./components/Sidebar/Sidebar"), {
   ssr: false,
@@ -54,6 +56,7 @@ export default function RootLayout({ children }) {
             />
           </Providers>
         </ErrorBoundary>
+        <Analytics />
       </body>
     </html>
   );

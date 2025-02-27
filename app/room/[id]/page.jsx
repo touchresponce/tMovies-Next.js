@@ -16,11 +16,13 @@ async function getContent(id) {
       "X-API-KEY": process.env.KEY,
     },
   });
+
   return response.json();
 }
 
 export async function generateMetadata({ params: { id } }) {
   const { name } = await getContent(id);
+
   return {
     title: name,
     description: `Смотреть ${name} онлайн в Full HD 720 и 1080 в онлайн-кинотеатре TasteMovies`,
