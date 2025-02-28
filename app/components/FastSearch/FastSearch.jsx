@@ -102,7 +102,7 @@ export default function FastSearch() {
           <button className='fast-search__span' onClick={handleReset} />
         )}
       </form>
-      {content && <FastSearchList data={content} />}
+      {content.length > 0 && <FastSearchList data={content} />}
       {renderStatus[status]}
     </div>
   );

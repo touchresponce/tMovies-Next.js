@@ -28,6 +28,9 @@ export default function ProfileButton() {
       className={profileModal ? "profile-button close" : "profile-button"}
       type='button'
       onClick={handleToggle}
+      //
+      disabled
+      //
     />
   );
 }

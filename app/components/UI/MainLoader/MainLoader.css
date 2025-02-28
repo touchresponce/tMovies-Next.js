@@ -24,6 +24,7 @@
 }
 
 .loader {
+  margin-top: 180px;
   position: relative;
   display: flex;
   align-items: center;

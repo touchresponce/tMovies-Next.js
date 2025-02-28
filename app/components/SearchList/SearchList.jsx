@@ -52,7 +52,6 @@ export default function SearchList() {
 
   return (
     <section className='search-list'>
-      {/* {renderStatus[status]} */}
       {renderStatus[status] && !content.length && renderStatus[status]}
       {content.length > 0 && listNode}
       {currentPage < totalPages && content.length > 0 && <MoreButton />}
