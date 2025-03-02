@@ -1,11 +1,13 @@
 import { create } from "zustand";
 import { getFastSearch } from "@/utils/actions";
 
+const initial = {
+  content: [],
+  status: "init", // init | loading | error | empty | succsess
+};
+
 export const useFastSearch = create((set) => ({
-  initial: {
-    content: [],
-    status: "init", // init | loading | error | empty | succsess
-  },
+  ...initial,
 
   getContent: async (query) => {
     set({ status: "loading" });
@@ -20,6 +22,6 @@ export const useFastSearch = create((set) => ({
   },
 
   reset: () => {
-    set((state) => ({ ...state, ...state.initial }));
+    set({ ...initial });
   },
 }));

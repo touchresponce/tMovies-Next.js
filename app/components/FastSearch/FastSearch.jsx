@@ -38,15 +38,24 @@ export default function FastSearch() {
     status !== "loading" && getContent(query);
   };
 
-  const handleReset = () => {
+  const handleResetQuery = () => {
     status !== "loading" && setQuery("");
   };
 
-  // фокус на инпут
+  const handleReset = () => {
+    reset();
+    setQuery("");
+    setDebouncedValue("");
+  };
+
+  // // фокус на инпут, сброс при закрытии
   useEffect(() => {
-    if (fastSearch) {
-      inputRef.current && inputRef.current.focus();
+    if (!fastSearch) {
+      handleReset();
+      return;
     }
+
+    inputRef.current && inputRef.current.focus();
   }, [fastSearch]);
 
   useEffect(() => {
@@ -55,14 +64,6 @@ export default function FastSearch() {
       handleRequest();
     }
   }, [debouncedValue]);
-
-  useEffect(() => {
-    if (!fastSearch) {
-      reset();
-      setQuery("");
-      setDebouncedValue("");
-    }
-  }, [fastSearch]);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -99,10 +100,10 @@ export default function FastSearch() {
           Название
         </label>
         {query && (
-          <button className='fast-search__span' onClick={handleReset} />
+          <button className='fast-search__span' onClick={handleResetQuery} />
         )}
       </form>
-      {content.length > 0 && <FastSearchList data={content} />}
+      {content && <FastSearchList data={content} />}
       {renderStatus[status]}
     </div>
   );
