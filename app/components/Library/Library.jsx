@@ -10,7 +10,7 @@ export default function Library() {
     <section className='section-library'>
       {CONTENT_TYPES.map((type) => {
         const { title, value } = type;
-        return <TypeItem type={value} title={title} />;
+        return <TypeItem type={value} title={title} key={title} />;
       })}
     </section>
   );

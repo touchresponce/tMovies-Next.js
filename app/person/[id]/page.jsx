@@ -2,7 +2,8 @@ import PersonInfo from "@/app/components/PersonInfo/PersonInfo";
 import PersonMovies from "@/app/components/PersonMovies/PersonMovies";
 import { LINKS_MAIN } from "@/utils/constants";
 
-export async function generateMetadata({ params: { id } }) {
+export async function generateMetadata({ params }) {
+  const { id } = await params;
   const { name, enName } = await getPerson(id);
   return {
     title: name ? name : enName,
@@ -27,7 +28,8 @@ async function getMovies(id) {
   return response.json();
 }
 
-export default async function Person({ params: { id } }) {
+export default async function Person({ params }) {
+  const { id } = await params;
   const person = await getPerson(id);
   const { docs: movies } = await getMovies(id);
 

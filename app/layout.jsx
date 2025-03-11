@@ -2,13 +2,13 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Error from "./error";
-import dynamic from "next/dynamic";
 import Header from "./components/Header/Header";
 import Providers from "./providers";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react";
-// import Footer from "./components/Footer/Footer";
 import FastSearch from "./components/FastSearch/FastSearch";
+import ProfileModal from "./components/ProfileModal/ProfileModal";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,21 +17,6 @@ export const metadata = {
   description:
     "Смотреть фильмы онлайн в хорошем качестве Full HD 720 и 1080 в онлайн-кинотеатре TasteMovies",
 };
-
-// const FastSearch = dynamic(() => import("./components/FastSearch/FastSearch"), {
-//   ssr: false,
-// });
-
-const Sidebar = dynamic(() => import("./components/Sidebar/Sidebar"), {
-  ssr: false,
-});
-
-const ProfileModal = dynamic(
-  () => import("./components/ProfileModal/ProfileModal"),
-  {
-    ssr: false,
-  }
-);
 
 export default function RootLayout({ children }) {
   return (

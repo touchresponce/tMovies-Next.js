@@ -1,14 +1,7 @@
 import MainInfo from "@/app/components/MainInfo/MainInfo";
 import MovieTabs from "@/app/components/UI/MovieTabs/MovieTabs";
 import Additional from "@/app/components/Additional/Additional";
-import dynamic from "next/dynamic";
-
-const MovieModal = dynamic(
-  () => import("@/app/components/MovieModal/MovieModal"),
-  {
-    ssr: false,
-  }
-);
+import MovieModal from "@/app/components/MovieModal/MovieModal";
 
 async function getContent(id) {
   const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {
@@ -20,7 +13,8 @@ async function getContent(id) {
   return response.json();
 }
 
-export async function generateMetadata({ params: { id } }) {
+export async function generateMetadata({ params }) {
+  const { id } = await params;
   const { name } = await getContent(id);
 
   return {
@@ -29,7 +23,8 @@ export async function generateMetadata({ params: { id } }) {
   };
 }
 
-export default async function Movie({ params: { id } }) {
+export default async function Movie({ params }) {
+  const { id } = await params;
   const data = await getContent(id);
 
   return (

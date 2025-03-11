@@ -2,7 +2,9 @@ import Filters from "@/app/components/Filters/Filters";
 import SearchList from "@/app/components/SearchList/SearchList";
 import { SHORTCUTS } from "@/utils/constants";
 
-export async function generateMetadata({ params: { slug } }) {
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+
   return {
     title: SHORTCUTS[slug].title,
     description:
@@ -10,7 +12,9 @@ export async function generateMetadata({ params: { slug } }) {
   };
 }
 
-export default function SelectionPage({ params: { slug } }) {
+export default async function SelectionPage({ params }) {
+  const { slug } = await params;
+
   return (
     <>
       <Filters title={SHORTCUTS[slug].title} />
