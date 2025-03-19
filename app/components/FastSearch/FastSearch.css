@@ -114,7 +114,7 @@
 
 .fast-search__input:focus {
   padding-bottom: 6px;
-  font-weight: 700;
+  /* font-weight: 700; */
   border-width: 3px;
   border-image: linear-gradient(to right, #007aff, #68b2ff, #007aff);
   border-image-slice: 1;
