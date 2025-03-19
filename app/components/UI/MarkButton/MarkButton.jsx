@@ -30,7 +30,7 @@ export default function MarkButton({ id }) {
       className={`mark-button ${isSaved ? "mark-button__active" : ""}`}
       onClick={handleClick}
       //
-      // disabled
+      disabled
       //
     >
       <span className='mark-button__span' />
