@@ -28,6 +28,16 @@ const nextConfig = {
   },
   reactStrictMode: false,
   staticPageGenerationTimeout: 180,
+  experimental: {
+    optimizePackageImports: [
+      "@splidejs/react-splide",
+      "js-cookie",
+      "react-tabs",
+      "axios",
+      "sonner",
+      "zustand",
+    ],
+  },
 };
 
 module.exports = nextConfig;
