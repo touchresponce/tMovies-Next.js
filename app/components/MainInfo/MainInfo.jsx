@@ -6,10 +6,10 @@ import ModalButton from "../UI/ModalButton/ModalButton";
 import MarkButton from "../UI/MarkButton/MarkButton";
 
 export default function MainInfo({ data }) {
-  const { type, id, premiere } = data;
+  const { type, id, premiere = null} = data;
 
   const nowDate = new Date();
-  const premiereDate = new Date(premiere.world || premiere.russia);
+  const premiereDate = new Date(premiere?.world || premiere?.russia);
 
   const renderButton = () => {
     if (nowDate < premiereDate) return;
