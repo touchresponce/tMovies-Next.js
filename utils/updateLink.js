@@ -1,5 +1,4 @@
 const sortOptions = {
-  // recommended: { field: "votes.kp", value: "-1" },
   recommended: { field: "votes.imdb", value: "-1" },
   date: { field: "premiere.world", value: "-1" },
   rating: { field: "rating.kp", value: "-1" },

@@ -2,13 +2,14 @@ import { create } from "zustand";
 import { updateLink } from "@/utils/updateLink";
 import { CURRENT_YEAR } from "@/utils/constants";
 import { useSearch } from "./useSearchStore";
+import { OPTIONS_ORDER } from "@/utils/constants";
 
 const initialFilters = {
   genre: [],
   type: [],
   rating: ["1-10"],
   year: [`1960-${CURRENT_YEAR}`],
-  order: ["recommended"],
+  order: [OPTIONS_ORDER[0].value], // date
 };
 
 export const useFilters = create((set, get) => ({

@@ -22,7 +22,6 @@ export default function Filters({ title }) {
 
   return (
     <section
-      // className='fitlers'
       className={containsPath ? "filters" : "filters wrap-space"}
       style={{
         flexDirection: containsPath ? "column" : "row",
@@ -30,20 +29,20 @@ export default function Filters({ title }) {
     >
       {containsPath ? (
         <>
-          <h1 className='text noselect filters__title'>{title}</h1>
-          <div className='filters__wrapper'>
-            <Dropdown options={OPTIONS_GENRES} inputType='genre' />
-            <Dropdown options={OPTIONS_RATING} inputType='rating' />
-            <Dropdown options={OPTIONS_YEARS} inputType='year' />
-            <Dropdown options={OPTIONS_ORDER} inputType='order' />
+          <h1 className="text noselect filters__title">{title}</h1>
+          <div className="filters__wrapper">
+            <Dropdown options={OPTIONS_GENRES} inputType="genre" />
+            <Dropdown options={OPTIONS_RATING} inputType="rating" />
+            <Dropdown options={OPTIONS_YEARS} inputType="year" />
+            <Dropdown options={OPTIONS_ORDER} inputType="order" />
           </div>
         </>
       ) : (
         <>
-          <h1 className='text noselect filters__title filters__title_type_second'>
+          <h1 className="text noselect filters__title filters__title_type_second">
             {title}
           </h1>
-          <Dropdown options={OPTIONS_ORDER} inputType='order' />
+          <Dropdown options={OPTIONS_ORDER} inputType="order" />
         </>
       )}
     </section>

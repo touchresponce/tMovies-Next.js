@@ -47,3 +47,32 @@ export async function getPlayerLink(id) {
 
   return data.results[0].iframe_url;
 }
+
+// задник tmbd резерв
+export async function getBackdropUrl(movieData) {
+  if (movieData?.backdrop?.url) {
+    return movieData.backdrop.url;
+  }
+
+  const { externalId } = movieData;
+  const tmdbApiKey = process.env.KEY_TMDB;
+
+  try {
+    if (externalId?.tmdb) {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${externalId.tmdb}?api_key=${tmdbApiKey}`
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data?.backdrop_path) {
+          return `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
+        }
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching backdrop from TMDB:", error);
+  }
+
+  return null;
+}

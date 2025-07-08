@@ -1,9 +1,9 @@
 import { CURRENT_YEAR } from "./currentYear";
 
 export const OPTIONS_ORDER = [
+  { title: "По дате выхода", value: "date" },
   { title: "Рекомендуемые", value: "recommended" },
   { title: "По рейтингу", value: "rating" },
-  { title: "По дате выхода", value: "date" },
 ];
 
 export const OPTIONS_GENRES = [
