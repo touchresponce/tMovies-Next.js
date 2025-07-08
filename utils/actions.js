@@ -54,7 +54,7 @@ export async function getBackdropUrl(movieData) {
     return movieData.backdrop.url;
   }
 
-  const { externalId } = movieData;
+  const { externalId, alternativeName } = movieData;
   const tmdbApiKey = process.env.KEY_TMDB;
 
   try {
@@ -64,10 +64,21 @@ export async function getBackdropUrl(movieData) {
       );
 
       if (response.ok) {
-        const data = await response.json();
-        if (data?.backdrop_path) {
-          return `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
+        const { backdrop_path } = await response.json();
+        if (backdrop_path) {
+          return `https://image.tmdb.org/t/p/original${backdrop_path}`;
         }
+      }
+    } else if (alternativeName) {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/movie?query=${alternativeName}&api_key=${tmdbApiKey}`
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        const { backdrop_path } = data.results[0];
+
+        return `https://image.tmdb.org/t/p/original${backdrop_path}`;
       }
     }
   } catch (error) {
