@@ -22,6 +22,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "image.openmoviedb.com",
       },
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+      },
     ],
     formats: ["image/avif", "image/webp"],
     unoptimized: process.env.NODE_ENV === "production" ? true : false,
