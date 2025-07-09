@@ -66,7 +66,8 @@ export async function getBackdropUrl(movieData) {
       if (response.ok) {
         const { backdrop_path } = await response.json();
         if (backdrop_path) {
-          return `https://image.tmdb.org/t/p/original${backdrop_path}`;
+          // return `https://image.tmdb.org/t/p/original${backdrop_path}`;
+          return `https://imagetmdb.com/t/p/original${backdrop_path}`;
         }
       }
     } else if (alternativeName) {
