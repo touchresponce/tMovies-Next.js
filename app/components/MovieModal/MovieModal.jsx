@@ -3,13 +3,13 @@
 import "./MovieModal.css";
 import closeBtn from "@/public/images/search-close.svg";
 import { useModals } from "@/store/useModalsStore.js";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import useNoScroll from "@/hooks/useNoScroll";
 import { getPlayerLink } from "@/utils/actions";
 
 export default function MovieModal({ id }) {
-  const [playerLink, setPlayerLink] = useState("");
   const { movieModal, closeMovieModal } = useModals();
+  const testRef = useRef(null);
 
   useNoScroll(movieModal);
 
@@ -17,7 +17,14 @@ export default function MovieModal({ id }) {
     const fetchLink = async () => {
       try {
         const link = await getPlayerLink(id);
-        setPlayerLink(link);
+
+        const iframe = document.createElement("iframe");
+
+        iframe.src = link;
+        iframe.className = "player";
+        iframe.allowFullscreen = true;
+
+        testRef.current?.appendChild(iframe);
       } catch (e) {
         console.error("Error fetching player link:", e);
       }
@@ -27,7 +34,7 @@ export default function MovieModal({ id }) {
   }, []);
 
   return (
-    <section className={`modal ${movieModal ? "open" : ""}`}>
+    <section className={`modal ${movieModal ? "open" : ""}`} ref={testRef}>
       <button
         className="modal__close"
         onClick={closeMovieModal}
@@ -35,7 +42,6 @@ export default function MovieModal({ id }) {
           backgroundImage: `url(${closeBtn.src})`,
         }}
       />
-      {playerLink && <iframe className="player" src={playerLink} />}
     </section>
   );
 }
