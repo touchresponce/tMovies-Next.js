@@ -40,12 +40,50 @@ export async function getSavedMovies(arr) {
 }
 
 // получение фрейма коллапс
-export async function getPlayerLink(id) {
-  const url = `https://apicollaps.cc/list?token=${process.env.COLLAPS}&kinopoisk_id=${id}`;
-  const response = await fetch(url);
-  const data = await response.json();
+export async function getPlayerLink(id, provider) {
+  let URL;
+  let iframeSrc;
+  //
+  // let loading = false;
+  //
 
-  return data.results[0].iframe_url;
+  try {
+    switch (provider) {
+      case "COLLAPS":
+        URL = `https://apicollaps.cc/list?token=${process.env.COLLAPS}&kinopoisk_id=${id}`;
+        const response = await fetch(URL);
+
+        if (!response.ok) {
+          throw new Error("Collaps API error");
+        }
+
+        const dataFromCollaps = await response.json();
+        iframeSrc = dataFromCollaps?.results[0]?.iframe_url || null;
+        break;
+
+      case "LUMEX":
+        URL = `https://portal.lumex.host/api/short?api_token=${process.env.LUMEX}&kinopoisk_id=${id}`;
+        const responseLumex = await fetch(URL);
+
+        if (!responseLumex.ok) {
+          throw new Error("Lumex API error");
+        }
+
+        const dataFromLumex = await responseLumex.json();
+        iframeSrc = dataFromLumex?.data[0]?.iframe_src || null;
+        break;
+
+      default:
+        // loading = false;
+        return;
+    }
+  } catch (err) {
+    console.error(`Error fetching player link from provider ${provider}:`, err);
+  } finally {
+    // loading = false;
+  }
+
+  return iframeSrc;
 }
 
 // задник tmbd резерв
